@@ -26,10 +26,10 @@ wand.deck_capacity = {4,4}
 wand.actions_per_round = 1
 wand.reload_time = {25,30}
 wand.shuffle_deck_when_empty = 0
-wand.fire_rate_wait = {40,45}
+wand.fire_rate_wait = {50,55}
 wand.spread_degrees = {0,0}
 wand.speed_multiplier = 1
-wand.mana_charge_speed = {115,120}
+wand.mana_charge_speed = {90,105}
 wand.mana_max = {100,110}
 wand.actions = { "LIFETIME" }
 
@@ -53,4 +53,5 @@ ComponentSetValue( ability_comp, "mana", mana_max )
 
 local wand_action = get_random_from( wand.actions )
 AddGunAction( entity_id, wand_action )
+AddGunAction( entity_id, "LIGHT" )
 AddGunAction( entity_id, "LASER" )

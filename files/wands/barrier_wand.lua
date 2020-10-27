@@ -24,13 +24,13 @@ local wand = { }
 wand.name = {"barrier_wand"}
 wand.deck_capacity = {1,1}
 wand.actions_per_round = 1
-wand.reload_time = {25,30}
+wand.reload_time = {60,60}
 wand.shuffle_deck_when_empty = 1
-wand.fire_rate_wait = {55,60}
+wand.fire_rate_wait = {60,60}
 wand.spread_degrees = {0,0}
 wand.speed_multiplier = 1
-wand.mana_charge_speed = {45,50}
-wand.mana_max = {85,90}
+wand.mana_charge_speed = {10,10}
+wand.mana_max = {10,10}
 wand.actions = { "ENERGY_SHIELD_SECTOR" }
 
 local mana_max = get_random_between_range( wand.mana_max )

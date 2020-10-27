@@ -1,0 +1,8 @@
+mods/thematic_random_starts/files/telekarate/ragdoll/torso.png
+mods/thematic_random_starts/files/telekarate/ragdoll/right_thigh.png
+mods/thematic_random_starts/files/telekarate/ragdoll/right_arm.png
+mods/thematic_random_starts/files/telekarate/ragdoll/right_hand.png
+mods/thematic_random_starts/files/telekarate/ragdoll/left_thigh.png
+mods/thematic_random_starts/files/telekarate/ragdoll/left_arm.png
+mods/thematic_random_starts/files/telekarate/ragdoll/left_hand.png
+mods/thematic_random_starts/files/telekarate/ragdoll/head.png

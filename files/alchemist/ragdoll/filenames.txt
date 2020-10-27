@@ -1,0 +1,8 @@
+mods/thematic_random_starts/files/alchemist/ragdoll/torso.png
+mods/thematic_random_starts/files/alchemist/ragdoll/right_thigh.png
+mods/thematic_random_starts/files/alchemist/ragdoll/right_arm.png
+mods/thematic_random_starts/files/alchemist/ragdoll/right_hand.png
+mods/thematic_random_starts/files/alchemist/ragdoll/left_thigh.png
+mods/thematic_random_starts/files/alchemist/ragdoll/left_arm.png
+mods/thematic_random_starts/files/alchemist/ragdoll/left_hand.png
+mods/thematic_random_starts/files/alchemist/ragdoll/head.png

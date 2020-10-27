@@ -1,0 +1,8 @@
+mods/thematic_random_starts/files/telekinetic/ragdoll/torso.png
+mods/thematic_random_starts/files/telekinetic/ragdoll/right_thigh.png
+mods/thematic_random_starts/files/telekinetic/ragdoll/right_arm.png
+mods/thematic_random_starts/files/telekinetic/ragdoll/right_hand.png
+mods/thematic_random_starts/files/telekinetic/ragdoll/left_thigh.png
+mods/thematic_random_starts/files/telekinetic/ragdoll/left_arm.png
+mods/thematic_random_starts/files/telekinetic/ragdoll/left_hand.png
+mods/thematic_random_starts/files/telekinetic/ragdoll/head.png

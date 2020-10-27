@@ -1,0 +1,8 @@
+mods/thematic_random_starts/files/eldritch/ragdoll/torso.png
+mods/thematic_random_starts/files/eldritch/ragdoll/right_thigh.png
+mods/thematic_random_starts/files/eldritch/ragdoll/right_arm.png
+mods/thematic_random_starts/files/eldritch/ragdoll/right_hand.png
+mods/thematic_random_starts/files/eldritch/ragdoll/left_thigh.png
+mods/thematic_random_starts/files/eldritch/ragdoll/left_arm.png
+mods/thematic_random_starts/files/eldritch/ragdoll/left_hand.png
+mods/thematic_random_starts/files/eldritch/ragdoll/head.png

@@ -6,14 +6,9 @@ ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/thematic_random_start
 -- Edit this if you want to choose a class byt he ID in loadouts.lua
 local loadout_override = -1
 
+-- cape defaults (gray)
 local cape_rgba = {100, 100, 100, 255}
 local cape_edge_rgba = {140, 140, 140, 255}
-local robe_hood = {255, 255, 255, 255}
-local robe_light = {255, 255, 255, 255}
-local robe_med = {255, 255, 255, 255}
-local robe_dark = {255, 255, 255, 255}
-local robe_belt = {255, 255, 255, 255}
-local robe_glove = {255, 255, 255, 255}
 
 function OnPlayerSpawned( player_entity ) -- this runs when player entity has been created
 	local init_check_flag = "start_loadouts_init_done"
@@ -58,8 +53,7 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 	end
 
 
-	-- local gfx_folder = loadout_choice.folder
-	local gfx_folder = "default"
+	local gfx_folder = loadout_choice.folder or "default"
 
 	-- set player sprite (since we change only one value, ComponentSetValue is fine)
 	local player_sprite_component = EntityGetFirstComponent( player_entity, "SpriteComponent" )
@@ -77,19 +71,6 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 	ComponentSetValue( player_ragdoll_component, "ragdoll_filenames_file", player_ragdoll_file )
 
 	set_cape_color( player_entity )
-	GameSetPostFxParameter( "robe_hood", 1.0, 1.0, 1.0, 1.0)
-	GameSetPostFxParameter( "robe_light", 1.0, 1.0, 1.0, 1.0)
-	GameSetPostFxParameter( "robe_med", 1.0, 1.0, 1.0, 1.0)
-	GameSetPostFxParameter( "robe_dark", 1.0, 1.0, 1.0, 1.0)
-	GameSetPostFxParameter( "robe_belt", 1.0, 1.0, 1.0, 1.0)
-	GameSetPostFxParameter( "robe_glove", 1.0, 1.0, 1.0, 1.0)
-	--GameSetPostFxParameter( "robe_hood", robe_hood[1]/255, robe_hood[2]/255, robe_hood[3]/255,robe_hood[4]/255)
-	--GameSetPostFxParameter( "robe_light", robe_light[1]/255, robe_light[2]/255, robe_light[3]/255,robe_light[4]/255)
-	--GameSetPostFxParameter( "robe_med", robe_med[1]/255, robe_med[2]/255, robe_med[3]/255,robe_med[4]/255)
-	--GameSetPostFxParameter( "robe_dark", robe_dark[1]/255, robe_dark[2]/255, robe_dark[3]/255,robe_dark[4]/255)
-	--GameSetPostFxParameter( "robe_belt", robe_belt[1]/255, robe_belt[2]/255, robe_belt[3]/255,robe_belt[4]/255)
-	--GameSetPostFxParameter( "robe_glove", robe_glove[1]/255, robe_glove[2]/255, robe_glove[3]/255,robe_glove[4]/255)
-
 
 	-- set inventory contents
 	if ( inventory ~= nil ) then

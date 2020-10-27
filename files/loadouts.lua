@@ -26,7 +26,7 @@ loadout_list =
 		-- NOTE: Usually the game uses ARGB format for colours, but the cape colour uses ABGR here instead
 		cape_color = 0xff9a6f9b,
 		cape_color_edge = 0xff76547f,
-		hp = 75,
+		hp = 100,
 		items = 
 		{
 			"mods/thematic_random_starts/files/wands/dirt_shovel.xml",
@@ -45,7 +45,7 @@ loadout_list =
 		-- NOTE: Usually the game uses ARGB format for colours, but the cape colour uses ABGR here instead
 		cape_color = 0xff9a6f9b,
 		cape_color_edge = 0xff76547f,
-		hp = 75,
+		hp = 80,
 		items = 
 		{
 			"mods/thematic_random_starts/files/wands/pebble_stick.xml",
@@ -63,15 +63,12 @@ loadout_list =
 		-- NOTE: Usually the game uses ARGB format for colours, but the cape colour uses ABGR here instead
 		cape_color = 0xff9a6f9b,
 		cape_color_edge = 0xff76547f,
-		hp = 75,
+		hp = 70,
 		items = 
 		{
 			"mods/thematic_random_starts/files/wands/crossbow.xml",
+			"mods/thematic_random_starts/files/wands/chainsaw.xml",
 			{ potion = "blood", amount = 1},
-			{
-			"data/entities/misc/custom_cards/bomb.xml",
-			amount = 1,
-			},
 		},
 		perks =
 		{
@@ -104,7 +101,7 @@ loadout_list =
 		-- NOTE: Usually the game uses ARGB format for colours, but the cape colour uses ABGR here instead
 		cape_color = 0xff9a6f9b,
 		cape_color_edge = 0xff76547f,
-		hp = 50,
+		hp = 60,
 		items = 
 		{
 			"mods/thematic_random_starts/files/wands/knife.xml",
@@ -124,7 +121,7 @@ loadout_list =
 		-- NOTE: Usually the game uses ARGB format for colours, but the cape colour uses ABGR here instead
 		cape_color = 0xff9a6f9b,
 		cape_color_edge = 0xff76547f,
-		hp = 100,
+		hp = 90,
 		items = 
 		{
 			"mods/thematic_random_starts/files/wands/laser_stick.xml",
@@ -143,7 +140,7 @@ loadout_list =
 		-- NOTE: Usually the game uses ARGB format for colours, but the cape colour uses ABGR here instead
 		cape_color = 0xff9a6f9b,
 		cape_color_edge = 0xff76547f,
-		hp = 75,
+		hp = 80,
 		items = 
 		{
 			"mods/thematic_random_starts/files/wands/brimstone_wand.xml",
@@ -183,7 +180,7 @@ loadout_list =
 		-- NOTE: Usually the game uses ARGB format for colours, but the cape colour uses ABGR here instead
 		cape_color = 0xff9a6f9b,
 		cape_color_edge = 0xff76547f,
-		hp = 50,
+		hp = 60,
 		items = 
 		{
 			"mods/thematic_random_starts/files/wands/lucky_wand.xml",
@@ -221,7 +218,7 @@ loadout_list =
 		-- NOTE: Usually the game uses ARGB format for colours, but the cape colour uses ABGR here instead
 		cape_color = 0xff9a6f9b,
 		cape_color_edge = 0xff76547f,
-		hp = 75,
+		hp = 80,
 		items = 
 		{
 			"mods/thematic_random_starts/files/wands/boomstick.xml",
@@ -240,7 +237,7 @@ loadout_list =
 		-- NOTE: Usually the game uses ARGB format for colours, but the cape colour uses ABGR here instead
 		cape_color = 0xff9a6f9b,
 		cape_color_edge = 0xff76547f,
-		hp = 100,
+		hp = 90,
 		items = 
 		{
 			"mods/thematic_random_starts/files/wands/tentacle_stick.xml",
@@ -259,7 +256,7 @@ loadout_list =
 		-- NOTE: Usually the game uses ARGB format for colours, but the cape colour uses ABGR here instead
 		cape_color = 0xff9a6f9b,
 		cape_color_edge = 0xff76547f,
-		hp = 100,
+		hp = 90,
 		items = 
 		{
 			"mods/thematic_random_starts/files/wands/apprentice_wand.xml",
@@ -279,12 +276,13 @@ loadout_list =
 		-- NOTE: Usually the game uses ARGB format for colours, but the cape colour uses ABGR here instead
 		cape_color = 0xff9a6f9b,
 		cape_color_edge = 0xff76547f,
-		hp = 75,
+		hp = 70,
 		items = 
 		{
 			"mods/thematic_random_starts/files/wands/crystal_wand.xml",
 			"mods/thematic_random_starts/files/wands/crystal_detonator.xml",
 			{ potion = "water", amount = 1},
+			{ potion = "blood_mushroom", amount = 1},
 		},
 		perks =
 		{

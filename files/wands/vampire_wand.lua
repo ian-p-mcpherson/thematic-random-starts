@@ -21,16 +21,16 @@ SetRandomSeed( x, y )
 local ability_comp = EntityGetFirstComponent( entity_id, "AbilityComponent" )
 
 local wand = { }
-wand.name = {"crossbow"}
-wand.deck_capacity = {3,3}
+wand.name = {"vampire_wand"}
+wand.deck_capacity = {1,1}
 wand.actions_per_round = 1
-wand.reload_time = {105, 115}
+wand.reload_time = {30,30}
 wand.shuffle_deck_when_empty = 1
-wand.fire_rate_wait = {5, 7}
-wand.spread_degrees = {1,2}
+wand.fire_rate_wait = {10,10}
+wand.spread_degrees = {0,0}
 wand.speed_multiplier = 1
-wand.mana_charge_speed = {40, 45}
-wand.mana_max = {45, 50}
+wand.mana_charge_speed = {50,50}
+wand.mana_max = {50,50}
 
 
 local mana_max = get_random_between_range( wand.mana_max )
@@ -51,7 +51,4 @@ ComponentObjectSetValue( ability_comp, "gunaction_config", "speed_multiplier", w
 ComponentSetValue( ability_comp, "mana_max", mana_max )
 ComponentSetValue( ability_comp, "mana", mana_max )
 
-AddGunActionPermanent( entity_id, "SPEED" )
-AddGunAction( entity_id, "ARROW" )
-AddGunAction( entity_id, "ARROW" )
-AddGunAction( entity_id, "ARROW" )
+AddGunAction( entity_id, "DISC_BULLET" )

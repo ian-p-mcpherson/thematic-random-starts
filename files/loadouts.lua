@@ -32,6 +32,7 @@ loadout_list =
 			"mods/thematic_random_starts/files/wands/dirt_shovel.xml",
 			"mods/thematic_random_starts/files/wands/drill.xml",
 			{ potion = "cement", amount = 1},
+			{ potion = "water", amount = 1},
 		},
 		perks =
 		{
@@ -213,7 +214,7 @@ loadout_list =
 	},
 	{
 		-- ID: 12
-		name = "Berzerker",
+		name = "Berserker",
 		folder = "berzerker",
 		-- NOTE: Usually the game uses ARGB format for colours, but the cape colour uses ABGR here instead
 		cape_color = 0xff9a6f9b,

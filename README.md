@@ -3,6 +3,7 @@ A collection of random starts that aim to be somewhat balanced with one another,
 
 # To Install
 Download and unzip under the "mods" directory in your Noita game install.
+
 This mod is also available via the steam workshop: [steam-workshop-url]
 
 # Special Thanks

@@ -63,7 +63,7 @@ loadout_list =
 		-- NOTE: Usually the game uses ARGB format for colours, but the cape colour uses ABGR here instead
 		cape_color = 0xff9a6f9b,
 		cape_color_edge = 0xff76547f,
-		hp = 70,
+		hp = 50,
 		items = 
 		{
 			"mods/thematic_random_starts/files/wands/crossbow.xml",

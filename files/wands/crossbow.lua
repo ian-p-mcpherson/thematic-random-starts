@@ -24,7 +24,7 @@ local wand = { }
 wand.name = {"crossbow"}
 wand.deck_capacity = {3,3}
 wand.actions_per_round = 1
-wand.reload_time = {105, 115}
+wand.reload_time = {115, 125}
 wand.shuffle_deck_when_empty = 1
 wand.fire_rate_wait = {5, 7}
 wand.spread_degrees = {1,2}
@@ -51,7 +51,7 @@ ComponentObjectSetValue( ability_comp, "gunaction_config", "speed_multiplier", w
 ComponentSetValue( ability_comp, "mana_max", mana_max )
 ComponentSetValue( ability_comp, "mana", mana_max )
 
-AddGunActionPermanent( entity_id, "SPEED" )
+--AddGunActionPermanent( entity_id, "SPEED" )
 AddGunAction( entity_id, "ARROW" )
 AddGunAction( entity_id, "ARROW" )
 AddGunAction( entity_id, "ARROW" )

@@ -1,0 +1,8 @@
+	<Mod
+		name="Thematic Random Starts"
+		description="A collection of random starts that aim to be somewhat balanced with one another, each designed to make the first few minutes of the game more interesting."
+		tags="gameplay,quality of life,loadouts,tweaks"
+		dont_upload_folders="FOLDER_TO_IGNORE1|FOLDER_TO_IGNORE2"
+		dont_upload_files="temp|resources"
+	> 
+	</Mod>

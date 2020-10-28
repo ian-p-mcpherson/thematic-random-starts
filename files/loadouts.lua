@@ -381,6 +381,7 @@ loadout_list =
 		{
 			"mods/thematic_random_starts/files/wands/spitter_wand.xml",
 			"mods/thematic_random_starts/files/wands/summon_stick.xml",
+			{ potion = "water", amount = 1},
 			{ potion = "magic_liquid_charm", amount = 1},
 		},
 		perks =

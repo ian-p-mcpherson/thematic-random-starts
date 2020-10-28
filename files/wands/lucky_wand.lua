@@ -26,11 +26,11 @@ wand.deck_capacity = {5,5}
 wand.actions_per_round = 1
 wand.reload_time = {45,55}
 wand.shuffle_deck_when_empty = 1
-wand.fire_rate_wait = {25,30}
+wand.fire_rate_wait = {18,22}
 wand.spread_degrees = {5,15}
 wand.speed_multiplier = 1
-wand.mana_charge_speed = {20,100}
-wand.mana_max = {20,250}
+wand.mana_charge_speed = {50,60}
+wand.mana_max = {100,120}
 wand.spell1 = { "BUBBLESHOT", "BOUNCY_ORB", "ARROW", "FIREBOMB", "RUBBER_BALL", "SPITTER", "LIGHT_BULLET"}
 wand.spell2 = { "BUBBLESHOT", "BOUNCY_ORB", "ARROW", "FIREBOMB", "RUBBER_BALL", "SPITTER", "LIGHT_BULLET"}
 wand.spell3 = { "BUBBLESHOT", "BOUNCY_ORB", "ARROW", "FIREBOMB", "RUBBER_BALL", "SPITTER", "LIGHT_BULLET"}
@@ -57,8 +57,9 @@ local wand_action1 = get_random_from( wand.spell1 )
 local wand_action2 = get_random_from( wand.spell2 )
 local wand_action3 = get_random_from( wand.spell3 )
 
-AddGunAction( entity_id, "FIZZLE" )
+AddGunActionPermanent( entity_id, "FIZZLE" )
 AddGunAction( entity_id, "DAMAGE_RANDOM" )
+AddGunAction( entity_id, "CHAOTIC_ARC" )
 AddGunAction( entity_id, wand_action1 )
 AddGunAction( entity_id, wand_action2 )
 AddGunAction( entity_id, wand_action3 )

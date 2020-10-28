@@ -21,16 +21,16 @@ SetRandomSeed( x, y )
 local ability_comp = EntityGetFirstComponent( entity_id, "AbilityComponent" )
 
 local wand = { }
-wand.name = {"flamethrower"}
-wand.deck_capacity = {3,3}
+wand.name = {"fly_stick"}
+wand.deck_capacity = {1,1}
 wand.actions_per_round = 1
-wand.reload_time = {2,2}
+wand.reload_time = {10,12}
 wand.shuffle_deck_when_empty = 1
-wand.fire_rate_wait = {1,1}
-wand.spread_degrees = {10,12}
+wand.fire_rate_wait = {25,30}
+wand.spread_degrees = {1,3}
 wand.speed_multiplier = 1
-wand.mana_charge_speed = {40,50}
-wand.mana_max = {180,200}
+wand.mana_charge_speed = {14,16}
+wand.mana_max = {360,370}
 
 local mana_max = get_random_between_range( wand.mana_max )
 local deck_capacity = get_random_between_range( wand.deck_capacity )
@@ -50,8 +50,10 @@ ComponentObjectSetValue( ability_comp, "gunaction_config", "speed_multiplier", w
 ComponentSetValue( ability_comp, "mana_max", mana_max )
 ComponentSetValue( ability_comp, "mana", mana_max )
 
--- AddGunActionPermanent( entity_id, "HITFX_CRITICAL_OIL" )
-AddGunActionPermanent( entity_id, "GRAVITY" )
-AddGunAction( entity_id, "TORCH" )
-AddGunAction( entity_id, "FLAMETHROWER" )
-AddGunAction( entity_id, "FLAMETHROWER" )
+AddGunActionPermanent( entity_id, "DELAYED_SPELL" )
+--AddGunActionPermanent( entity_id, "HOMING" )
+--AddGunActionPermanent( entity_id, "HOMING_ROTATE" )
+--AddGunActionPermanent( entity_id, "HOMING_SHOOTER" )
+--AddGunActionPermanent( entity_id, "ACCELERATING_SHOT" )
+--AddGunAction( entity_id, "SWARM_FLY" )
+AddGunAction( entity_id, "FRIEND_FLY" )

@@ -350,43 +350,64 @@ loadout_list =
 			"BLEED_OIL",
 		}
 	},
-	--{
-	--	-- ID: 19
-	--	name = "Ratmancer",
-	--	folder = "ratmancer",
-	--	-- NOTE: Usually the game uses ARGB format for colours, but the cape colour uses ABGR here instead
-	--	cape_color = 0xff9a6f9b,
-	--	cape_color_edge = 0xff76547f,
-	--	hp = 90,
-	--	items = 
-	--	{
-	--		"mods/thematic_random_starts/files/wands/rat_on_a_stick.xml",
-	--		{ potion = "swamp", amount = 1},
-	--	},
-	--	perks =
-	--	{
-	--		"PLAGUE_RATS",
-	--	}
-	--},
-	--{
-	--	-- ID: 20
-	--	name = "Summoner",
-	--	folder = "summoner",
-	--	-- NOTE: Usually the game uses ARGB format for colours, but the cape colour uses ABGR here instead
-	--	cape_color = 0xff9a6f9b,
-	--	cape_color_edge = 0xff76547f,
-	--	hp = 100,
-	--	items = 
-	--	{
-	--		"mods/thematic_random_starts/files/wands/heal_wand.xml",
-	--		"mods/thematic_random_starts/files/wands/summon_stick.xml",
-	--		{ potion = "magic_liquid_charm", amount = 1},
-	--	},
-	--	perks =
-	--	{
-	--		"GENOME_MORE_LOVE",
-	--	}
-	--}
+	{
+		-- ID: 19
+		name = "Ratmancer",
+		folder = "ratmancer",
+		-- NOTE: Usually the game uses ARGB format for colours, but the cape colour uses ABGR here instead
+		cape_color = 0xff9a6f9b,
+		cape_color_edge = 0xff76547f,
+		hp = 90,
+		items = 
+		{
+			"mods/thematic_random_starts/files/wands/rat_on_a_stick.xml",
+			{ potion = "swamp", amount = 1},
+			{ potion = "acid", amount = 1},
+		},
+		perks =
+		{
+			"PLAGUE_RATS",
+		}
+	},
+	{
+		-- ID: 20
+		name = "Summoner",
+		folder = "summoner",
+		-- NOTE: Usually the game uses ARGB format for colours, but the cape colour uses ABGR here instead
+		cape_color = 0xff9a6f9b,
+		cape_color_edge = 0xff76547f,
+		hp = 100,
+		items = 
+		{
+			"mods/thematic_random_starts/files/wands/spitter_wand.xml",
+			"mods/thematic_random_starts/files/wands/summon_stick.xml",
+			{ potion = "magic_liquid_charm", amount = 1},
+		},
+		perks =
+		{
+			"GENOME_MORE_LOVE",
+		}
+	}
+	,
+	{
+		-- ID: 21
+		name = "Lord of the Flies",
+		folder = "flylord",
+		-- NOTE: Usually the game uses ARGB format for colours, but the cape colour uses ABGR here instead
+		cape_color = 0xff9a6f9b,
+		cape_color_edge = 0xff76547f,
+		hp = 100,
+		items = 
+		{
+			"mods/thematic_random_starts/files/wands/fly_stick.xml",
+			{ potion = "swamp", amount = 1},
+			{ potion = "poo", amount = 1},
+		},
+		perks =
+		{
+			"GENOME_MORE_HATRED",
+		}
+	}
 }
 
 -- {

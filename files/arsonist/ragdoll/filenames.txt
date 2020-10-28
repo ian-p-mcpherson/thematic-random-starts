@@ -1,0 +1,8 @@
+mods/thematic_random_starts/files/arsonist/ragdoll/torso.png
+mods/thematic_random_starts/files/arsonist/ragdoll/right_thigh.png
+mods/thematic_random_starts/files/arsonist/ragdoll/right_arm.png
+mods/thematic_random_starts/files/arsonist/ragdoll/right_hand.png
+mods/thematic_random_starts/files/arsonist/ragdoll/left_thigh.png
+mods/thematic_random_starts/files/arsonist/ragdoll/left_arm.png
+mods/thematic_random_starts/files/arsonist/ragdoll/left_hand.png
+mods/thematic_random_starts/files/arsonist/ragdoll/head.png

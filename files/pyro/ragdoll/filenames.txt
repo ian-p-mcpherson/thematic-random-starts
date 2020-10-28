@@ -1,0 +1,8 @@
+mods/thematic_random_starts/files/pyro/ragdoll/torso.png
+mods/thematic_random_starts/files/pyro/ragdoll/right_thigh.png
+mods/thematic_random_starts/files/pyro/ragdoll/right_arm.png
+mods/thematic_random_starts/files/pyro/ragdoll/right_hand.png
+mods/thematic_random_starts/files/pyro/ragdoll/left_thigh.png
+mods/thematic_random_starts/files/pyro/ragdoll/left_arm.png
+mods/thematic_random_starts/files/pyro/ragdoll/left_hand.png
+mods/thematic_random_starts/files/pyro/ragdoll/head.png

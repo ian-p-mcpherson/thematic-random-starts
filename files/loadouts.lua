@@ -310,7 +310,83 @@ loadout_list =
 		{
 			"MANA_FROM_KILLS",
 		}
-	}
+	},
+	{
+		-- ID: 17
+		name = "Pyromancer",
+		folder = "pyro",
+		-- NOTE: Usually the game uses ARGB format for colours, but the cape colour uses ABGR here instead
+		cape_color = 0xff9a6f9b,
+		cape_color_edge = 0xff76547f,
+		hp = 70,
+		items = 
+		{
+			"mods/thematic_random_starts/files/wands/pyromancer_wand.xml",
+			"mods/thematic_random_starts/files/wands/fireball_stick.xml",
+			{ potion = "oil", amount = 1},
+		},
+		perks =
+		{
+			"PROTECTION_FIRE",
+		}
+	},
+	{
+		-- ID: 18
+		name = "Arsonist",
+		folder = "arsonist",
+		-- NOTE: Usually the game uses ARGB format for colours, but the cape colour uses ABGR here instead
+		cape_color = 0xff9a6f9b,
+		cape_color_edge = 0xff76547f,
+		hp = 100,
+		items = 
+		{
+			"mods/thematic_random_starts/files/wands/flamethrower.xml",
+			"mods/thematic_random_starts/files/wands/arson_stick.xml",
+			--"mods/thematic_random_starts/files/wands/torch.xml",
+			{ potion = "water", amount = 1},
+		},
+		perks =
+		{
+			"BLEED_OIL",
+		}
+	},
+	--{
+	--	-- ID: 19
+	--	name = "Ratmancer",
+	--	folder = "ratmancer",
+	--	-- NOTE: Usually the game uses ARGB format for colours, but the cape colour uses ABGR here instead
+	--	cape_color = 0xff9a6f9b,
+	--	cape_color_edge = 0xff76547f,
+	--	hp = 90,
+	--	items = 
+	--	{
+	--		"mods/thematic_random_starts/files/wands/rat_on_a_stick.xml",
+	--		{ potion = "swamp", amount = 1},
+	--	},
+	--	perks =
+	--	{
+	--		"PLAGUE_RATS",
+	--	}
+	--},
+	--{
+	--	-- ID: 20
+	--	name = "Summoner",
+	--	folder = "summoner",
+	--	-- NOTE: Usually the game uses ARGB format for colours, but the cape colour uses ABGR here instead
+	--	cape_color = 0xff9a6f9b,
+	--	cape_color_edge = 0xff76547f,
+	--	hp = 100,
+	--	items = 
+	--	{
+	--		"mods/thematic_random_starts/files/wands/heal_wand.xml",
+	--		"mods/thematic_random_starts/files/wands/summon_stick.xml",
+	--		{ potion = "magic_liquid_charm", amount = 1},
+	--	},
+	--	perks =
+	--	{
+	--		"GENOME_MORE_LOVE",
+	--	}
+	--}
 }
 
 -- {

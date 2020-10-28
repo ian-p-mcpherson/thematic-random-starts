@@ -283,7 +283,7 @@ loadout_list =
 			"mods/thematic_random_starts/files/wands/crystal_wand.xml",
 			"mods/thematic_random_starts/files/wands/crystal_detonator.xml",
 			{ potion = "water", amount = 1},
-			{ potion = "blood_mushroom", amount = 1},
+			{ potion = "blood_fungi", amount = 1},
 		},
 		perks =
 		{

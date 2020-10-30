@@ -33,18 +33,37 @@ layersToIndex = ['torso', 'right_thigh', 'right_hand', 'right_arm', 'left_thigh'
 layersToReset = []
 
 # Base colors
-robe_light = gimpcolor.RGB(60, 43, 60)
-robe_med = gimpcolor.RGB(49, 33, 36)
-robe_dark = gimpcolor.RGB(35, 26,33)
-robe_belt = gimpcolor.RGB(82, 61, 24)
-robe_hands = gimpcolor.RGB(86, 76, 40)
+robe_light = gimpcolor.RGB(155, 111, 154)
+robe_med = gimpcolor.RGB(127, 84, 118)
+robe_dark = gimpcolor.RGB(89, 67,84)
+robe_belt = gimpcolor.RGB(209, 155, 61)
+robe_lhand = gimpcolor.RGB(219, 192, 103)
+robe_rhand = gimpcolor.RGB(240, 228, 155)
 
 # Class colors
-class_robe_light = gimpcolor.RGB(60, 43, 60)
-class_robe_med = gimpcolor.RGB(49, 33, 36)
-class_robe_dark = gimpcolor.RGB(35, 26,33)
-class_robe_belt = gimpcolor.RGB(82, 61, 24)
-class_robe_hands = gimpcolor.RGB(86, 76, 40)
+class_robe_light = gimpcolor.RGB(255, 255, 255)
+class_robe_med = gimpcolor.RGB(255, 255, 255)
+class_robe_dark = gimpcolor.RGB(255, 255, 255)
+class_robe_belt = gimpcolor.RGB(255, 255, 255)
+class_robe_lhand = gimpcolor.RGB(255, 255, 255)
+class_robe_rhand = gimpcolor.RGB(255, 255, 255)
+
+# Base path
+base_path = ''
+
+
+# File data: [path, width, height]
+torso_data = ['/ragdolls/torso.png', 12, 19]
+right_thigh_data = ['/ragdolls/right_thigh.png', 12, 19]
+right_hand_data = ['/ragdolls/right_hand.png', 12, 19]
+right_arm_data = ['/ragdolls/right_arm.png', 12, 19]
+left_thigh_data = ['/ragdolls/left_thigh.png', 12, 19]
+left_hand_data = ['/ragdolls/left_hand.png', 12, 19]
+left_arm_data = ['/ragdolls/left_arm.png', 12, 19]
+head_data = ['/ragdolls/head.png', 12, 19]
+player_arm_data = ['/player_arm.png', 5, 115]
+player_data = ['/player.png', 420, 922]
+
 
 #############################################################
 #
@@ -60,10 +79,8 @@ def setUp(image, debugMode):
         foundLayer = findLayer(image, layer)
         if foundLayer is not None:
             globals()[layer] = foundLayer
-            return
             debugLogger("INFO: Indexed layer: %s" % layer)
         else:
-            return
             debugLogger("ERROR: Layer %s not found!" % layer)
 
 # Finds a gimp xcf layer by name
@@ -84,8 +101,8 @@ def findLayerRecursive(layer_or_image, name, layers):
     return layers
 
 # Gets the correct folder
-def getFolder(image_output, currentDeck):
-    folder = os.path.join(image_output, currentDeck)
+def getFolder(image_output, class_name):
+    folder = os.path.join(image_output, class_name)
     if not os.path.exists(folder):
         os.makedirs(folder)
     return folder
@@ -117,45 +134,76 @@ def toggleOn(layer):
 def generateSprites(image, csv_location, csv_file, image_output, debugMode):
     setUp(image, debugMode)
     pdb.gimp_image_undo_group_start(image)
-    pdb.gimp_context_set_antialias(False)
-    pdb.gimp_context_set_feather(False)
-    pdb.gimp_context_set_sample_threshold(3)
-    pdb.gimp_context_set_sample_merged(False)
+    # The following lines aren't needed if 'player.xcf' is used
+    #pdb.gimp_context_set_antialias(False)
+    #pdb.gimp_context_set_feather(False)
+    #pdb.gimp_context_set_sample_threshold(3)
+    #pdb.gimp_context_set_sample_merged(False)
     with open(csv_location + csv_file, 'r') as f:
         reader = csv.reader(f, delimiter=',')
         for row in reader:
-            set_class_colors(image, row)
-            for layer in layersToIndex:
-                palette_swap(image, row, layer)
-    #        #copy = pdb.gimp_image_duplicate(image)
-    #        # pdb.gimp_image_resize(image,image.width+2*marginX,image.height+2*marginY,marginX,marginY)
-    #        #merged = pdb.gimp_image_merge_visible_layers(copy, 0)
-    #        #output_filename = "%s.png" % (row[0])
-    #        #full_output_filename = os.path.join(folder, output_filename)
+            for layerName in layersToIndex:
+                layer = globals()[layerName]
+                layerData = globals()["%s_data" % (layerName)]
+                pdb.gimp_item_set_visible(layer, True)
+                palette_swap(image, layer, row)
+                debugLogger("image width: %s, image height: %s" % (layerData[1], layerData[2]))
+                #pdb.gimp_image_resize(image, int(layerData[1]), int(layerData[2], 0, 0))
+                copy = pdb.gimp_image_duplicate(image)
+                #merged = pdb.gimp_image_merge_visible_layers(copy, 0)
+                output_filename = "%s.png" % (row[0])
+                full_output_filename = os.path.join(folder, layerData[1])
+
+                pdb.gimp_item_set_visible(layer, False)
+    #        #
+    #        #
+    #        #
     #        #pdb.file_png_save_defaults(copy, merged, full_output_filename, full_output_filename)
     #        #pdb.gimp_image_delete(copy)
     #        #resetLayers()
     pdb.gimp_image_undo_group_end(image)
 
-def set_class_colors(image, row):
-    text_robe_light = row[1].split("|")
-    text_robe_med = row[2].split("|")
-    text_robe_dark = row[3].split("|")
-    text_robe_belt = row[4].split("|")
-    text_robe_hands = row[5].split("|")
+def palette_swap(image, layer, data):
+    set_class_colors(image, layer, data)
+    global class_robe_light
+    global class_robe_med
+    global class_robe_dark
+    global class_robe_belt
+    global class_robe_lhand
+    global class_robe_rhand
+    swap_color(image, layer, robe_light, class_robe_light)
+    swap_color(image, layer, robe_med, class_robe_med)
+    swap_color(image, layer, robe_dark, class_robe_dark)
+    swap_color(image, layer, robe_belt, class_robe_belt)
+    swap_color(image, layer, robe_lhand, class_robe_lhand)
+    swap_color(image, layer, robe_rhand, class_robe_rhand)
+
+
+def set_class_colors(image, layer, data):
+    text_robe_light = data[1].split("|")
+    text_robe_med = data[2].split("|")
+    text_robe_dark = data[3].split("|")
+    text_robe_belt = data[4].split("|")
+    text_robe_lhand = data[5].split("|")
+    text_robe_rhand = data[6].split("|")
+    global class_robe_light
+    global class_robe_med
+    global class_robe_dark
+    global class_robe_belt
+    global class_robe_lhand
+    global class_robe_rhand
     class_robe_light = gimpcolor.RGB(int(text_robe_light[0]), int(text_robe_light[1]), int(text_robe_light[2]))
     class_robe_med = gimpcolor.RGB(int(text_robe_med[0]), int(text_robe_med[1]), int(text_robe_med[2]))
     class_robe_dark = gimpcolor.RGB(int(text_robe_dark[0]), int(text_robe_dark[1]), int(text_robe_dark[2]))
     class_robe_belt = gimpcolor.RGB(int(text_robe_belt[0]), int(text_robe_belt[1]), int(text_robe_belt[2]))
-    class_robe_hands = gimpcolor.RGB(int(text_robe_hands[0]), int(text_robe_hands[1]), int(text_robe_hands[2]))
+    class_robe_lhand = gimpcolor.RGB(int(text_robe_lhand[0]), int(text_robe_lhand[1]), int(text_robe_lhand[2]))
+    class_robe_rhand = gimpcolor.RGB(int(text_robe_rhand[0]), int(text_robe_rhand[1]), int(text_robe_rhand[2]))
 
-def palette_swap(image, row, layer):
-    debugLogger("swapping layer %s on class %s" % (layer, row[0]))
-    pdb.gimp_by_color_select(image, 0, globals()[layer], robe_light)
-#    # pdb.gimp_context_set_foreground(sel_color)
-#    # pdb.gimp_edit_bucket_fill(layer,FG_BUCKET_FILL,COLOR_ERASE_MODE,100.,0.,0,0.,0.)
-#    # 
-
+def swap_color(image, layer, color1, color2):
+    pdb.gimp_image_select_color(image, 0, layer, color1)
+    pdb.gimp_context_set_foreground(color2)
+    pdb.gimp_edit_bucket_fill(layer,0,0,100,0,False,0,0)
+    pdb.gimp_selection_none(image)
 
 #############################################################
 #
@@ -163,7 +211,7 @@ def palette_swap(image, row, layer):
 #
 #############################################################
 register(
-    'generate-class_sprites',
+    'generate-class-sprites',
     'Generate Class Sprites',
     'Generate class sprites',
     'Ian McPherson',

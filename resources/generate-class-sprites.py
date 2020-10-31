@@ -35,7 +35,7 @@ layersToIndex = ['torso', 'right_thigh', 'right_hand', 'right_arm', 'left_thigh'
 # Base colors, technically thrown away at init
 robe_light = gimpcolor.RGB(155, 111, 154)
 robe_med = gimpcolor.RGB(127, 84, 118)
-robe_dark = gimpcolor.RGB(89, 67,84)
+robe_dark = gimpcolor.RGB(89, 67, 84)
 robe_belt = gimpcolor.RGB(209, 155, 61)
 robe_lhand = gimpcolor.RGB(219, 192, 103)
 robe_rhand = gimpcolor.RGB(240, 228, 155)
@@ -213,10 +213,10 @@ def set_class_colors(data):
         # Get 2 colors from CSV and shade remaining with code
         text_robe_light = data[1].split(color_delim)
         text_robe_belt = data[2].split(color_delim)
-        text_robe_med = [str(clamp(int(text_robe_light[0])-28,0,255)), str(clamp(int(text_robe_light[1])-37,0,255)), str(clamp(int(text_robe_light[2])-36,0,255))]
-        text_robe_dark = [str(clamp(int(text_robe_med[0])-38,0,255)), str(clamp(int(text_robe_med[1])-27,0,255)), str(clamp(int(text_robe_med[2])-44,0,255))]
-        text_robe_lhand = [str(clamp(int(text_robe_belt[0])+10,0,255)), str(clamp(int(text_robe_belt[1])+37,0,255)), str(clamp(int(text_robe_belt[2])+42,0,255))]
-        text_robe_rhand = [str(clamp(int(text_robe_belt[0])+31,0,255)), str(clamp(int(text_robe_belt[1])+73,0,255)), str(clamp(int(text_robe_belt[2])+94,0,255))]
+        text_robe_med = [str(int(float(text_robe_light[0])*0.8)), str(int(float(text_robe_light[1])*0.8)), str(int(float(text_robe_light[2])*0.8))]
+        text_robe_dark = [str(int(float(text_robe_med[0])*0.8)), str(int(float(text_robe_med[1])*0.8)), str(int(float(text_robe_med[2])*0.8))]
+        text_robe_lhand = [str(clamp(int(float(text_robe_belt[0])*1.15),0,255)), str(clamp(int(float(text_robe_belt[1])*1.15),0,255)), str(clamp(int(float(text_robe_belt[2])*1.15),0,255))]
+        text_robe_rhand = [str(clamp(int(float(text_robe_belt[0])*1.3),0,255)), str(clamp(int(float(text_robe_belt[1])*1.3),0,255)), str(clamp(int(float(text_robe_belt[2])*1.3),0,255))]
 
     class_robe_light = gimpcolor.RGB(int(text_robe_light[0]), int(text_robe_light[1]), int(text_robe_light[2]))
     class_robe_med = gimpcolor.RGB(int(text_robe_med[0]), int(text_robe_med[1]), int(text_robe_med[2]))

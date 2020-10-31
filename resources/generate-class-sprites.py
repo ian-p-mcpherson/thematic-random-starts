@@ -7,7 +7,6 @@
 #
 #############################################################
 from gimpfu import *
-#import gimpcolor
 import csv
 import os
 from xml.etree import ElementTree
@@ -27,10 +26,7 @@ from shutil import copyfile
 debug = True
 
 # List of all layers used by the sprite generator
-layersToIndex = ['torso', 'right_thigh', 'right_hand', 'right_arm', 'left_thigh', 'left_hand', 'left_arm', 'head', 'player_arm', 'player'] #, 'player_uv_src']
-
-# Tracks all layers toggled on during sprite generation
-layersToReset = []
+layersToIndex = ['torso', 'right_thigh', 'right_hand', 'right_arm', 'left_thigh', 'left_hand', 'left_arm', 'head', 'player_arm', 'player']
 
 # Base colors, technically thrown away at init
 robe_light = gimpcolor.RGB(155, 111, 154)
@@ -150,17 +146,15 @@ def generateSprites(image, csv_location, csv_file, image_output, debugMode):
                 pdb.gimp_item_set_visible(layer, True)
                 palette_swap(image, layer, row)
                 debugLogger("image width: %s, image height: %s" % (layer_data[1], layer_data[2]))
-                #pdb.gimp_image_resize(image, int(layer_data[1]), int(layer_data[2], 0, 0))
-                #copy = pdb.gimp_image_duplicate(image)
-                #merged = pdb.gimp_image_merge_visible_layers(copy, 0)
                 folder = getFolder(base_folder, layer_data[0])
                 output_filename = "%s.png" % (layerName)
                 full_output_filename = os.path.join(folder, output_filename)
                 pdb.file_png_save_defaults(image, layer, full_output_filename, full_output_filename)
                 pdb.gimp_item_set_visible(layer, False)
-                #pdb.gimp_image_delete(copy)
     pdb.gimp_image_undo_group_end(image)
 
+# Swaps colors as defined in the vars defined in set_class_colors
+# This can be made generic, but for now I store robe colors separately (instead of a list or something)
 def palette_swap(image, layer, data):
     # Setup globals
     global class_robe_light
@@ -177,6 +171,7 @@ def palette_swap(image, layer, data):
     swap_color(image, layer, robe_lhand, class_robe_lhand)
     swap_color(image, layer, robe_rhand, class_robe_rhand)
 
+# Sets global vars as defined in CSV data provided
 def set_class_colors(data):
     # Setup globals
     global class_robe_light
@@ -224,6 +219,7 @@ def set_class_colors(data):
     class_robe_lhand = gimpcolor.RGB(int(text_robe_lhand[0]), int(text_robe_lhand[1]), int(text_robe_lhand[2]))
     class_robe_rhand = gimpcolor.RGB(int(text_robe_rhand[0]), int(text_robe_rhand[1]), int(text_robe_rhand[2])) 
 
+# Snippet that does the selection and swapping on the layer provided
 def swap_color(image, layer, color1, color2):
     pdb.gimp_image_select_color(image, 0, layer, color1)
     pdb.gimp_context_set_foreground(color2)
@@ -249,8 +245,7 @@ register(
         (PF_IMAGE, 'image', 'Input image', None),
         (PF_STRING, 'csv_location', 'CSV location:', 'G:\\Steam\\steamapps\\common\\Noita\\mods\\thematic_random_starts\\resources\\'),
         (PF_STRING, 'csv_file', 'CSV input:', 'palettes.csv'),
-        (PF_STRING, 'image_output', 'Output location:', 'E:\\Noita\\'),
-        #(PF_STRING, 'image_output', 'Output location:', 'G:\\Steam\\steamapps\\common\\Noita\\mods\\thematic_random_starts\\files\\'),
+        (PF_STRING, 'image_output', 'Output location:', 'G:\\Steam\\steamapps\\common\\Noita\\mods\\thematic_random_starts\\files\\'),
         (PF_BOOL, "debugMode", "Debug Mode", True),
     ],
     [],

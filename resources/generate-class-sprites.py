@@ -32,7 +32,7 @@ layersToIndex = ['torso', 'right_thigh', 'right_hand', 'right_arm', 'left_thigh'
 # Tracks all layers toggled on during sprite generation
 layersToReset = []
 
-# Base colors
+# Base colors, technically thrown away at init
 robe_light = gimpcolor.RGB(155, 111, 154)
 robe_med = gimpcolor.RGB(127, 84, 118)
 robe_dark = gimpcolor.RGB(89, 67,84)
@@ -40,29 +40,25 @@ robe_belt = gimpcolor.RGB(209, 155, 61)
 robe_lhand = gimpcolor.RGB(219, 192, 103)
 robe_rhand = gimpcolor.RGB(240, 228, 155)
 
-# Class colors
-class_robe_light = gimpcolor.RGB(255, 255, 255)
-class_robe_med = gimpcolor.RGB(255, 255, 255)
-class_robe_dark = gimpcolor.RGB(255, 255, 255)
-class_robe_belt = gimpcolor.RGB(255, 255, 255)
-class_robe_lhand = gimpcolor.RGB(255, 255, 255)
-class_robe_rhand = gimpcolor.RGB(255, 255, 255)
-
-# Base path
-base_path = ''
-
+# Class colors, stores base colors at init
+class_robe_light = gimpcolor.RGB(155, 111, 154)
+class_robe_med = gimpcolor.RGB(127, 84, 118)
+class_robe_dark = gimpcolor.RGB(89, 67,84)
+class_robe_belt = gimpcolor.RGB(209, 155, 61)
+class_robe_lhand = gimpcolor.RGB(219, 192, 103)
+class_robe_rhand = gimpcolor.RGB(240, 228, 155)
 
 # File data: [path, width, height]
-torso_data = ['/ragdolls/torso.png', 12, 19]
-right_thigh_data = ['/ragdolls/right_thigh.png', 12, 19]
-right_hand_data = ['/ragdolls/right_hand.png', 12, 19]
-right_arm_data = ['/ragdolls/right_arm.png', 12, 19]
-left_thigh_data = ['/ragdolls/left_thigh.png', 12, 19]
-left_hand_data = ['/ragdolls/left_hand.png', 12, 19]
-left_arm_data = ['/ragdolls/left_arm.png', 12, 19]
-head_data = ['/ragdolls/head.png', 12, 19]
-player_arm_data = ['/player_arm.png', 5, 115]
-player_data = ['/player.png', 420, 922]
+torso_data = ['ragdolls\\', 12, 19]
+right_thigh_data = ['ragdolls\\', 12, 19]
+right_hand_data = ['ragdolls\\', 12, 19]
+right_arm_data = ['ragdolls\\', 12, 19]
+left_thigh_data = ['ragdolls\\', 12, 19]
+left_hand_data = ['ragdolls\\', 12, 19]
+left_arm_data = ['ragdolls\\', 12, 19]
+head_data = ['ragdolls\\', 12, 19]
+player_arm_data = ['', 5, 115]
+player_data = ['', 420, 922]
 
 
 #############################################################
@@ -142,35 +138,34 @@ def generateSprites(image, csv_location, csv_file, image_output, debugMode):
     with open(csv_location + csv_file, 'r') as f:
         reader = csv.reader(f, delimiter=',')
         for row in reader:
+            base_folder = getFolder(image_output, "%s\\" % row[0])
+            set_class_colors(row)
             for layerName in layersToIndex:
                 layer = globals()[layerName]
-                layerData = globals()["%s_data" % (layerName)]
+                layer_data = globals()["%s_data" % (layerName)]
                 pdb.gimp_item_set_visible(layer, True)
                 palette_swap(image, layer, row)
-                debugLogger("image width: %s, image height: %s" % (layerData[1], layerData[2]))
-                #pdb.gimp_image_resize(image, int(layerData[1]), int(layerData[2], 0, 0))
-                copy = pdb.gimp_image_duplicate(image)
+                debugLogger("image width: %s, image height: %s" % (layer_data[1], layer_data[2]))
+                #pdb.gimp_image_resize(image, int(layer_data[1]), int(layer_data[2], 0, 0))
+                #copy = pdb.gimp_image_duplicate(image)
                 #merged = pdb.gimp_image_merge_visible_layers(copy, 0)
-                output_filename = "%s.png" % (row[0])
-                full_output_filename = os.path.join(folder, layerData[1])
-
+                folder = getFolder(base_folder, layer_data[0])
+                output_filename = "%s.png" % (layerName)
+                full_output_filename = os.path.join(folder, output_filename)
+                pdb.file_png_save_defaults(image, layer, full_output_filename, full_output_filename)
                 pdb.gimp_item_set_visible(layer, False)
-    #        #
-    #        #
-    #        #
-    #        #pdb.file_png_save_defaults(copy, merged, full_output_filename, full_output_filename)
-    #        #pdb.gimp_image_delete(copy)
-    #        #resetLayers()
+                #pdb.gimp_image_delete(copy)
     pdb.gimp_image_undo_group_end(image)
 
 def palette_swap(image, layer, data):
-    set_class_colors(image, layer, data)
+    # Setup globals
     global class_robe_light
     global class_robe_med
     global class_robe_dark
     global class_robe_belt
     global class_robe_lhand
     global class_robe_rhand
+    # Swap the colors
     swap_color(image, layer, robe_light, class_robe_light)
     swap_color(image, layer, robe_med, class_robe_med)
     swap_color(image, layer, robe_dark, class_robe_dark)
@@ -178,32 +173,47 @@ def palette_swap(image, layer, data):
     swap_color(image, layer, robe_lhand, class_robe_lhand)
     swap_color(image, layer, robe_rhand, class_robe_rhand)
 
-
-def set_class_colors(image, layer, data):
-    text_robe_light = data[1].split("|")
-    text_robe_med = data[2].split("|")
-    text_robe_dark = data[3].split("|")
-    text_robe_belt = data[4].split("|")
-    text_robe_lhand = data[5].split("|")
-    text_robe_rhand = data[6].split("|")
+def set_class_colors(data):
+    # Setup globals
     global class_robe_light
     global class_robe_med
     global class_robe_dark
     global class_robe_belt
     global class_robe_lhand
     global class_robe_rhand
+    global robe_light
+    global robe_med
+    global robe_dark
+    global robe_belt
+    global robe_lhand
+    global robe_rhand
+    # Get the class's colors from the csv data
+    text_robe_light = data[1].split("|")
+    text_robe_med = data[2].split("|")
+    text_robe_dark = data[3].split("|")
+    text_robe_belt = data[4].split("|")
+    text_robe_lhand = data[5].split("|")
+    text_robe_rhand = data[6].split("|")
+    # Store current colors and set new colors
+    robe_light = class_robe_light
+    robe_med = class_robe_med
+    robe_dark = class_robe_dark
+    robe_belt = class_robe_belt
+    robe_lhand = class_robe_lhand
+    robe_rhand = class_robe_rhand
     class_robe_light = gimpcolor.RGB(int(text_robe_light[0]), int(text_robe_light[1]), int(text_robe_light[2]))
     class_robe_med = gimpcolor.RGB(int(text_robe_med[0]), int(text_robe_med[1]), int(text_robe_med[2]))
     class_robe_dark = gimpcolor.RGB(int(text_robe_dark[0]), int(text_robe_dark[1]), int(text_robe_dark[2]))
     class_robe_belt = gimpcolor.RGB(int(text_robe_belt[0]), int(text_robe_belt[1]), int(text_robe_belt[2]))
     class_robe_lhand = gimpcolor.RGB(int(text_robe_lhand[0]), int(text_robe_lhand[1]), int(text_robe_lhand[2]))
-    class_robe_rhand = gimpcolor.RGB(int(text_robe_rhand[0]), int(text_robe_rhand[1]), int(text_robe_rhand[2]))
+    class_robe_rhand = gimpcolor.RGB(int(text_robe_rhand[0]), int(text_robe_rhand[1]), int(text_robe_rhand[2])) 
 
 def swap_color(image, layer, color1, color2):
     pdb.gimp_image_select_color(image, 0, layer, color1)
     pdb.gimp_context_set_foreground(color2)
     pdb.gimp_edit_bucket_fill(layer,0,0,100,0,False,0,0)
     pdb.gimp_selection_none(image)
+
 
 #############################################################
 #
@@ -223,7 +233,8 @@ register(
         (PF_IMAGE, 'image', 'Input image', None),
         (PF_STRING, 'csv_location', 'CSV location:', 'G:\\Steam\\steamapps\\common\\Noita\\mods\\thematic_random_starts\\resources\\'),
         (PF_STRING, 'csv_file', 'CSV input:', 'palettes.csv'),
-        (PF_STRING, 'image_output', 'Output location:', 'G:\\Steam\\steamapps\\common\\Noita\\mods\\thematic_random_starts\\output\\'),
+        (PF_STRING, 'image_output', 'Output location:', 'E:\\Noita\\'),
+        #(PF_STRING, 'image_output', 'Output location:', 'G:\\Steam\\steamapps\\common\\Noita\\mods\\thematic_random_starts\\files\\'),
         (PF_BOOL, "debugMode", "Debug Mode", True),
     ],
     [],

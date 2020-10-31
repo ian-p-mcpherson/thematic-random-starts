@@ -25,6 +25,10 @@ from shutil import copyfile
 # Debug mode
 debug = True
 
+# csv delimeters
+column_delim = "|"
+color_delim = ", "
+
 # List of all layers used by the sprite generator
 layersToIndex = ['torso', 'right_thigh', 'right_hand', 'right_arm', 'left_thigh', 'left_hand', 'left_arm', 'head', 'player_arm', 'player']
 
@@ -130,13 +134,14 @@ def clamp(num, num_min, num_max):
 def generateSprites(image, csv_location, csv_file, image_output, debugMode):
     setUp(image, debugMode)
     pdb.gimp_image_undo_group_start(image)
+    global column_delim
     # The following lines aren't needed if 'player.xcf' is used
     #pdb.gimp_context_set_antialias(False)
     #pdb.gimp_context_set_feather(False)
     #pdb.gimp_context_set_sample_threshold(3)
     #pdb.gimp_context_set_sample_merged(False)
     with open(csv_location + csv_file, 'r') as f:
-        reader = csv.reader(f, delimiter=',')
+        reader = csv.reader(f, delimiter = column_delim)
         for row in reader:
             base_folder = getFolder(image_output, "%s\\" % row[0])
             set_class_colors(row)
@@ -186,6 +191,7 @@ def set_class_colors(data):
     global robe_belt
     global robe_lhand
     global robe_rhand
+    global color_delim
 
     # Store current colors
     robe_light = class_robe_light
@@ -197,18 +203,18 @@ def set_class_colors(data):
 
     if len(data) > 3:
         # Get all 6 colors from CSV
-        text_robe_light = data[1].split("|")
-        text_robe_med = data[2].split("|")
-        text_robe_dark = data[3].split("|")
-        text_robe_belt = data[4].split("|")
-        text_robe_lhand = data[5].split("|")
-        text_robe_rhand = data[6].split("|")
+        text_robe_light = data[1].split(color_delim)
+        text_robe_med = data[2].split(color_delim)
+        text_robe_dark = data[3].split(color_delim)
+        text_robe_belt = data[4].split(color_delim)
+        text_robe_lhand = data[5].split(color_delim)
+        text_robe_rhand = data[6].split(color_delim)
     else:
         # Get 2 colors from CSV and shade remaining with code
-        text_robe_med = data[1].split("|")
-        text_robe_belt = data[2].split("|")
+        text_robe_light = data[1].split(color_delim)
+        text_robe_belt = data[2].split(color_delim)
+        text_robe_med = [str(clamp(int(text_robe_light[0])-28,0,255)), str(clamp(int(text_robe_light[1])-37,0,255)), str(clamp(int(text_robe_light[2])-36,0,255))]
         text_robe_dark = [str(clamp(int(text_robe_med[0])-38,0,255)), str(clamp(int(text_robe_med[1])-27,0,255)), str(clamp(int(text_robe_med[2])-44,0,255))]
-        text_robe_light = [str(clamp(int(text_robe_med[0])+28,0,255)), str(clamp(int(text_robe_med[1])+37,0,255)), str(clamp(int(text_robe_med[2])+36,0,255))]
         text_robe_lhand = [str(clamp(int(text_robe_belt[0])+10,0,255)), str(clamp(int(text_robe_belt[1])+37,0,255)), str(clamp(int(text_robe_belt[2])+42,0,255))]
         text_robe_rhand = [str(clamp(int(text_robe_belt[0])+31,0,255)), str(clamp(int(text_robe_belt[1])+73,0,255)), str(clamp(int(text_robe_belt[2])+94,0,255))]
 

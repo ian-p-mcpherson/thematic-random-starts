@@ -7,7 +7,9 @@ ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/thematic_random_start
 local loadout_override = 1
 
 -- cape defaults (gray)
-local cape_rgba = {100, 100, 100, 255}
+local robe_rgba = {140, 140, 140, 255}
+local belt_rgba = {82, 67, 41, 255}
+local cape_rgba = {0, 0, 0, 0}
 local cape_edge_rgba = {140, 140, 140, 255}
 
 function OnPlayerSpawned( player_entity ) -- this runs when player entity has been created
@@ -49,8 +51,7 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 		end
 	end
 
-
-	local gfx_folder = loadout_choice.folder or "default"
+	local gfx_folder = loadout_choice.color or "default"
 
 	-- set player sprite
 	local player_sprite_component = EntityGetFirstComponent( player_entity, "SpriteComponent" )
@@ -67,9 +68,11 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 	local player_ragdoll_file = "mods/thematic_random_starts/files/" .. gfx_folder .. "/ragdoll/filenames.txt"
 	ComponentSetValue( player_ragdoll_component, "ragdoll_filenames_file", player_ragdoll_file )
 
-	-- set cape rgba
-	cape_rgba = loadout_choice.cape_color
-	cape_edge_rgba = loadout_choice.cape_color_edge
+	-- set colors
+	if ( loadout_choice.robe_color ~= nil) then robe_rgba = loadout_choice.robe_color end
+	if ( loadout_choice.belt_color ~= nil) then belt_rgba = loadout_choice.belt_color end
+	if ( loadout_choice.cape_color ~= nil) then cape_rgba = loadout_choice.cape_color end
+	if ( loadout_choice.cape_color_edge ~= nil) then cape_edge_rgba = loadout_choice.cape_color_edge end
 	set_cape_color( player_entity )
 
 	-- set inventory contents
@@ -149,7 +152,7 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 
 	-- class specific code:
 	-- no jumps code (no classes have this yet)
-	if ( loadout_choice.folder == "CHANGEME" ) then
+	if ( loadout_choice.class_id == "CHANGEME" ) then
 		local playerData = EntityGetFirstComponent(player_entity, "CharacterDataComponent")
 		local playerPlatforming = EntityGetFirstComponent(player_entity, "CharacterPlatformingComponent")
 		ComponentSetValue2(playerData, "fly_time_max", 0)
@@ -160,7 +163,7 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 	end
 
 	-- tell the player what class they are
-	--GamePrintImportant( "Class: " .. loadout_name .. "", "" )
+	GamePrintImportant( "Class: " .. loadout_name .. "", "" )
 end
 
 function get_random_potion( rarity )
@@ -198,15 +201,18 @@ function get_random_potion( rarity )
 end
 
 function set_cape_color( player_entity )
+	-- cape edge defaults to robe_color
+	if (cape_edge_rgba[1] == 0) then cape_edge_rgba = robe_rgba end
+
 	local cape_color
 	local cape_color_edge = "0x" .. string.format("%02x", cape_edge_rgba[4]) .. string.format("%02x", cape_edge_rgba[3]) .. string.format("%02x", cape_edge_rgba[2]) .. string.format("%02x", cape_edge_rgba[1])
 	if ( cape_rgba[1] == 0 ) then
-		cape_color = "0x" .. string.format("%02x", cape_edge_rgba[4]) .. string.format("%02x", (cape_edge_rgba[3] - 80)) .. string.format("%02x", (cape_edge_rgba[2] - 64)) .. string.format("%02x", (cape_edge_rgba[1] - 66))
+		cape_color = "0x" .. string.format("%02x", cape_edge_rgba[4]) .. string.format("%02x", math.floor(cape_edge_rgba[3] * 0.8)) .. string.format("%02x", math.floor(cape_edge_rgba[2] * 0.8)) .. string.format("%02x", math.floor(cape_edge_rgba[1] * 0.8))
 	else
 		cape_color = "0x" .. string.format("%02x", cape_rgba[4]) .. string.format("%02x", cape_rgba[3]) .. string.format("%02x", cape_rgba[2]) .. string.format("%02x", cape_rgba[1])
 	end
 
-	GamePrintImportant( "cape_color: " .. cape_color .. " cape_color_edge: " .. cape_color_edge .. "", "" )
+	-- GamePrintImportant( "cape_color: " .. cape_color .. " cape_color_edge: " .. cape_color_edge .. "", "" )
 
 	local cape = nil
 

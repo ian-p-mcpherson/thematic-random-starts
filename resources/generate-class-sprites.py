@@ -120,6 +120,10 @@ def toggleOn(layer):
     pdb.gimp_item_set_visible(layer, True)
     layersToReset.append(layer)
 
+# Basic clamp function because python doesn't have one I guess
+def clamp(num, num_min, num_max):
+    return max(num_min, min(num, num_max))
+
 #############################################################
 #
 #        Main Script
@@ -187,20 +191,32 @@ def set_class_colors(data):
     global robe_belt
     global robe_lhand
     global robe_rhand
-    # Get the class's colors from the csv data
-    text_robe_light = data[1].split("|")
-    text_robe_med = data[2].split("|")
-    text_robe_dark = data[3].split("|")
-    text_robe_belt = data[4].split("|")
-    text_robe_lhand = data[5].split("|")
-    text_robe_rhand = data[6].split("|")
-    # Store current colors and set new colors
+
+    # Store current colors
     robe_light = class_robe_light
     robe_med = class_robe_med
     robe_dark = class_robe_dark
     robe_belt = class_robe_belt
     robe_lhand = class_robe_lhand
     robe_rhand = class_robe_rhand
+
+    if len(data) > 3:
+        # Get all 6 colors from CSV
+        text_robe_light = data[1].split("|")
+        text_robe_med = data[2].split("|")
+        text_robe_dark = data[3].split("|")
+        text_robe_belt = data[4].split("|")
+        text_robe_lhand = data[5].split("|")
+        text_robe_rhand = data[6].split("|")
+    else:
+        # Get 2 colors from CSV and shade remaining with code
+        text_robe_med = data[1].split("|")
+        text_robe_belt = data[2].split("|")
+        text_robe_dark = [str(clamp(int(text_robe_med[0])-38,0,255)), str(clamp(int(text_robe_med[1])-27,0,255)), str(clamp(int(text_robe_med[2])-44,0,255))]
+        text_robe_light = [str(clamp(int(text_robe_med[0])+28,0,255)), str(clamp(int(text_robe_med[1])+37,0,255)), str(clamp(int(text_robe_med[2])+36,0,255))]
+        text_robe_lhand = [str(clamp(int(text_robe_belt[0])+10,0,255)), str(clamp(int(text_robe_belt[1])+37,0,255)), str(clamp(int(text_robe_belt[2])+42,0,255))]
+        text_robe_rhand = [str(clamp(int(text_robe_belt[0])+31,0,255)), str(clamp(int(text_robe_belt[1])+73,0,255)), str(clamp(int(text_robe_belt[2])+94,0,255))]
+
     class_robe_light = gimpcolor.RGB(int(text_robe_light[0]), int(text_robe_light[1]), int(text_robe_light[2]))
     class_robe_med = gimpcolor.RGB(int(text_robe_med[0]), int(text_robe_med[1]), int(text_robe_med[2]))
     class_robe_dark = gimpcolor.RGB(int(text_robe_dark[0]), int(text_robe_dark[1]), int(text_robe_dark[2]))
@@ -233,8 +249,8 @@ register(
         (PF_IMAGE, 'image', 'Input image', None),
         (PF_STRING, 'csv_location', 'CSV location:', 'G:\\Steam\\steamapps\\common\\Noita\\mods\\thematic_random_starts\\resources\\'),
         (PF_STRING, 'csv_file', 'CSV input:', 'palettes.csv'),
-        #(PF_STRING, 'image_output', 'Output location:', 'E:\\Noita\\'),
-        (PF_STRING, 'image_output', 'Output location:', 'G:\\Steam\\steamapps\\common\\Noita\\mods\\thematic_random_starts\\files\\'),
+        (PF_STRING, 'image_output', 'Output location:', 'E:\\Noita\\'),
+        #(PF_STRING, 'image_output', 'Output location:', 'G:\\Steam\\steamapps\\common\\Noita\\mods\\thematic_random_starts\\files\\'),
         (PF_BOOL, "debugMode", "Debug Mode", True),
     ],
     [],

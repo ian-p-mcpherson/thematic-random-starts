@@ -3,12 +3,15 @@ loadout_list =
 	{
 		-- ID: 1
 		name = "Slime Sorcerer",
-		folder = "slime",
+		class_id = "slime",
+		color = "slime",
+
+
 		robe_color = {198, 77, 179, 255},
 		belt_color = {132, 176, 74, 255},
-		cape_color = {198, 77, 179, 255},
-		cape_color_edge = {198, 77, 179, 255},
-		cape_color = {0, 0, 0, 0}, -- calculate
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
 		hp = 100,
 		items = 
 		{
@@ -24,10 +27,14 @@ loadout_list =
 	{
 		-- ID: 2
 		name = "Construction Conjurer",
-		folder = "construction",
+		class_id = "construction",
+		color = "construction",
 		
-		-- cape_color = 0xff9a6f9b,
-		-- cape_color_edge = 0xff76547f,
+		robe_color = {255, 204, 0, 255},
+		belt_color = {82, 67, 41, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
 		hp = 100,
 		items = 
 		{
@@ -44,10 +51,14 @@ loadout_list =
 	{
 		-- ID: 3
 		name = "Telekinetic",
-		folder = "telekinetic",
+		class_id = "telekinetic",
+		color = "telekinetic",
 		
-		-- cape_color = 0xff9a6f9b,
-		-- cape_color_edge = 0xff76547f,
+		robe_color = {230, 230, 230, 255},
+		belt_color = {175, 26, 26, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
 		hp = 80,
 		items = 
 		{
@@ -62,10 +73,14 @@ loadout_list =
 	{
 		-- ID: 4
 		name = "Vampire",
-		folder = "vampire",
+		class_id = "vampire",
+		color = "vampire",
 		
-		-- cape_color = 0xff9a6f9b,
-		-- cape_color_edge = 0xff76547f,
+		robe_color = {80, 80, 80, 255},
+		belt_color = {175, 26, 26, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {175, 26, 26, 255}, -- calculate from cape_color_edge
+
 		hp = 60,
 		items = 
 		{
@@ -81,10 +96,14 @@ loadout_list =
 	{
 		-- ID: 5
 		name = "Blood Cultist",
-		folder = "bloodcultist",
+		class_id = "bloodcultist",
+		color = "bloodcultist",
 		
-		-- cape_color = 0xff9a6f9b,
-		-- cape_color_edge = 0xff76547f,
+		robe_color = {175, 26, 26, 255},
+		belt_color = {89, 74, 44, 255},
+		cape_color_edge = {89, 74, 44, 255}, -- default to robe_color
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
 		hp = 100,
 		items = 
 		{
@@ -100,7 +119,8 @@ loadout_list =
 	{
 		-- ID: 6
 		name = "Ninja",
-		folder = "ninja",
+		class_id = "ninja",
+		color = "ninja",
 		
 		-- cape_color = 0xff9a6f9b,
 		-- cape_color_edge = 0xff76547f,
@@ -120,7 +140,8 @@ loadout_list =
 	{
 		-- ID: 7
 		name = "Laser Wizard",
-		folder = "laser",
+		class_id = "laser",
+		color = "laser",
 		
 		-- cape_color = 0xff9a6f9b,
 		-- cape_color_edge = 0xff76547f,
@@ -139,7 +160,8 @@ loadout_list =
 	{
 		-- ID: 8
 		name = "Demolitionist",
-		folder = "exploder",
+		class_id = "exploder",
+		color = "exploder",
 		
 		-- cape_color = 0xff9a6f9b,
 		-- cape_color_edge = 0xff76547f,
@@ -159,7 +181,8 @@ loadout_list =
 	{
 		-- ID: 9
 		name = "Blastomancer",
-		folder = "blasto",
+		class_id = "blasto",
+		color = "blasto",
 		
 		-- cape_color = 0xff9a6f9b,
 		-- cape_color_edge = 0xff76547f,
@@ -179,7 +202,8 @@ loadout_list =
 	{
 		-- ID: 10
 		name = "Gambler",
-		folder = "gambler",
+		class_id = "gambler",
+		color = "gambler",
 		
 		-- cape_color = 0xff9a6f9b,
 		-- cape_color_edge = 0xff76547f,
@@ -198,7 +222,8 @@ loadout_list =
 	{
 		-- ID: 11
 		name = "Tele-Karate Master",
-		folder = "telekarate",
+		class_id = "telekarate",
+		color = "telekarate",
 		
 		-- cape_color = 0xff9a6f9b,
 		-- cape_color_edge = 0xff76547f,
@@ -217,7 +242,8 @@ loadout_list =
 	{
 		-- ID: 12
 		name = "Berserker",
-		folder = "berzerker",
+		class_id = "berzerker",
+		color = "berzerker",
 		
 		-- cape_color = 0xff9a6f9b,
 		-- cape_color_edge = 0xff76547f,
@@ -236,7 +262,8 @@ loadout_list =
 	{
 		-- ID: 13
 		name = "Eldritch Cultist",
-		folder = "eldritch",
+		class_id = "eldritch",
+		color = "eldritch",
 		
 		-- cape_color = 0xff9a6f9b,
 		-- cape_color_edge = 0xff76547f,
@@ -255,7 +282,8 @@ loadout_list =
 	{
 		-- ID: 14
 		name = "Planar Cultist",
-		folder = "planar",
+		class_id = "planar",
+		color = "planar",
 		
 		-- cape_color = 0xff9a6f9b,
 		-- cape_color_edge = 0xff76547f,
@@ -275,7 +303,8 @@ loadout_list =
 	{
 		-- ID: 15
 		name = "Crystal Seer",
-		folder = "seer",
+		class_id = "seer",
+		color = "seer",
 		
 		-- cape_color = 0xff9a6f9b,
 		-- cape_color_edge = 0xff76547f,
@@ -295,10 +324,14 @@ loadout_list =
 	{
 		-- ID: 16
 		name = "Alchemist",
-		folder = "alchemist",
+		class_id = "alchemist",
+		color = "alchemist",
 		
-		-- cape_color = 0xff9a6f9b,
-		-- cape_color_edge = 0xff76547f,
+		robe_color = {122, 122, 122, 255},
+		belt_color = {217, 185, 69, 255},
+		cape_color_edge = {55, 99, 65, 255},
+		cape_color = {217, 185, 69, 255},
+
 		hp = 100,
 		items = 
 		{
@@ -316,7 +349,8 @@ loadout_list =
 	{
 		-- ID: 17
 		name = "Pyromancer",
-		folder = "pyro",
+		class_id = "pyro",
+		color = "pyro",
 		
 		-- cape_color = 0xff9a6f9b,
 		-- cape_color_edge = 0xff76547f,
@@ -335,7 +369,8 @@ loadout_list =
 	{
 		-- ID: 18
 		name = "Arsonist",
-		folder = "arsonist",
+		class_id = "arsonist",
+		color = "arsonist",
 		
 		-- cape_color = 0xff9a6f9b,
 		-- cape_color_edge = 0xff76547f,
@@ -355,7 +390,8 @@ loadout_list =
 	{
 		-- ID: 19
 		name = "Ratmancer",
-		folder = "ratmancer",
+		class_id = "ratmancer",
+		color = "ratmancer",
 		
 		-- cape_color = 0xff9a6f9b,
 		-- cape_color_edge = 0xff76547f,
@@ -374,7 +410,8 @@ loadout_list =
 	{
 		-- ID: 20
 		name = "Summoner",
-		folder = "summoner",
+		class_id = "summoner",
+		color = "summoner",
 		
 		-- cape_color = 0xff9a6f9b,
 		-- cape_color_edge = 0xff76547f,
@@ -395,7 +432,8 @@ loadout_list =
 	{
 		-- ID: 21
 		name = "Lord of the Flies",
-		folder = "flylord",
+		class_id = "flylord",
+		color = "flylord",
 		
 		-- cape_color = 0xff9a6f9b,
 		-- cape_color_edge = 0xff76547f,

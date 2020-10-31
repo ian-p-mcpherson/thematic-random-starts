@@ -49,14 +49,14 @@ class_robe_lhand = gimpcolor.RGB(219, 192, 103)
 class_robe_rhand = gimpcolor.RGB(240, 228, 155)
 
 # File data: [path, width, height]
-torso_data = ['ragdolls\\', 12, 19]
-right_thigh_data = ['ragdolls\\', 12, 19]
-right_hand_data = ['ragdolls\\', 12, 19]
-right_arm_data = ['ragdolls\\', 12, 19]
-left_thigh_data = ['ragdolls\\', 12, 19]
-left_hand_data = ['ragdolls\\', 12, 19]
-left_arm_data = ['ragdolls\\', 12, 19]
-head_data = ['ragdolls\\', 12, 19]
+torso_data = ['ragdoll\\', 12, 19]
+right_thigh_data = ['ragdoll\\', 12, 19]
+right_hand_data = ['ragdoll\\', 12, 19]
+right_arm_data = ['ragdoll\\', 12, 19]
+left_thigh_data = ['ragdoll\\', 12, 19]
+left_hand_data = ['ragdoll\\', 12, 19]
+left_arm_data = ['ragdoll\\', 12, 19]
+head_data = ['ragdoll\\', 12, 19]
 player_arm_data = ['', 5, 115]
 player_data = ['', 420, 922]
 
@@ -150,7 +150,6 @@ def generateSprites(image, csv_location, csv_file, image_output, debugMode):
                 layer_data = globals()["%s_data" % (layerName)]
                 pdb.gimp_item_set_visible(layer, True)
                 palette_swap(image, layer, row)
-                debugLogger("image width: %s, image height: %s" % (layer_data[1], layer_data[2]))
                 folder = getFolder(base_folder, layer_data[0])
                 output_filename = "%s.png" % (layerName)
                 full_output_filename = os.path.join(folder, output_filename)
@@ -223,10 +222,18 @@ def set_class_colors(data):
     class_robe_dark = gimpcolor.RGB(int(text_robe_dark[0]), int(text_robe_dark[1]), int(text_robe_dark[2]))
     class_robe_belt = gimpcolor.RGB(int(text_robe_belt[0]), int(text_robe_belt[1]), int(text_robe_belt[2]))
     class_robe_lhand = gimpcolor.RGB(int(text_robe_lhand[0]), int(text_robe_lhand[1]), int(text_robe_lhand[2]))
-    class_robe_rhand = gimpcolor.RGB(int(text_robe_rhand[0]), int(text_robe_rhand[1]), int(text_robe_rhand[2])) 
+    class_robe_rhand = gimpcolor.RGB(int(text_robe_rhand[0]), int(text_robe_rhand[1]), int(text_robe_rhand[2]))
+
+    debugLogger("class_robe_light: (%s, %s, %s)" % (class_robe_light.r*255, class_robe_light.g*255, class_robe_light.b*255))
+    debugLogger("class_robe_med: (%s, %s, %s)" % (class_robe_med.r*255, class_robe_med.g*255, class_robe_med.b*255))
+    debugLogger("class_robe_dark: (%s, %s, %s)" % (class_robe_dark.r*255, class_robe_dark.g*255, class_robe_dark.b*255))
+    debugLogger("class_robe_belt: (%s, %s, %s)" % (class_robe_belt.r*255, class_robe_belt.g*255, class_robe_belt.b*255))
+    debugLogger("class_robe_lhand: (%s, %s, %s)" % (class_robe_lhand.r*255, class_robe_lhand.g*255, class_robe_lhand.b*255))
+    debugLogger("class_robe_rhand: (%s, %s, %s)" % (class_robe_rhand.r*255, class_robe_rhand.g*255, class_robe_rhand.b*255))
 
 # Snippet that does the selection and swapping on the layer provided
 def swap_color(image, layer, color1, color2):
+    debugLogger("swapping (%s, %s, %s) with (%s, %s, %s)" % (color1.r*255, color1.g*255, color1.b*255, color2.r*255, color2.g*255, color2.b*255))
     pdb.gimp_image_select_color(image, 0, layer, color1)
     pdb.gimp_context_set_foreground(color2)
     pdb.gimp_edit_bucket_fill(layer,0,0,100,0,False,0,0)

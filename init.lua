@@ -4,7 +4,7 @@ dofile( "data/scripts/perks/perk.lua" )
 ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/thematic_random_starts/files/spells/gun_actions.lua")
 
 -- Edit this if you want to choose a class byt he ID in loadouts.lua
-local loadout_override = -1
+local loadout_override = 1
 
 -- cape defaults (gray)
 local cape_rgba = {100, 100, 100, 255}
@@ -28,9 +28,6 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 	local inventory = nil
 	local cape = nil
 	local player_arm = nil
-	
-	local loadout_cape_color = loadout_choice.cape_color
-	local loadout_cape_color_edge = loadout_choice.cape_color_edge
 
 	-- find the quick inventory, player cape and arm
 	local player_child_entities = EntityGetAllChildren( player_entity )
@@ -55,7 +52,7 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 
 	local gfx_folder = loadout_choice.folder or "default"
 
-	-- set player sprite (since we change only one value, ComponentSetValue is fine)
+	-- set player sprite
 	local player_sprite_component = EntityGetFirstComponent( player_entity, "SpriteComponent" )
 	local player_sprite_file = "mods/thematic_random_starts/files/" .. gfx_folder .. "/player.xml"
 	ComponentSetValue( player_sprite_component, "image_file", player_sprite_file )
@@ -70,6 +67,9 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 	local player_ragdoll_file = "mods/thematic_random_starts/files/" .. gfx_folder .. "/ragdoll/filenames.txt"
 	ComponentSetValue( player_ragdoll_component, "ragdoll_filenames_file", player_ragdoll_file )
 
+	-- set cape rgba
+	cape_rgba = loadout_choice.cape_color
+	cape_edge_rgba = loadout_choice.cape_color_edge
 	set_cape_color( player_entity )
 
 	-- set inventory contents
@@ -147,9 +147,8 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 		ComponentSetValue( damagemodel, "mLastMaxHpChangeFrame", GameGetFrameNum() )
 	end
 
-	-- class specific code
-
-	-- no jumps code
+	-- class specific code:
+	-- no jumps code (no classes have this yet)
 	if ( loadout_choice.folder == "CHANGEME" ) then
 		local playerData = EntityGetFirstComponent(player_entity, "CharacterDataComponent")
 		local playerPlatforming = EntityGetFirstComponent(player_entity, "CharacterPlatformingComponent")
@@ -160,7 +159,8 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 		ComponentSetValue2(playerPlatforming, "run_velocity", 180)
 	end
 
-	GamePrintImportant( "Class: " .. loadout_name .. "", "" )
+	-- tell the player what class they are
+	--GamePrintImportant( "Class: " .. loadout_name .. "", "" )
 end
 
 function get_random_potion( rarity )
@@ -187,22 +187,27 @@ function get_random_potion( rarity )
 	else
 		r_value = Random( 0, 100000 )
 		if( r_value == 0 ) then return "creepy_liquid" end 
-		if( r_value == 1 ) then return "magic_liquid_hp_regeneration_unstable" end 
 		if( r_value == 79 ) then return "gold" end 
 		if( r_value == 666 ) then return "urine" end
-		if( r_value == 9001 ) then return "magic_liquid_hp_regeneration" end 
-		if( r_value == 99999 ) then return "midas" end 
-		if( r_value == 100000 ) then return "midas_precursor" end 
+		if( r_value == 9000 ) then return "magic_liquid_hp_regeneration" end 
+		if( r_value == 9001 ) then return "magic_liquid_hp_regeneration_unstable" end 
+		if( r_value == 99999 ) then return "midas_precursor" end 
+		if( r_value == 100000 ) then return "midas" end 
 		return random_from_array( { "slime", "gunpowder_unstable", "blood_worm", "magic_liquid_protection_all" , "magic_liquid_random_polymorph", "lava"} )
 	end
 end
 
 function set_cape_color( player_entity )
-	-- Color Order: ABGR, instead of RGBA
-	local cape_color = "0x" .. string.format("%02x", cape_rgba[4]) .. string.format("%02x", cape_rgba[3]) .. string.format("%02x", cape_rgba[2]) .. string.format("%02x", cape_rgba[1])
-	-- GamePrintImportant( "Got " .. cape_color .. "!", "" )
+	local cape_color
 	local cape_color_edge = "0x" .. string.format("%02x", cape_edge_rgba[4]) .. string.format("%02x", cape_edge_rgba[3]) .. string.format("%02x", cape_edge_rgba[2]) .. string.format("%02x", cape_edge_rgba[1])
-	
+	if ( cape_rgba[1] == 0 ) then
+		cape_color = "0x" .. string.format("%02x", cape_edge_rgba[4]) .. string.format("%02x", (cape_edge_rgba[3] - 80)) .. string.format("%02x", (cape_edge_rgba[2] - 64)) .. string.format("%02x", (cape_edge_rgba[1] - 66))
+	else
+		cape_color = "0x" .. string.format("%02x", cape_rgba[4]) .. string.format("%02x", cape_rgba[3]) .. string.format("%02x", cape_rgba[2]) .. string.format("%02x", cape_rgba[1])
+	end
+
+	GamePrintImportant( "cape_color: " .. cape_color .. " cape_color_edge: " .. cape_color_edge .. "", "" )
+
 	local cape = nil
 
 	local player_children = EntityGetAllChildren(player_entity)
@@ -220,22 +225,25 @@ function set_cape_color( player_entity )
 	end)
 end
 
--- Stainable sprites should have a corresponding SPRITE_NAME_uv_src.png next to the sprite file, and the folder containing the sprite should be passed to ModDevGenerateSpriteUVsForDirectory().
--- For example for 'player.png' the corresponding UV source file is called 'player_uv_src.png'
--- ModDevGenerateSpriteUVsForDirectory() must be called in init.lua file scope. It doesn't do anything outside noita_dev.exe.
+-- Scope for noita_dev.exe
 ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/alchemist" )
+ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/arsonist" )
 ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/berzerker" ) 
 ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/blasto" ) 
 ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/bloodcultist" ) 
 ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/construction" ) 
 ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/eldritch" ) 
 ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/exploder" ) 
+ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/flylord" ) 
 ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/gambler" ) 
 ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/laser" ) 
 ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/ninja" ) 
 ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/planar" ) 
+ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/pyro" ) 
+ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/ratmancer" ) 
 ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/seer" ) 
 ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/slime" ) 
+ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/summoner" ) 
 ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/telekarate" ) 
 ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/telekinetic" ) 
-ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/<vampire" ) 
+ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/vampire" ) 

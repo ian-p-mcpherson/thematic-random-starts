@@ -6,7 +6,6 @@ loadout_list =
 		class_id = "slime",
 		color = "slime",
 
-
 		robe_color = {198, 77, 179, 255},
 		belt_color = {132, 176, 74, 255},
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
@@ -54,8 +53,8 @@ loadout_list =
 		class_id = "telekinetic",
 		color = "telekinetic",
 		
-		robe_color = {230, 230, 230, 255},
-		belt_color = {175, 26, 26, 255},
+		robe_color = {180, 180, 160, 255},
+		belt_color = {137, 137, 127, 255},
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
@@ -76,8 +75,8 @@ loadout_list =
 		class_id = "vampire",
 		color = "vampire",
 		
-		robe_color = {80, 80, 80, 255},
-		belt_color = {175, 26, 26, 255},
+		robe_color = {60, 60, 60, 255},
+		belt_color = {100, 100, 100, 255},
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
 		cape_color = {175, 26, 26, 255}, -- calculate from cape_color_edge
 
@@ -101,7 +100,7 @@ loadout_list =
 		
 		robe_color = {175, 26, 26, 255},
 		belt_color = {89, 74, 44, 255},
-		cape_color_edge = {89, 74, 44, 255}, -- default to robe_color
+		cape_color_edge = {168, 152, 118, 255},
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
 		hp = 100,
@@ -122,8 +121,11 @@ loadout_list =
 		class_id = "ninja",
 		color = "ninja",
 		
-		-- cape_color = 0xff9a6f9b,
-		-- cape_color_edge = 0xff76547f,
+		robe_color = {58, 62, 82, 255},
+		belt_color = {42, 44, 56, 255},
+		cape_color_edge = {42, 44, 56, 255},
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
 		hp = 60,
 		items = 
 		{
@@ -143,8 +145,11 @@ loadout_list =
 		class_id = "laser",
 		color = "laser",
 		
-		-- cape_color = 0xff9a6f9b,
-		-- cape_color_edge = 0xff76547f,
+		robe_color = {85, 201, 108, 255},
+		belt_color = {218, 218, 118, 255},
+		cape_color_edge = {85, 201, 108, 255},
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
 		hp = 90,
 		items = 
 		{
@@ -163,8 +168,11 @@ loadout_list =
 		class_id = "exploder",
 		color = "exploder",
 		
-		-- cape_color = 0xff9a6f9b,
-		-- cape_color_edge = 0xff76547f,
+		robe_color = {189, 56, 56, 255},
+		belt_color = {130, 101, 73, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
 		hp = 80,
 		items = 
 		{
@@ -184,8 +192,11 @@ loadout_list =
 		class_id = "blasto",
 		color = "blasto",
 		
-		-- cape_color = 0xff9a6f9b,
-		-- cape_color_edge = 0xff76547f,
+		robe_color = {106, 114, 147, 255},
+		belt_color = {103, 66, 57, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
 		hp = 100,
 		items = 
 		{
@@ -205,8 +216,11 @@ loadout_list =
 		class_id = "gambler",
 		color = "gambler",
 		
-		-- cape_color = 0xff9a6f9b,
-		-- cape_color_edge = 0xff76547f,
+		robe_color = {126, 28, 255, 255},
+		belt_color = {222, 194, 16, 255},
+		cape_color_edge = {222, 194, 16, 255},
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
 		hp = 60,
 		items = 
 		{
@@ -225,8 +239,11 @@ loadout_list =
 		class_id = "telekarate",
 		color = "telekarate",
 		
-		-- cape_color = 0xff9a6f9b,
-		-- cape_color_edge = 0xff76547f,
+		robe_color = {210, 210, 220, 255},
+		belt_color = {60, 60, 65, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {149, 208, 237, 255},
+
 		hp = 100,
 		items = 
 		{
@@ -245,8 +262,11 @@ loadout_list =
 		class_id = "berzerker",
 		color = "berzerker",
 		
-		-- cape_color = 0xff9a6f9b,
-		-- cape_color_edge = 0xff76547f,
+		robe_color = {77, 94, 67, 255},
+		belt_color = {76, 76, 60, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
 		hp = 80,
 		items = 
 		{
@@ -265,8 +285,11 @@ loadout_list =
 		class_id = "eldritch",
 		color = "eldritch",
 		
-		-- cape_color = 0xff9a6f9b,
-		-- cape_color_edge = 0xff76547f,
+		robe_color = {105, 103, 135, 255},
+		belt_color = {74, 73, 96, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {40, 40, 50, 255},
+
 		hp = 90,
 		items = 
 		{
@@ -285,8 +308,11 @@ loadout_list =
 		class_id = "planar",
 		color = "planar",
 		
-		-- cape_color = 0xff9a6f9b,
-		-- cape_color_edge = 0xff76547f,
+		robe_color = {230, 230, 204, 255},
+		belt_color = {112, 109, 99, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {226, 148, 239, 255},
+
 		hp = 90,
 		items = 
 		{
@@ -306,8 +332,11 @@ loadout_list =
 		class_id = "seer",
 		color = "seer",
 		
-		-- cape_color = 0xff9a6f9b,
-		-- cape_color_edge = 0xff76547f,
+		robe_color = {191, 123, 199, 255},
+		belt_color = {207, 205, 205, 255},
+		cape_color_edge = {207, 205, 205, 255},
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
 		hp = 70,
 		items = 
 		{
@@ -327,10 +356,10 @@ loadout_list =
 		class_id = "alchemist",
 		color = "alchemist",
 		
-		robe_color = {122, 122, 122, 255},
-		belt_color = {217, 185, 69, 255},
-		cape_color_edge = {55, 99, 65, 255},
-		cape_color = {217, 185, 69, 255},
+		robe_color = {68, 102, 79, 255},
+		belt_color = {181, 176, 130, 255},
+		cape_color_edge = {181, 176, 130, 255},
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
 		hp = 100,
 		items = 
@@ -352,8 +381,11 @@ loadout_list =
 		class_id = "pyro",
 		color = "pyro",
 		
-		-- cape_color = 0xff9a6f9b,
-		-- cape_color_edge = 0xff76547f,
+		robe_color = {212, 145, 70, 255},
+		belt_color = {105, 70, 52, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
 		hp = 70,
 		items = 
 		{
@@ -372,8 +404,11 @@ loadout_list =
 		class_id = "arsonist",
 		color = "arsonist",
 		
-		-- cape_color = 0xff9a6f9b,
-		-- cape_color_edge = 0xff76547f,
+		robe_color = {179, 94, 48, 255},
+		belt_color = {99, 93, 90, 255},
+		cape_color_edge = {99, 93, 90, 255}, -- default to robe_color
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
 		hp = 100,
 		items = 
 		{
@@ -393,8 +428,11 @@ loadout_list =
 		class_id = "ratmancer",
 		color = "ratmancer",
 		
-		-- cape_color = 0xff9a6f9b,
-		-- cape_color_edge = 0xff76547f,
+		robe_color = {128, 105, 92, 255},
+		belt_color = {59, 40, 34, 255},
+		cape_color_edge = {94, 80, 72}, -- default to robe_color
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
 		hp = 90,
 		items = 
 		{
@@ -413,8 +451,11 @@ loadout_list =
 		class_id = "summoner",
 		color = "summoner",
 		
-		-- cape_color = 0xff9a6f9b,
-		-- cape_color_edge = 0xff76547f,
+		robe_color = {207, 116, 144, 255},
+		belt_color = {142, 200, 212, 255},
+		cape_color_edge = {142, 200, 212, 255}, -- default to robe_color
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
 		hp = 100,
 		items = 
 		{
@@ -435,8 +476,11 @@ loadout_list =
 		class_id = "flylord",
 		color = "flylord",
 		
-		-- cape_color = 0xff9a6f9b,
-		-- cape_color_edge = 0xff76547f,
+		robe_color = {111, 117, 104, 255},
+		belt_color = {99, 97, 87, 255},
+		cape_color_edge = {99, 97, 87, 255}, -- default to robe_color
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+		
 		hp = 100,
 		items = 
 		{

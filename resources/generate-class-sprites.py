@@ -135,11 +135,10 @@ def generateSprites(image, csv_location, csv_file, image_output, debugMode):
     setUp(image, debugMode)
     pdb.gimp_image_undo_group_start(image)
     global column_delim
-    # The following lines aren't needed if 'player.xcf' is used
-    #pdb.gimp_context_set_antialias(False)
-    #pdb.gimp_context_set_feather(False)
-    #pdb.gimp_context_set_sample_threshold(3)
-    #pdb.gimp_context_set_sample_merged(False)
+    pdb.gimp_context_set_antialias(False)
+    pdb.gimp_context_set_feather(False)
+    pdb.gimp_context_set_sample_threshold_int(0)
+    pdb.gimp_context_set_sample_merged(False)
     with open(csv_location + csv_file, 'r') as f:
         reader = csv.reader(f, delimiter = column_delim)
         for row in reader:
@@ -234,6 +233,7 @@ def set_class_colors(data):
 # Snippet that does the selection and swapping on the layer provided
 def swap_color(image, layer, color1, color2):
     debugLogger("swapping (%s, %s, %s) with (%s, %s, %s)" % (color1.r*255, color1.g*255, color1.b*255, color2.r*255, color2.g*255, color2.b*255))
+    pdb.gimp_selection_none(image)
     pdb.gimp_image_select_color(image, 0, layer, color1)
     pdb.gimp_context_set_foreground(color2)
     pdb.gimp_edit_bucket_fill(layer,0,0,100,0,False,0,0)

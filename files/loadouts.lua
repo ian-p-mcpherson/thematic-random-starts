@@ -381,7 +381,7 @@ loadout_list =
 		class_id = "pyro",
 		color = "pyro",
 		
-		robe_color = {212, 145, 70, 255},
+		robe_color = {237, 134, 0, 255},
 		belt_color = {105, 70, 52, 255},
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
@@ -404,7 +404,7 @@ loadout_list =
 		class_id = "arsonist",
 		color = "arsonist",
 		
-		robe_color = {179, 94, 48, 255},
+		robe_color = {209, 160, 0, 255},
 		belt_color = {99, 93, 90, 255},
 		cape_color_edge = {99, 93, 90, 255}, -- default to robe_color
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
@@ -430,7 +430,7 @@ loadout_list =
 		
 		robe_color = {128, 105, 92, 255},
 		belt_color = {59, 40, 34, 255},
-		cape_color_edge = {94, 80, 72}, -- default to robe_color
+		cape_color_edge = {94, 80, 72, 255}, -- default to robe_color
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
 		hp = 90,
@@ -476,11 +476,11 @@ loadout_list =
 		class_id = "flylord",
 		color = "flylord",
 		
-		robe_color = {111, 117, 104, 255},
-		belt_color = {99, 97, 87, 255},
-		cape_color_edge = {99, 97, 87, 255}, -- default to robe_color
+		robe_color = {77, 68, 56, 255},
+		belt_color = {46, 43, 39, 255},
+		cape_color_edge = {46, 43, 39, 255}, -- default to robe_color
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
-		
+
 		hp = 100,
 		items = 
 		{

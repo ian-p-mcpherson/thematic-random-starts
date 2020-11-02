@@ -150,7 +150,7 @@ loadout_list =
 		cape_color_edge = {85, 201, 108, 255},
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
-		hp = 90,
+		hp = 100,
 		items = 
 		{
 			"mods/thematic_random_starts/files/wands/laser_stick.xml",

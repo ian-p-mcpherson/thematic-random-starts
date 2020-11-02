@@ -22,7 +22,7 @@ local ability_comp = EntityGetFirstComponent( entity_id, "AbilityComponent" )
 
 local wand = { }
 wand.name = {"telekarate_wand"}
-wand.deck_capacity = {4,4}
+wand.deck_capacity = {3,3}
 wand.actions_per_round = 1
 wand.reload_time = {60,60}
 wand.shuffle_deck_when_empty = 0
@@ -50,7 +50,7 @@ ComponentObjectSetValue( ability_comp, "gunaction_config", "speed_multiplier", w
 ComponentSetValue( ability_comp, "mana_max", mana_max )
 ComponentSetValue( ability_comp, "mana", mana_max )
 
-AddGunAction( entity_id, "ENERGY_SHIELD_SECTOR" )
+AddGunActionPermanent( entity_id, "ENERGY_SHIELD_SECTOR" )
 AddGunAction( entity_id, "BURST_2" )
 AddGunAction( entity_id, "TELEPORT_PROJECTILE_STATIC" )
 AddGunAction( entity_id, "TELEPORT_PROJECTILE" )

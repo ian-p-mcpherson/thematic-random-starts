@@ -22,7 +22,7 @@ local ability_comp = EntityGetFirstComponent( entity_id, "AbilityComponent" )
 
 local wand = { }
 wand.name = {"barrier_wand"}
-wand.deck_capacity = {1,1}
+wand.deck_capacity = {0,0}
 wand.actions_per_round = 1
 wand.reload_time = {60,60}
 wand.shuffle_deck_when_empty = 1
@@ -52,4 +52,4 @@ ComponentSetValue( ability_comp, "mana_max", mana_max )
 ComponentSetValue( ability_comp, "mana", mana_max )
 
 local wand_action = get_random_from( wand.actions )
-AddGunAction( entity_id, wand_action )
+AddGunActionPermanent( entity_id, wand_action )

@@ -1,0 +1,1 @@
+../../../noita_dev.exe -workshop_upload thematic_random_starts -workshop_upload_change_notes "Wimples forgot to change the patch notes"

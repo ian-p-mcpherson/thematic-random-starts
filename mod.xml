@@ -1,6 +1,6 @@
 <Mod
 	name="Thematic Random Starts"
-	description="A collection of random starts that aim to be somewhat balanced with one another, each designed to make the first few minutes of the game more interesting."
+	description="A collection of random starts that aim to be somewhat balanced with one another.\nEach is designed to make the first few minutes of the game more interesting."
 	request_no_api_restrictions="0" 
 > 
 </Mod>

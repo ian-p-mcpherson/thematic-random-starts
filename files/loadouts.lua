@@ -78,7 +78,7 @@ loadout_list =
 		robe_color = {60, 60, 60, 255},
 		belt_color = {100, 100, 100, 255},
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
-		cape_color = {175, 26, 26, 255}, -- calculate from cape_color_edge
+		cape_color = {175, 26, 26, 255},
 
 		hp = 60,
 		items = 
@@ -406,7 +406,7 @@ loadout_list =
 		
 		robe_color = {209, 160, 0, 255},
 		belt_color = {99, 93, 90, 255},
-		cape_color_edge = {99, 93, 90, 255}, -- default to robe_color
+		cape_color_edge = {99, 93, 90, 255},
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
 		hp = 100,
@@ -430,7 +430,7 @@ loadout_list =
 		
 		robe_color = {128, 105, 92, 255},
 		belt_color = {59, 40, 34, 255},
-		cape_color_edge = {94, 80, 72, 255}, -- default to robe_color
+		cape_color_edge = {94, 80, 72, 255},
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
 		hp = 90,
@@ -453,7 +453,7 @@ loadout_list =
 		
 		robe_color = {207, 116, 144, 255},
 		belt_color = {142, 200, 212, 255},
-		cape_color_edge = {142, 200, 212, 255}, -- default to robe_color
+		cape_color_edge = {142, 200, 212, 255},
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
 		hp = 100,
@@ -478,7 +478,7 @@ loadout_list =
 		
 		robe_color = {77, 68, 56, 255},
 		belt_color = {46, 43, 39, 255},
-		cape_color_edge = {46, 43, 39, 255}, -- default to robe_color
+		cape_color_edge = {46, 43, 39, 255},
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
 		hp = 100,

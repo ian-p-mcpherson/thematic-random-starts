@@ -1,8 +1,8 @@
-	<Mod
-		name="Thematic Random Starts"
-		description="A collection of random starts that aim to be somewhat balanced with one another, each designed to make the first few minutes of the game more interesting."
-		tags="gameplay,quality of life,loadouts,tweaks"
-		dont_upload_folders="temp|resources"
-		dont_upload_files=""
-	> 
-	</Mod>
+<Mod
+	name="Thematic Random Starts"
+	description="A collection of random starts that aim to be somewhat balanced with one another, each designed to make the first few minutes of the game more interesting."
+	tags="gameplay,quality of life,loadouts,tweaks"
+	dont_upload_folders="temp|resources"
+	dont_upload_files=""
+>
+</Mod>

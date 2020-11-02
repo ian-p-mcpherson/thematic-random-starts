@@ -1,7 +1,7 @@
 ![mod splash screen](/workshop_preview_image.png)
 
 # Thematic Random Starts - A Noita Mod
-A collection of random starts that aim to be somewhat balanced with one another, each designed to make the first few minutes of the game more interesting.
+A collection of starting loadouts that aim to be somewhat balanced with one another, each designed to make the first few minutes of the game more interesting.
 
 There are currently 21 loadouts that can be randomly assigned to you when you start a new game.
 

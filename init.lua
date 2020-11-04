@@ -1,10 +1,12 @@
 dofile( "mods/thematic_random_starts/files/loadouts.lua" )
+dofile( "mods/thematic_random_starts/files/scripts/wmpls_utils.lua")
+dofile( "data/scripts/gun/procedural/gun_procedural_better.lua")
 dofile( "data/scripts/perks/perk.lua" )
 
 ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/thematic_random_starts/files/spells/gun_actions.lua")
 
 -- Edit this if you want to choose a class byt he ID in loadouts.lua
-local loadout_override = -1
+local loadout_override = 1
 
 -- cape defaults (gray)
 local robe_rgba = {140, 140, 140, 255}
@@ -12,7 +14,14 @@ local belt_rgba = {82, 67, 41, 255}
 local cape_rgba = {0, 0, 0, 0}
 local cape_edge_rgba = {140, 140, 140, 255}
 
+-- constants
+wand_gfx_root = "mods/thematic_random_starts/files/wands/gfx/"
+
 function OnPlayerSpawned( player_entity ) -- this runs when player entity has been created
+
+	EntitySave( EntityGetWithTag( "player_unit" ), "print_entity.xml" )
+	debug_entity( EntityGetWithTag( "player_unit" ) )
+
 	local init_check_flag = "start_loadouts_init_done"
 	if GameHasFlagRun( init_check_flag ) then
 		return
@@ -30,6 +39,7 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 	local inventory = nil
 	local cape = nil
 	local player_arm = nil
+	local wallet = nil
 
 	-- find the quick inventory, player cape and arm
 	local player_child_entities = EntityGetAllChildren( player_entity )
@@ -50,6 +60,9 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 			end
 		end
 	end
+
+	-- get wallet
+	wallet = EntityGetFirstComponent( player_entity, "WalletComponent" )
 
 	local gfx_folder = loadout_choice.color or "default"
 
@@ -107,8 +120,14 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 						item_option = loadout_item[1]
 					end
 					
-					-- handle potions
-					if ( loadout_item.potion ~= nil) then
+					if ( loadout_item.wand ~= nil) then
+						-- handle wands
+						local new_wand = init_wand(loadout_item.wand)
+						if ( new_wand ~= nil ) then
+							EntityAddChild( inventory, new_wand )
+						end
+					elseif ( loadout_item.potion ~= nil) then
+						-- handle potions
 						local rarity = loadout_item.rarity or 0
 						local potion_amount = loadout_item.quantity or 1000
 						item_entity = EntityLoad( "mods/thematic_random_starts/files/potions/potion_template.xml" )
@@ -117,8 +136,11 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 						else
 							AddMaterialInventoryMaterial( item_entity, get_random_potion( rarity ), potion_amount )
 						end
-					-- handle everything else
+					elseif ( loadout_item.money ~= nil) then
+						-- handle money
+						ComponentSetValue( wallet, "money", loadout_item.money )
 					else
+						-- handle everything else
 						item_entity = EntityLoad( item_option )
 					end
 
@@ -129,7 +151,7 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 			end
 		end
 	end
-	
+
 	-- add perks
 	if ( loadout_choice.perks ~= nil ) then
 		for i,perk_name in ipairs( loadout_choice.perks ) do
@@ -207,15 +229,13 @@ function set_cape_color( player_entity )
 	local cape_color
 	local cape_color_edge = "0x" .. string.format("%02x", cape_edge_rgba[4]) .. string.format("%02x", cape_edge_rgba[3]) .. string.format("%02x", cape_edge_rgba[2]) .. string.format("%02x", cape_edge_rgba[1])
 	if ( cape_rgba[1] == 0 ) then
+		-- cape color defaults to a value calculated from cape_edge_rgba
 		cape_color = "0x" .. string.format("%02x", cape_edge_rgba[4]) .. string.format("%02x", math.floor(cape_edge_rgba[3] * 0.8)) .. string.format("%02x", math.floor(cape_edge_rgba[2] * 0.8)) .. string.format("%02x", math.floor(cape_edge_rgba[1] * 0.8))
 	else
 		cape_color = "0x" .. string.format("%02x", cape_rgba[4]) .. string.format("%02x", cape_rgba[3]) .. string.format("%02x", cape_rgba[2]) .. string.format("%02x", cape_rgba[1])
 	end
 
-	-- GamePrintImportant( "cape_color: " .. cape_color .. " cape_color_edge: " .. cape_color_edge .. "", "" )
-
 	local cape = nil
-
 	local player_children = EntityGetAllChildren(player_entity)
 	if (player_children ~= nil) then
 		for i,child in ipairs(player_children) do			
@@ -231,25 +251,51 @@ function set_cape_color( player_entity )
 	end)
 end
 
--- Scope for noita_dev.exe
-ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/alchemist" )
-ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/arsonist" )
-ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/berzerker" ) 
-ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/blasto" ) 
-ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/bloodcultist" ) 
-ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/construction" ) 
-ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/eldritch" ) 
-ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/exploder" ) 
-ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/flylord" ) 
-ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/gambler" ) 
-ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/laser" ) 
-ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/ninja" ) 
-ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/planar" ) 
-ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/pyro" ) 
-ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/ratmancer" ) 
-ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/seer" ) 
-ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/slime" ) 
-ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/summoner" ) 
-ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/telekarate" ) 
-ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/telekinetic" ) 
-ModDevGenerateSpriteUVsForDirectory( "mods/thematic_random_starts/files/vampire" ) 
+function get_random_from( target )
+	local rnd = Random(1, #target)
+	return tostring(target[rnd])
+end
+
+function get_random_between_range( target )
+	local minval = target[1]
+	local maxval = target[2]
+	return Random(minval, maxval)
+end
+
+function init_wand( config )
+	local entity = EntityLoad("mods/thematic_random_starts/files/wands/wand_template.xml")
+	local ability_component = EntityGetFirstComponent(entity, "AbilityComponent")
+
+	if (config.gfx ~= nil) then
+		local gfx = config.gfx
+		local sprite = wand_gfx_root .. (gfx.sprite or "novice_wand") .. ".png"
+		local offset_x = 0.5 + (gfx.offset_x or 0.0)
+		local offset_y = 4.0 + (gfx.offset_y or 0.0)
+		local tip_x = 0.0 + (gfx.tip_x or 8.0)
+		local tip_y = 0.5 + (gfx.tip_y or 0.0)
+		SetWandSprite( entity, ability_component, sprite, offset_x, offset_y, tip_x, tip_y)
+		EntityRefreshSprite(entity, EntityGetFirstComponent( entity, "SpriteComponent", "item" ))
+	end
+
+	AddGunAction( entity, "LIGHT_BULLET" )
+
+	-- local wand_action = get_random_from( wand.actions )
+	-- AddGunAction( entity_id, wand_action )
+
+	-- ComponentSetValue( ability_comp, "ui_name", get_random_from( wand.name ) )
+	-- ComponentObjectSetValue( ability_comp, "gun_config", "reload_time", get_random_between_range( wand.reload_time ) )
+	-- ComponentObjectSetValue( ability_comp, "gunaction_config", "fire_rate_wait", get_random_between_range( wand.fire_rate_wait ) )
+	-- ComponentSetValue( ability_comp, "mana_charge_speed", get_random_between_range( wand.mana_charge_speed ) )
+	-- ComponentObjectSetValue( ability_comp, "gun_config", "actions_per_round", wand.actions_per_round )
+	-- ComponentObjectSetValue( ability_comp, "gun_config", "deck_capacity", deck_capacity )
+	-- ComponentObjectSetValue( ability_comp, "gun_config", "shuffle_deck_when_empty", wand.shuffle_deck_when_empty )
+	-- ComponentObjectSetValue( ability_comp, "gunaction_config", "spread_degrees", get_random_between_range( wand.spread_degrees ) )
+	-- ComponentObjectSetValue( ability_comp, "gunaction_config", "speed_multiplier", wand.speed_multiplier )
+
+	-- SetWandSprite(entity, ability, wand.file, wand.grip_x, wand.grip_y, (wand.tip_x - wand.grip_x), (wand.tip_y - wand.grip_y))
+	return entity
+end
+
+function get_random_var( vars )
+
+end

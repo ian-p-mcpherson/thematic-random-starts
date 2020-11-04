@@ -16,6 +16,29 @@ loadout_list =
 		{
 			"mods/thematic_random_starts/files/wands/slime_wand.xml",
 			"mods/thematic_random_starts/files/wands/slimesploder.xml",
+			{ wand = {
+				name = "slime_wand",
+				capacity = {{2,3}},
+				actions_per_round = {{1}},
+				reload_time = {{65, 75}},
+				shuffle_deck_when_empty = {{0}},
+				fire_rate_wait = {{20,25}},
+				spread_degrees = {{0,5}},
+				speed_multiplier = {{1}},
+				mana_charge_speed = {{60,70}},
+				mana_max = {{90,100}},
+				shuffle_actions = {{0}},
+				actions = {
+					{"LIGHT_BULLET_TRIGGER", "MIST_SLIME"}
+				},
+				actions_permanent = {
+					{}
+				},
+				gfx = {
+					sprite = "slime_wand",
+					offset_x = 1.0
+				}
+			}},
 			{ potion = "slime", amount = 1},
 		},
 		perks =
@@ -491,6 +514,259 @@ loadout_list =
 		perks =
 		{
 			"GENOME_MORE_HATRED",
+		}
+	},
+	{
+		-- ID: 22
+		name = "Magnetmancer",
+		class_id = "magnet",
+		color = "magnet",
+		
+		robe_color = {107, 117, 161, 255},
+		belt_color = {56, 68, 214, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {131, 64, 64, 255},
+
+		hp = 100,
+		items = 
+		{
+			"mods/thematic_random_starts/files/wands/magnet_stick.xml",
+			"mods/thematic_random_starts/files/wands/ball_wand.xml",
+			{ potion = "water", amount = 1},
+		},
+		perks =
+		{
+			"ATTRACT_ITEMS",
+		}
+	},
+	{
+		-- ID: 23
+		name = "Air Sage",
+		class_id = "airsage",
+		color = "airsage",
+		
+		robe_color = {224, 242, 255, 255},
+		belt_color = {151, 196, 218, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
+		hp = 90,
+		items = 
+		{
+			"mods/thematic_random_starts/files/wands/air_wand.xml",
+			"mods/thematic_random_starts/files/wands/rain_stick.xml",
+			{ potion = "water", amount = 2, quantity = 0},
+		},
+		perks =
+		{
+			"LOW_GRAVITY",
+		}
+	},
+	{
+		-- ID: 24
+		name = "Geomancer",
+		class_id = "geomancer",
+		color = "geomancer",
+		
+		robe_color = {224, 242, 255, 255},
+		belt_color = {151, 196, 218, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
+		hp = 100,
+		items = 
+		{
+			"mods/thematic_random_starts/files/wands/air_wand.xml",
+			"mods/thematic_random_starts/files/wands/levitator_wand.xml",
+			{ potion = "water", amount = 2, quantity = 0},
+		},
+		perks =
+		{
+			"EXPLODING_GOLD",
+		}
+	},
+	{
+		-- ID: 26
+		name = "Adventurer",
+		class_id = "adventurer",
+		color = "adventurer",
+		
+		robe_color = {224, 242, 255, 255},
+		belt_color = {151, 196, 218, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
+		hp = 80,
+		items = 
+		{
+			"mods/thematic_random_starts/files/wands/air_wand.xml",
+			"mods/thematic_random_starts/files/wands/levitator_wand.xml",
+			{ potion = "water", amount = 2, quantity = 0},
+		},
+		perks =
+		{
+			"GOLD_IS_FOREVER",
+		}
+	},
+	{
+		-- ID: 27
+		name = "Lightning Wizard",
+		class_id = "lightning",
+		color = "lightning",
+		
+		robe_color = {224, 242, 255, 255},
+		belt_color = {151, 196, 218, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
+		hp = 80,
+		items = 
+		{
+			"mods/thematic_random_starts/files/wands/air_wand.xml",
+			"mods/thematic_random_starts/files/wands/levitator_wand.xml",
+			{ potion = "water", amount = 2, quantity = 0},
+		},
+		perks =
+		{
+			"ELECTRICITY",
+		}
+	},
+	{
+		-- ID: 27
+		name = "Cryomancer",
+		class_id = "cryomancer",
+		color = "cryomancer",
+		
+		robe_color = {224, 242, 255, 255},
+		belt_color = {151, 196, 218, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
+		hp = 100,
+		items = 
+		{
+			"mods/thematic_random_starts/files/wands/air_wand.xml",
+			"mods/thematic_random_starts/files/wands/levitator_wand.xml",
+			{ potion = "water", amount = 2, quantity = 0},
+		},
+		perks =
+		{
+			"FREEZE_FIELD",
+		}
+	},
+	{
+		-- ID: 28
+		name = "Possessed Mage",
+		class_id = "possessed",
+		color = "possessed",
+		
+		robe_color = {224, 242, 255, 255},
+		belt_color = {151, 196, 218, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
+		hp = 90,
+		items = 
+		{
+			"mods/thematic_random_starts/files/wands/air_wand.xml",
+			"mods/thematic_random_starts/files/wands/levitator_wand.xml",
+			{ potion = "water", amount = 2, quantity = 0},
+		},
+		perks =
+		{
+			"ANGRY_GHOST",
+		}
+	},
+	{
+		-- ID: 29
+		name = "Wand Tinkerer",
+		class_id = "tinker",
+		color = "tinker",
+		
+		robe_color = {224, 242, 255, 255},
+		belt_color = {151, 196, 218, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
+		hp = 70,
+		items = 
+		{
+			"mods/thematic_random_starts/files/wands/air_wand.xml",
+			"mods/thematic_random_starts/files/wands/levitator_wand.xml",
+			{ potion = "water", amount = 2, quantity = 0},
+		},
+		perks =
+		{
+			"EDIT_WANDS_EVERYWHERE",
+		}
+	},
+	{
+		-- ID: 30
+		name = "Thrifty Shopper",
+		class_id = "thrifty",
+		color = "thrifty",
+		
+		robe_color = {224, 242, 255, 255},
+		belt_color = {151, 196, 218, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
+		hp = 90,
+		items = 
+		{
+			"mods/thematic_random_starts/files/wands/shiddy_wand.xml",
+			{ potion = "water", amount = 1, quantity = 500},
+			{ money = 200},
+		},
+		perks =
+		{
+			"EXTRA_PERK",
+		}
+	},
+	{
+		-- ID: 31
+		name = "Storm Wizard",
+		class_id = "storm",
+		color = "storm",
+		
+		robe_color = {224, 242, 255, 255},
+		belt_color = {151, 196, 218, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
+		hp = 90,
+		items = 
+		{
+			"mods/thematic_random_starts/files/wands/shiddy_wand.xml",
+			{ potion = "water", amount = 1, quantity = 500},
+			{ money = 200},
+		},
+		perks =
+		{
+			"EXTRA_PERK",
+		}
+	},
+	{
+		-- ID: 32
+		name = "Tidal Sorcerer",
+		class_id = "tide",
+		color = "tide",
+		
+		robe_color = {224, 242, 255, 255},
+		belt_color = {151, 196, 218, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
+		hp = 90,
+		items = 
+		{
+			"mods/thematic_random_starts/files/wands/shiddy_wand.xml",
+			{ potion = "water", amount = 1, quantity = 500},
+			{ money = 200},
+		},
+		perks =
+		{
+			"EXTRA_PERK",
 		}
 	}
 }

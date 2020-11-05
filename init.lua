@@ -88,6 +88,9 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 	if ( loadout_choice.cape_color_edge ~= nil) then cape_edge_rgba = loadout_choice.cape_color_edge end
 	set_cape_color( player_entity )
 
+	-- refresh sprites
+	EntityRefreshSprite(player_entity, player_sprite_component)
+
 	-- set inventory contents
 	if ( inventory ~= nil ) then
 		local inventory_items = EntityGetAllChildren( inventory )
@@ -185,7 +188,7 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 	end
 
 	-- tell the player what class they are
-	GamePrintImportant( "Class: " .. loadout_name .. "", "" )
+	GamePrintImportant( "You are a " .. loadout_name .. "",  tostring(get_random_from( loadout_choice.description )))
 end
 
 function get_random_potion( rarity )
@@ -252,11 +255,17 @@ function set_cape_color( player_entity )
 end
 
 function get_random_from( target )
-	local rnd = Random(1, #target)
-	return tostring(target[rnd])
+	if ( target ~= nil) then
+		local rnd = Random(1, #target)
+		return target[rnd]
+	end
+	return nil
 end
 
 function get_random_between_range( target )
+	if (table.getn( target ) == 1) then
+		return target[1]
+	end
 	local minval = target[1]
 	local maxval = target[2]
 	return Random(minval, maxval)
@@ -277,25 +286,41 @@ function init_wand( config )
 		EntityRefreshSprite(entity, EntityGetFirstComponent( entity, "SpriteComponent", "item" ))
 	end
 
-	AddGunAction( entity, "LIGHT_BULLET" )
+	local name = get_random_from(config.name) or {"wand"}
+	local deck_capacity = get_random_from(config.capacity) or {2,4}
+	local actions_per_round = get_random_from(config.capacity) or {1}
+	local reload_time = get_random_from(config.reload) or {30,40}
+	local shuffle_deck_when_empty = get_random_from(config.shuffle) or {1}
+	local fire_rate_wait = get_random_from(config.delay) or {10,15}
+	local spread_degrees = get_random_from(config.spread) or {0,5}
+	local speed_multiplier = get_random_from(config.speed) or {1}
+	local mana_charge_speed = get_random_from(config.regen) or {50,60}
+	local mana_max = get_random_from(config.man_max) or {140,150}
+	local actions = get_random_from(config.actions) or {}
+	local actions_permanent = get_random_from(config.actions_permanent) or {}
 
-	-- local wand_action = get_random_from( wand.actions )
-	-- AddGunAction( entity_id, wand_action )
+	ComponentSetValue( ability_component, "ui_name", get_random_from( name ) )
+	ComponentObjectSetValue( ability_component, "gun_config", "reload_time", get_random_between_range( reload_time ) )
+	ComponentObjectSetValue( ability_component, "gunaction_config", "fire_rate_wait", get_random_between_range( fire_rate_wait ) )
+	ComponentSetValue( ability_component, "mana_charge_speed", get_random_between_range( mana_charge_speed ) )
+	ComponentObjectSetValue( ability_component, "gun_config", "actions_per_round", get_random_between_range( actions_per_round ) )
+	deck_capacity = get_random_between_range( deck_capacity) 
+	ComponentObjectSetValue( ability_component, "gun_config", "deck_capacity", deck_capacity)
+	ComponentObjectSetValue( ability_component, "gun_config", "shuffle_deck_when_empty", get_random_from( shuffle_deck_when_empty ) )
+	ComponentObjectSetValue( ability_component, "gunaction_config", "spread_degrees", get_random_between_range( spread_degrees ) )
+	ComponentObjectSetValue( ability_component, "gunaction_config", "speed_multiplier", get_random_between_range( speed_multiplier ) )
+	local mana_max = get_random_between_range( mana_max)
+	ComponentSetValue( ability_component, "mana_max", mana_max )
+	ComponentSetValue( ability_component, "mana", mana_max )
 
-	-- ComponentSetValue( ability_comp, "ui_name", get_random_from( wand.name ) )
-	-- ComponentObjectSetValue( ability_comp, "gun_config", "reload_time", get_random_between_range( wand.reload_time ) )
-	-- ComponentObjectSetValue( ability_comp, "gunaction_config", "fire_rate_wait", get_random_between_range( wand.fire_rate_wait ) )
-	-- ComponentSetValue( ability_comp, "mana_charge_speed", get_random_between_range( wand.mana_charge_speed ) )
-	-- ComponentObjectSetValue( ability_comp, "gun_config", "actions_per_round", wand.actions_per_round )
-	-- ComponentObjectSetValue( ability_comp, "gun_config", "deck_capacity", deck_capacity )
-	-- ComponentObjectSetValue( ability_comp, "gun_config", "shuffle_deck_when_empty", wand.shuffle_deck_when_empty )
-	-- ComponentObjectSetValue( ability_comp, "gunaction_config", "spread_degrees", get_random_between_range( wand.spread_degrees ) )
-	-- ComponentObjectSetValue( ability_comp, "gunaction_config", "speed_multiplier", wand.speed_multiplier )
+	for i,action in ipairs(actions) do
+		if i > deck_capacity then break end
+		AddGunAction( entity, action )
+	end
 
-	-- SetWandSprite(entity, ability, wand.file, wand.grip_x, wand.grip_y, (wand.tip_x - wand.grip_x), (wand.tip_y - wand.grip_y))
+	for i,p_action in ipairs(actions_permanent) do
+		AddGunActionPermanent( entity, p_action )
+	end
+
 	return entity
-end
-
-function get_random_var( vars )
-
 end

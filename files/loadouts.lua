@@ -3,6 +3,7 @@ loadout_list =
 	{
 		-- ID: 1
 		name = "Slime Sorcerer",
+		description = {"A slimy fate awaits your foes...", "It's slime time."},
 		class_id = "slime",
 		color = "slime",
 
@@ -17,19 +18,18 @@ loadout_list =
 			"mods/thematic_random_starts/files/wands/slime_wand.xml",
 			"mods/thematic_random_starts/files/wands/slimesploder.xml",
 			{ wand = {
-				name = "slime_wand",
-				capacity = {{2,3}},
-				actions_per_round = {{1}},
-				reload_time = {{65, 75}},
-				shuffle_deck_when_empty = {{0}},
-				fire_rate_wait = {{20,25}},
-				spread_degrees = {{0,5}},
-				speed_multiplier = {{1}},
-				mana_charge_speed = {{60,70}},
-				mana_max = {{90,100}},
-				shuffle_actions = {{0}},
+				name = 		{{"slime_wand"}},
+				capacity = 	{{2,2}},
+				actions = 	{{1}},
+				reload = 	{{65, 75}},
+				shuffle = 	{{0}},
+				delay = 	{{20,25}},
+				spread = 	{{0,5}},
+				speed = 	{{1}},
+				regen = 	{{60,70}},
+				mana_max = 	{{90,100}},
 				actions = {
-					{"LIGHT_BULLET_TRIGGER", "MIST_SLIME"}
+					{"LIGHT_BULLET_TRIGGER", "MIST_SLIME"},
 				},
 				actions_permanent = {
 					{}

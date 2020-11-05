@@ -1049,9 +1049,50 @@ loadout_list =
 		hp = 100,
 		items = 
 		{
-			"mods/thematic_random_starts/files/wands/flamethrower.xml",
-			"mods/thematic_random_starts/files/wands/arson_stick.xml",
-			--"mods/thematic_random_starts/files/wands/torch.xml",
+			{ wand = {
+				name = 		{{"flamethrower"}},
+				capacity = 	{{3,3}},
+				per_round = {{1}},
+				reload = 	{{2,2}},
+				shuffle = 	{{1}},
+				delay = 	{{1,1}},
+				spread = 	{{10,12}},
+				speed = 	{{1}},
+				regen = 	{{40,50}},
+				mana_max = 	{{180,200}},
+				actions_permanent = {
+					{"GRAVITY"},
+				},
+				actions = {
+					{"TORCH","FLAMETHROWER","FLAMETHROWER"},
+				},
+				gfx = {
+					sprite = "flamethrower",
+					offset_x = 3.0,
+					tip_x = 10.0
+				}
+			}},
+			{ wand = {
+				name = 		{{"arson_stick"}},
+				capacity = 	{{1,1}},
+				per_round = {{1}},
+				reload = 	{{1,1}},
+				shuffle = 	{{0}},
+				delay = 	{{1,1}},
+				spread = 	{{10,12}},
+				speed = 	{{1}},
+				regen = 	{{1,1}},
+				mana_max = 	{{1,1}},
+				actions = {
+					{"MATERIAL_OIL"},
+				},
+				gfx = {
+					sprite = "arson_stick",
+					offset_x = 4.0,
+					tip_x = 5.0,
+					tip_y = 0.0
+				}
+			}},
 			{ potion = "water", amount = 1},
 		},
 		perks =

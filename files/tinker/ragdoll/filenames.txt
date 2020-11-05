@@ -1,0 +1,8 @@
+mods/thematic_random_starts/files/tinker/ragdoll/torso.png
+mods/thematic_random_starts/files/tinker/ragdoll/right_thigh.png
+mods/thematic_random_starts/files/tinker/ragdoll/right_arm.png
+mods/thematic_random_starts/files/tinker/ragdoll/right_hand.png
+mods/thematic_random_starts/files/tinker/ragdoll/left_thigh.png
+mods/thematic_random_starts/files/tinker/ragdoll/left_arm.png
+mods/thematic_random_starts/files/tinker/ragdoll/left_hand.png
+mods/thematic_random_starts/files/tinker/ragdoll/head.png

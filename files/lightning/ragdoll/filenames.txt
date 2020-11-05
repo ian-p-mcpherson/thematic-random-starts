@@ -1,0 +1,8 @@
+mods/thematic_random_starts/files/lightning/ragdoll/torso.png
+mods/thematic_random_starts/files/lightning/ragdoll/right_thigh.png
+mods/thematic_random_starts/files/lightning/ragdoll/right_arm.png
+mods/thematic_random_starts/files/lightning/ragdoll/right_hand.png
+mods/thematic_random_starts/files/lightning/ragdoll/left_thigh.png
+mods/thematic_random_starts/files/lightning/ragdoll/left_arm.png
+mods/thematic_random_starts/files/lightning/ragdoll/left_hand.png
+mods/thematic_random_starts/files/lightning/ragdoll/head.png

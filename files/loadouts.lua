@@ -1089,8 +1089,7 @@ loadout_list =
 				gfx = {
 					sprite = "arson_stick",
 					offset_x = 4.0,
-					tip_x = 5.0,
-					tip_y = 0.0
+					tip_x = 5.0
 				}
 			}},
 			{ potion = "water", amount = 1},
@@ -1103,7 +1102,7 @@ loadout_list =
 	{
 		-- ID: 19
 		name = "Ratmancer",
-		description = {"","",""},
+		description = {"\"Ratify\" takes on a whole new meaning...","...and you wonder if the Moon is actually made of cheese.","Vermin supreme..."},
 		class_id = "ratmancer",
 		color = "ratmancer",
 		
@@ -1115,7 +1114,28 @@ loadout_list =
 		hp = 90,
 		items = 
 		{
-			"mods/thematic_random_starts/files/wands/rat_on_a_stick.xml",
+			{ wand = {
+				name = 		{{"rat_on_a_stick"}},
+				capacity = 	{{3,3}},
+				per_round = {{1}},
+				reload = 	{{60,65}},
+				shuffle = 	{{1}},
+				delay = 	{{2,3}},
+				spread = 	{{5,7}},
+				speed = 	{{1}},
+				regen = 	{{40,60}},
+				mana_max = 	{{110,130}},
+				actions = {
+					{"SLIMEBALL","SLIMEBALL","SLIMEBALL"},
+				},
+				gfx = {
+					sprite = "rat_on_a_stick",
+					offset_x = 2.0,
+					offset_y = 1.0,
+					tip_x = 11.0,
+					tip_y = -2.0
+				}
+			}},
 			{ potion = "swamp", amount = 1},
 			{ potion = "acid", amount = 1},
 		},

@@ -526,8 +526,46 @@ loadout_list =
 		hp = 100,
 		items = 
 		{
-			"mods/thematic_random_starts/files/wands/novice_wand.xml",
-			"mods/thematic_random_starts/files/wands/bomb_stick.xml",
+			{ wand = {
+				name = 		{{"novice_wand"}},
+				capacity = 	{{2,2}},
+				per_round = {{1}},
+				reload = 	{{65,75}},
+				shuffle = 	{{1}},
+				delay = 	{{17,20}},
+				spread = 	{{7,10}},
+				speed = 	{{1}},
+				regen = 	{{20,30}},
+				mana_max = 	{{45,50}},
+				actions = {
+					{"FIREBOMB", "FIREBOMB"},
+				},
+				gfx = {
+					sprite = "novice_wand",
+					offset_x = 2.0,
+					tip_x = 9.0
+				}
+			}},
+			{ wand = {
+				name = 		{{"bomb_stick"}},
+				capacity = 	{{2,2}},
+				per_round = {{1}},
+				reload = 	{{55,65}},
+				shuffle = 	{{1}},
+				delay = 	{{10,15}},
+				spread = 	{{3,4}},
+				speed = 	{{1}},
+				regen = 	{{40,60}},
+				mana_max = 	{{110,130}},
+				actions = {
+					{"BOMB", "BOMB"},
+				},
+				gfx = {
+					sprite = "bomb_stick",
+					offset_x = 2.0,
+					tip_x = 9.0
+				}
+			}},
 			{ potion = "magic_liquid_berserk", amount = 1},
 		},
 		perks =

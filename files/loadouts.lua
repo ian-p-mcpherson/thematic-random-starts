@@ -158,7 +158,7 @@ loadout_list =
 	{
 		-- ID: 3
 		name = "Telekinetic",
-		description = {"","",""},
+		description = {"Time to give them a peice of your mind...","Catch.","Psychics have never been boulder."},
 		class_id = "telekinetic",
 		color = "telekinetic",
 		
@@ -170,7 +170,26 @@ loadout_list =
 		hp = 80,
 		items = 
 		{
-			"mods/thematic_random_starts/files/wands/pebble_stick.xml",
+			{ wand = {
+				name = 		{{"pebble_stick"}},
+				capacity = 	{{4,4}},
+				actions = 	{{1}},
+				reload = 	{{55, 65}},
+				shuffle = 	{{1}},
+				delay = 	{{10,15}},
+				spread = 	{{3,5}},
+				speed = 	{{1}},
+				regen = 	{{40,60}},
+				mana_max = 	{{110,130}},
+				actions = {
+					{"SUMMON_ROCK"},
+				},
+				gfx = {
+					sprite = "pebble_stick",
+					offset_x = 1.0,
+					tip_x = 10.0
+				}
+			}},
 			{ potion = "water", amount = 1},
 		},
 		perks =

@@ -625,7 +625,7 @@ loadout_list =
 	{
 		-- ID: 11
 		name = "Tele-Karate Master",
-		description = {"","",""},
+		description = {"Acceleratium has a real kick to it.","Master of the martial dark arts.","Sorcery is afoot."},
 		class_id = "telekarate",
 		color = "telekarate",
 		
@@ -637,7 +637,29 @@ loadout_list =
 		hp = 100,
 		items = 
 		{
-			"mods/thematic_random_starts/files/wands/telekarate_wand.xml",
+			{ wand = {
+				name = 		{{"telekarate_wand"}},
+				capacity = 	{{3,3}},
+				per_round = {{1}},
+				reload = 	{{60,60}},
+				shuffle = 	{{0}},
+				delay = 	{{18,22}},
+				spread = 	{{0,0}},
+				speed = 	{{1}},
+				regen = 	{{115,120}},
+				mana_max = 	{{190,210}},
+				actions = {
+					{"BURST_2", "TELEPORT_PROJECTILE_STATIC", "TELEPORT_PROJECTILE"},
+				},
+				actions_permanent = {
+					{"ENERGY_SHIELD_SECTOR"},
+				},
+				gfx = {
+					sprite = "telekarate_wand",
+					offset_x = 2.0,
+					tip_x = 8.0
+				}
+			}},
 			{ potion = "water", amount = 1},
 			{ potion = "magic_liquid_movement_faster", amount = 1},
 		},

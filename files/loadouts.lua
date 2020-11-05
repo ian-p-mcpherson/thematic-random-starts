@@ -735,7 +735,7 @@ loadout_list =
 	{
 		-- ID: 13
 		name = "Eldritch Cultist",
-		description = {"","",""},
+		description = {"You're a sucker for faustian bargains.","The robes don't fit quite like they used to...","Let's get kraken."},
 		class_id = "eldritch",
 		color = "eldritch",
 		
@@ -748,7 +748,46 @@ loadout_list =
 		items = 
 		{
 			"mods/thematic_random_starts/files/wands/tentacle_stick.xml",
-			"mods/thematic_random_starts/files/wands/torch.xml",
+			{ wand = {
+				name = 		{{"tentacle_stick"}},
+				capacity = 	{{4,4}},
+				per_round = {{1}},
+				reload = 	{{55,65}},
+				shuffle = 	{{1}},
+				delay = 	{{10,15}},
+				spread = 	{{3,4}},
+				speed = 	{{1}},
+				regen = 	{{40,60}},
+				mana_max = 	{{110,130}},
+				actions = {
+					{"TENTACLE"},
+				},
+				gfx = {
+					sprite = "tentacle_stick",
+					offset_x = 2.0,
+					tip_x = 10.0
+				}
+			}},
+			{ wand = {
+				name = 		{{"torch"}},
+				capacity = 	{{1,1}},
+				per_round = {{1}},
+				reload = 	{{60,60}},
+				shuffle = 	{{1}},
+				delay = 	{{1,1}},
+				spread = 	{{0,0}},
+				speed = 	{{1}},
+				regen = 	{{1,1}},
+				mana_max = 	{{1,1}},
+				actions = {
+					{"TORCH"},
+				},
+				gfx = {
+					sprite = "torch",
+					offset_x = 3.0,
+					tip_x = 7.0
+				}
+			}},
 			{ potion = "magic_liquid_berserk", amount = 1},
 		},
 		perks =
@@ -759,7 +798,7 @@ loadout_list =
 	{
 		-- ID: 14
 		name = "Planar Cultist",
-		description = {"","",""},
+		description = {"Your patron doesn't like visitors...","",""},
 		class_id = "planar",
 		color = "planar",
 		

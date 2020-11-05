@@ -1211,7 +1211,7 @@ loadout_list =
 	{
 		-- ID: 21
 		name = "Lord of the Flies",
-		description = {"One part magic, one part filth.","If the flies don't kill you, the smell will.","You're the answer to \"What's the buzz?\"."},
+		description = {"Is... is that real?.","If the flies don't kill you, the smell will.","You're the answer to \"What's the buzz?\"."},
 		class_id = "flylord",
 		color = "flylord",
 		
@@ -1223,7 +1223,48 @@ loadout_list =
 		hp = 100,
 		items = 
 		{
-			"mods/thematic_random_starts/files/wands/fly_stick.xml",
+			{ wand = {
+				name = 		{{"fly_stick"}},
+				capacity = 	{{1,1}},
+				per_round = {{1}},
+				reload = 	{{10,12}},
+				shuffle = 	{{1}},
+				delay = 	{{25,30}},
+				spread = 	{{20,22}},
+				speed = 	{{1}},
+				regen = 	{{9,11}},
+				mana_max = 	{{360,370}},
+				actions_permanent = {
+					{"DELAYED_SPELL"},
+				},
+				actions = {
+					{"FRIEND_FLY"},
+				},
+				gfx = {
+					sprite = "fly_stick",
+					offset_x = 1.0,
+					tip_x = 9.0
+				}
+			}},
+			{ wand = {
+				name = 		{{"initiate_wand"}},
+				capacity = 	{{2,2}},
+				per_round = {{1}},
+				reload = 	{{55,60}},
+				shuffle = 	{{1}},
+				delay = 	{{14,16}},
+				spread = 	{{2,3}},
+				speed = 	{{1}},
+				regen = 	{{20,30}},
+				mana_max = 	{{45,50}},
+				actions = {
+					{"RUBBER_BALL","RUBBER_BALL"},
+				},
+				gfx = {
+					sprite = "initiate_wand",
+					offset_x = 2.0
+				}
+			}},
 			{ potion = "swamp", amount = 1},
 			{ potion = "poo", amount = 1},
 		},

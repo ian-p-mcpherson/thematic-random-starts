@@ -297,7 +297,7 @@ function init_wand( config )
 	local spread_degrees = get_random_from(config.spread) or {0,5}
 	local speed_multiplier = get_random_from(config.speed) or {1}
 	local mana_charge_speed = get_random_from(config.regen) or {50,60}
-	local mana_max = get_random_from(config.man_max) or {140,150}
+	local mana_max = get_random_from(config.mana_max) or {140,150}
 	local actions = get_random_from(config.actions) or {}
 	local actions_permanent = get_random_from(config.actions_permanent) or {}
 

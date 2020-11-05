@@ -671,7 +671,7 @@ loadout_list =
 	{
 		-- ID: 12
 		name = "Berserker",
-		description = {"Doomed to be a slayer of sorts...","...and you're all out of bubblegum.","To win, shoot at things until they die."},
+		description = {"Doomed to be a slayer of sorts...","...and you're all out of bubblegum.","To kill the boss, shoot at it until it dies."},
 		class_id = "berzerker",
 		color = "berzerker",
 		
@@ -869,11 +869,53 @@ loadout_list =
 		cape_color_edge = {207, 205, 205, 255},
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
-		hp = 70,
+		hp = 80,
 		items = 
 		{
-			"mods/thematic_random_starts/files/wands/crystal_wand.xml",
-			"mods/thematic_random_starts/files/wands/crystal_detonator.xml",
+			{ wand = {
+				name = 		{{"crystal_wand"}},
+				capacity = 	{{4,4}},
+				per_round = {{1}},
+				reload = 	{{15,20}},
+				shuffle = 	{{1}},
+				delay = 	{{55,65}},
+				spread = 	{{5,7}},
+				speed = 	{{1}},
+				regen = 	{{20,30}},
+				mana_max = 	{{45,50}},
+				actions = {
+					{"PIPE_BOMB","PIPE_BOMB"},
+				},
+				gfx = {
+					sprite = "crystal_wand",
+					offset_x = 2.0
+				}
+			}},
+			{ wand = {
+				name = 		{{"crystal_detonator"}},
+				capacity = 	{{1,1}},
+				per_round = {{1}},
+				reload = 	{{180,180}},
+				shuffle = 	{{1}},
+				delay = 	{{30,30}},
+				spread = 	{{10,15}},
+				speed = 	{{1}},
+				regen = 	{{20,20}},
+				mana_max = 	{{50,50}},
+				actions_permanent = {
+					{"DELAYED_SPELL"},
+				},
+				actions = {
+					{"PIPE_BOMB_DETONATOR"},
+				},
+				gfx = {
+					sprite = "crystal_detonator",
+					offset_x = 1.0,
+					offset_y = 1.0,
+					tip_x = 9.0,
+					tip_y = -1.0,
+				}
+			}},
 			{ potion = "water", amount = 1},
 			{ potion = "blood_fungi", amount = 1},
 		},
@@ -885,7 +927,7 @@ loadout_list =
 	{
 		-- ID: 16
 		name = "Alchemist",
-		description = {"","",""},
+		description = {"The Work is personal this time...","No need to be so reactionary...","You've always been a practical learner."},
 		class_id = "alchemist",
 		color = "alchemist",
 		
@@ -897,7 +939,26 @@ loadout_list =
 		hp = 100,
 		items = 
 		{
-			"mods/thematic_random_starts/files/wands/alchemist_wand.xml",
+			{ wand = {
+				name = 		{{"alchemist_wand"}},
+				capacity = 	{{3,3}},
+				per_round = {{1}},
+				reload = 	{{1,1}},
+				shuffle = 	{{1}},
+				delay = 	{{5,6}},
+				spread = 	{{4,6}},
+				speed = 	{{1}},
+				regen = 	{{10,12}},
+				mana_max = 	{{15,16}},
+				actions = {
+					{"RUBBER_BALL","RUBBER_BALL","RUBBER_BALL"},
+				},
+				gfx = {
+					sprite = "alchemist_wand",
+					offset_x = 2.0,
+					tip_x = 9.0
+				}
+			}},
 			{ potion = "random", rarity = 1, amount = 1},
 			{ potion = "random", rarity = 2, amount = 1},
 			{ potion = "random", rarity = 3, amount = 1},

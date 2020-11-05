@@ -325,7 +325,7 @@ loadout_list =
 	{
 		-- ID: 6
 		name = "Ninja",
-		description = {"Silent, but deadly.","This loadout has a hidden feature.","I need a new knife..."},
+		description = {"Silent, but deadly.","This loadout has a hidden feature.","You've been known to be a bit edgy..."},
 		class_id = "ninja",
 		color = "ninja",
 		
@@ -576,7 +576,7 @@ loadout_list =
 	{
 		-- ID: 10
 		name = "Gambler",
-		description = {"All in on odd.","",""},
+		description = {"Fish? Again?!","All in on worm.","Never tell me the odds. (It's for the best)"},
 		class_id = "gambler",
 		color = "gambler",
 		
@@ -588,7 +588,32 @@ loadout_list =
 		hp = 60,
 		items = 
 		{
-			"mods/thematic_random_starts/files/wands/lucky_wand.xml",
+			{ wand = {
+				name = 		{{"lucky_wand"}},
+				capacity = 	{{5,5}},
+				per_round = {{1}},
+				reload = 	{{45,55}},
+				shuffle = 	{{1}},
+				delay = 	{{14,16}},
+				spread = 	{{5,15}},
+				speed = 	{{1}},
+				regen = 	{{50,60}},
+				mana_max = 	{{100,120}},
+				actions = {
+					{
+						"DAMAGE_RANDOM", 
+						"CHAOTIC_ARC", 
+						{ "BUBBLESHOT", "BOUNCY_ORB", "ARROW", "FIREBOMB", "RUBBER_BALL", "SPITTER", "LIGHT_BULLET"}, 
+						{ "BUBBLESHOT", "BOUNCY_ORB", "ARROW", "FIREBOMB", "RUBBER_BALL", "SPITTER", "LIGHT_BULLET"}, 
+						{ "BUBBLESHOT", "BOUNCY_ORB", "ARROW", "FIREBOMB", "RUBBER_BALL", "SPITTER", "LIGHT_BULLET"}
+					},
+				},
+				gfx = {
+					sprite = "lucky_wand",
+					offset_x = 2.0,
+					tip_x = 9.0
+				}
+			}},
 			{ potion = "magic_liquid_random_polymorph", amount = 1},
 			{ potion = "alcohol", amount = 1},
 		},

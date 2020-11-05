@@ -255,6 +255,7 @@ function set_cape_color( player_entity )
 end
 
 function get_random_from( target )
+	if (type(target) ~= "table") then return target end
 	if ( target ~= nil) then
 		local rnd = Random(1, #target)
 		return target[rnd]
@@ -263,6 +264,7 @@ function get_random_from( target )
 end
 
 function get_random_between_range( target )
+	if (type(target) ~= "table") then return target end
 	if (table.getn( target ) == 1) then
 		return target[1]
 	end
@@ -315,11 +317,11 @@ function init_wand( config )
 
 	for i,action in ipairs(actions) do
 		if i > deck_capacity then break end
-		AddGunAction( entity, action )
+		AddGunAction( entity, get_random_from( action ) )
 	end
 
 	for i,p_action in ipairs(actions_permanent) do
-		AddGunActionPermanent( entity, p_action )
+		AddGunActionPermanent( entity, get_random_from( p_action ) )
 	end
 
 	return entity

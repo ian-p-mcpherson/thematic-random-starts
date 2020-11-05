@@ -275,8 +275,46 @@ loadout_list =
 		hp = 100,
 		items = 
 		{
-			"mods/thematic_random_starts/files/wands/blade_stick.xml",
-			"mods/thematic_random_starts/files/wands/chainsaw.xml",
+			{ wand = {
+				name = 		{{"blade_stick"}},
+				capacity = 	{{3,3}},
+				per_round = {{1}},
+				reload = 	{{10, 12}},
+				shuffle = 	{{1}},
+				delay = 	{{10,15}},
+				spread = 	{{20,22}},
+				speed = 	{{1}},
+				regen = 	{{35,40}},
+				mana_max = 	{{65,75}},
+				actions = {
+					{"SPEED", "HITFX_CRITICAL_BLOOD", "DISC_BULLET"},
+				},
+				gfx = {
+					sprite = "blade_stick",
+					offset_x = 1.0,
+					tip_x = 10.0
+				}
+			}},
+			{ wand = {
+				name = 		{{"chainsaw"}},
+				capacity = 	{{1,1}},
+				per_round = {{1}},
+				reload = 	{{12, 12}},
+				shuffle = 	{{1}},
+				delay = 	{{10,10}},
+				spread = 	{{0,0}},
+				speed = 	{{1}},
+				regen = 	{{20,22}},
+				mana_max = 	{{20,30}},
+				actions = {
+					{"CHAINSAW"},
+				},
+				gfx = {
+					sprite = "chainsaw",
+					offset_x = 1.0,
+					tip_x = 6.0
+				}
+			}},
 			{ potion = "blood", amount = 1},
 		},
 		perks =
@@ -287,7 +325,7 @@ loadout_list =
 	{
 		-- ID: 6
 		name = "Ninja",
-		description = {"","",""},
+		description = {"Silent, but deadly.","This loadout has a hidden feature.","I need a better \"wand\"..."},
 		class_id = "ninja",
 		color = "ninja",
 		
@@ -299,9 +337,29 @@ loadout_list =
 		hp = 60,
 		items = 
 		{
-			"mods/thematic_random_starts/files/wands/knife.xml",
+
 			--"mods/thematic_random_starts/files/wands/ninja_stars.xml",
 			"mods/thematic_random_starts/files/wands/ninja_stars_alt.xml",
+			{ wand = {
+				name = 		{{"knife"}},
+				capacity = 	{{1,1}},
+				per_round = {{1}},
+				reload = 	{{12, 12}},
+				shuffle = 	{{1}},
+				delay = 	{{1,1}},
+				spread = 	{{0,0}},
+				speed = 	{{1}},
+				regen = 	{{1,1}},
+				mana_max = 	{{1,1}},
+				actions = {
+					{"KNIFE"},
+				},
+				gfx = {
+					sprite = "knife",
+					offset_x = 1.0,
+					tip_x = 1.0
+				}
+			}},
 			{ potion = "smoke", amount = 1},
 		},
 		perks =

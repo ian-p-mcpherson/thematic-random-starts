@@ -6,7 +6,7 @@ dofile( "data/scripts/perks/perk.lua" )
 ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/thematic_random_starts/files/spells/gun_actions.lua")
 
 -- Edit this if you want to choose a class byt he ID in loadouts.lua
-local loadout_override = 3
+local loadout_override = 4
 
 -- cape defaults (gray)
 local robe_rgba = {140, 140, 140, 255}
@@ -288,7 +288,7 @@ function init_wand( config )
 
 	local name = get_random_from(config.name) or {"wand"}
 	local deck_capacity = get_random_from(config.capacity) or {2,4}
-	local actions_per_round = get_random_from(config.capacity) or {1}
+	local actions_per_round = get_random_from(config.per_round) or {1}
 	local reload_time = get_random_from(config.reload) or {30,40}
 	local shuffle_deck_when_empty = get_random_from(config.shuffle) or {1}
 	local fire_rate_wait = get_random_from(config.delay) or {10,15}

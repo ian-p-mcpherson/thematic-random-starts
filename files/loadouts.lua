@@ -6,7 +6,7 @@ note: 	gfx.sprite corresponds with a .png file in:
 			{ wand = {
 				name = 		{{"wand_name"}},
 				capacity = 	{{1,2}},
-				actions = 	{{1}},
+				per_round = 	{{1}},
 				reload = 	{{40, 50}},
 				shuffle = 	{{0}},
 				delay = 	{{20,25}},
@@ -50,7 +50,7 @@ loadout_list =
 			{ wand = {
 				name = 		{{"slime_wand"}},
 				capacity = 	{{2,2}},
-				actions = 	{{1}},
+				per_round = {{1}},
 				reload = 	{{65, 75}},
 				shuffle = 	{{0}},
 				delay = 	{{20,25}},
@@ -69,7 +69,7 @@ loadout_list =
 			{ wand = {
 				name = 		{{"slimesploder"}},
 				capacity = 	{{4,4}},
-				actions = 	{{1}},
+				per_round = {{1}},
 				reload = 	{{35, 40}},
 				shuffle = 	{{1}},
 				delay = 	{{30,40}},
@@ -113,7 +113,7 @@ loadout_list =
 			{ wand = {
 				name = 		{{"dirt_shovel"}},
 				capacity = 	{{2,2}},
-				actions = 	{{1}},
+				per_round = {{1}},
 				reload = 	{{55, 65}},
 				shuffle = 	{{0}},
 				delay = 	{{10,15}},
@@ -132,7 +132,7 @@ loadout_list =
 			{ wand = {
 				name = 		{{"drill"}},
 				capacity = 	{{1,1}},
-				actions = 	{{1}},
+				per_round = {{1}},
 				reload = 	{{5, 5}},
 				shuffle = 	{{0}},
 				delay = 	{{3,3}},
@@ -173,7 +173,7 @@ loadout_list =
 			{ wand = {
 				name = 		{{"pebble_stick"}},
 				capacity = 	{{4,4}},
-				actions = 	{{1}},
+				per_round = {{1}},
 				reload = 	{{55, 65}},
 				shuffle = 	{{1}},
 				delay = 	{{10,15}},
@@ -182,7 +182,7 @@ loadout_list =
 				regen = 	{{40,60}},
 				mana_max = 	{{110,130}},
 				actions = {
-					{"SUMMON_ROCK"},
+					{"SUMMON_ROCK", "SUMMON_ROCK"},
 				},
 				gfx = {
 					sprite = "pebble_stick",
@@ -200,7 +200,7 @@ loadout_list =
 	{
 		-- ID: 4
 		name = "Vampire",
-		description = {"","",""},
+		description = {"Somehow you know this run will suck.","Your bite is worse than your bark.","Good thing a hardware store was nearby..."},
 		class_id = "vampire",
 		color = "vampire",
 		
@@ -212,8 +212,47 @@ loadout_list =
 		hp = 60,
 		items = 
 		{
-			"mods/thematic_random_starts/files/wands/crossbow.xml",
-			"mods/thematic_random_starts/files/wands/chainsaw.xml",
+			{ wand = {
+				name = 		{{"crossbow"}},
+				capacity = 	{{3,3}},
+				per_round = {{1}},
+				reload = 	{{115, 125}},
+				shuffle = 	{{1}},
+				delay = 	{{5,7}},
+				spread = 	{{1,2}},
+				speed = 	{{1}},
+				regen = 	{{40,45}},
+				mana_max = 	{{45,50}},
+				actions = {
+					{"ARROW", "ARROW", "ARROW"},
+				},
+				gfx = {
+					sprite = "crossbow",
+					offset_x = 4.0,
+					tip_x = 9.0,
+					tip_y = -1.0
+				}
+			}},
+			{ wand = {
+				name = 		{{"chainsaw"}},
+				capacity = 	{{1,1}},
+				per_round = {{1}},
+				reload = 	{{12, 12}},
+				shuffle = 	{{1}},
+				delay = 	{{10,10}},
+				spread = 	{{0,0}},
+				speed = 	{{1}},
+				regen = 	{{20,22}},
+				mana_max = 	{{20,30}},
+				actions = {
+					{"CHAINSAW"},
+				},
+				gfx = {
+					sprite = "chainsaw",
+					offset_x = 1.0,
+					tip_x = 6.0
+				}
+			}},
 			{ potion = "blood", amount = 1},
 		},
 		perks =
@@ -224,7 +263,7 @@ loadout_list =
 	{
 		-- ID: 5
 		name = "Blood Cultist",
-		description = {"","",""},
+		description = {"Time to find some new \"initiates\"...","You've got plenty of time to bleed.","You've learned to always B positive."},
 		class_id = "bloodcultist",
 		color = "bloodcultist",
 		
@@ -642,7 +681,7 @@ loadout_list =
 	{
 		-- ID: 22
 		name = "Magnetmancer",
-		description = {"","",""},
+		description = {"Your mother did say you were attractive...","",""},
 		class_id = "magnet",
 		color = "magnet",
 		

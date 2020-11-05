@@ -6,7 +6,7 @@ dofile( "data/scripts/perks/perk.lua" )
 ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/thematic_random_starts/files/spells/gun_actions.lua")
 
 -- Edit this if you want to choose a class byt he ID in loadouts.lua
-local loadout_override = 4
+local loadout_override = -1
 
 -- cape defaults (gray)
 local robe_rgba = {140, 140, 140, 255}

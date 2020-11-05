@@ -1,5 +1,5 @@
 <Sprite
-  filename="mods/thematic_random_starts/files/default/player_arm.png"
+  filename="mods/thematic_random_starts/files/template/player_arm.png"
   hotspots_filename="data/enemies_gfx/player_arm_hotspots.png"
   offset_x="0"
   offset_y="2" 

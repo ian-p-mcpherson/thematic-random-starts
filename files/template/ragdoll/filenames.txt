@@ -1,0 +1,8 @@
+mods/thematic_random_starts/files/template/ragdoll/torso.png
+mods/thematic_random_starts/files/template/ragdoll/right_thigh.png
+mods/thematic_random_starts/files/template/ragdoll/right_arm.png
+mods/thematic_random_starts/files/template/ragdoll/right_hand.png
+mods/thematic_random_starts/files/template/ragdoll/left_thigh.png
+mods/thematic_random_starts/files/template/ragdoll/left_arm.png
+mods/thematic_random_starts/files/template/ragdoll/left_hand.png
+mods/thematic_random_starts/files/template/ragdoll/head.png

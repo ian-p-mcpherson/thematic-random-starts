@@ -625,7 +625,7 @@ loadout_list =
 	{
 		-- ID: 11
 		name = "Tele-Karate Master",
-		description = {"Acceleratium has a real kick to it.","Master of the martial dark arts.","Sorcery is afoot."},
+		description = {"Acceleratium has a real kick to it.","Master of the martial dark arts.","Sorcery is afoot..."},
 		class_id = "telekarate",
 		color = "telekarate",
 		
@@ -671,7 +671,7 @@ loadout_list =
 	{
 		-- ID: 12
 		name = "Berserker",
-		description = {"","",""},
+		description = {"Doomed to be a slayer of sorts...","...and you're all out of bubblegum.","To win, shoot at things until they die."},
 		class_id = "berzerker",
 		color = "berzerker",
 		
@@ -683,8 +683,48 @@ loadout_list =
 		hp = 80,
 		items = 
 		{
-			"mods/thematic_random_starts/files/wands/boomstick.xml",
-			"mods/thematic_random_starts/files/wands/chainsaw.xml",
+			{ wand = {
+				name = 		{{"boomstick"}},
+				capacity = 	{{2,2}},
+				per_round = {{1}},
+				reload = 	{{160,170}},
+				shuffle = 	{{1}},
+				delay = 	{{1,2}},
+				spread = 	{{5,7}},
+				speed = 	{{1}},
+				regen = 	{{20,25}},
+				mana_max = 	{{50,55}},
+				actions = {
+					{"BUCKSHOT", "BUCKSHOT"},
+				},
+				gfx = {
+					sprite = "boomstick",
+					offset_x = 3.0,
+					offset_y = 1.0,
+					tip_x = 7.0,
+					tip_y = -3.0
+				}
+			}},
+			{ wand = {
+				name = 		{{"chainsaw"}},
+				capacity = 	{{1,1}},
+				per_round = {{1}},
+				reload = 	{{12,12}},
+				shuffle = 	{{1}},
+				delay = 	{{10,10}},
+				spread = 	{{0,0}},
+				speed = 	{{1}},
+				regen = 	{{20,22}},
+				mana_max = 	{{20,30}},
+				actions = {
+					{"CHAINSAW"},
+				},
+				gfx = {
+					sprite = "chainsaw",
+					offset_x = 1.0,
+					tip_x = 6.0
+				}
+			}},
 			{ potion = "magic_liquid_berserk", amount = 1},
 		},
 		perks =
@@ -744,7 +784,7 @@ loadout_list =
 	{
 		-- ID: 15
 		name = "Crystal Seer",
-		description = {"A mine is a terrible things to waste...","",""},
+		description = {"A mine is a terrible things to waste...","The fungi tastes like schnozberries.","...but you didn't see that one coming."},
 		class_id = "seer",
 		color = "seer",
 		

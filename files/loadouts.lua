@@ -110,8 +110,43 @@ loadout_list =
 		hp = 100,
 		items = 
 		{
-			"mods/thematic_random_starts/files/wands/dirt_shovel.xml",
-			"mods/thematic_random_starts/files/wands/drill.xml",
+			{ wand = {
+				name = 		{{"dirt_shovel"}},
+				capacity = 	{{2,2}},
+				actions = 	{{1}},
+				reload = 	{{55, 65}},
+				shuffle = 	{{0}},
+				delay = 	{{10,15}},
+				spread = 	{{0,0}},
+				speed = 	{{1}},
+				regen = 	{{18,22}},
+				mana_max = 	{{110,130}},
+				actions = {
+					{"LASER_LUMINOUS_DRILL", "SOILBALL"},
+				},
+				gfx = {
+					sprite = "dirt_shovel",
+					offset_x = 2.0,
+				}
+			}},
+			{ wand = {
+				name = 		{{"drill"}},
+				capacity = 	{{1,1}},
+				actions = 	{{1}},
+				reload = 	{{5, 5}},
+				shuffle = 	{{0}},
+				delay = 	{{3,3}},
+				spread = 	{{0,0}},
+				speed = 	{{1}},
+				regen = 	{{50,60}},
+				mana_max = 	{{20,30}},
+				actions = {
+					{"DIGGER"},
+				},
+				gfx = {
+					sprite = "drill",
+				}
+			}},
 			{ potion = "cement", amount = 1},
 			{ potion = "water", amount = 1},
 		},

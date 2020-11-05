@@ -1102,7 +1102,7 @@ loadout_list =
 	{
 		-- ID: 19
 		name = "Ratmancer",
-		description = {"\"Ratify\" takes on a whole new meaning...","...and you wonder if the Moon is actually made of cheese.","Vermin supreme..."},
+		description = {"\"Ratify\" takes on a whole new meaning...","...and you wonder if the Moon is actually made of cheese.","Ratting on someone has never been taken more literally..."},
 		class_id = "ratmancer",
 		color = "ratmancer",
 		
@@ -1147,7 +1147,7 @@ loadout_list =
 	{
 		-- ID: 20
 		name = "Summoner",
-		description = {"","",""},
+		description = {"You can't summon without breaking some eggs...","Something is wrong with your perfume...","Friendly fire has never been more friendly."},
 		class_id = "summoner",
 		color = "summoner",
 		
@@ -1159,8 +1159,46 @@ loadout_list =
 		hp = 100,
 		items = 
 		{
-			"mods/thematic_random_starts/files/wands/spitter_wand.xml",
-			"mods/thematic_random_starts/files/wands/summon_stick.xml",
+			{ wand = {
+				name = 		{{"spitter_wand"}},
+				capacity = 	{{2,2}},
+				per_round = {{1}},
+				reload = 	{{35,40}},
+				shuffle = 	{{1}},
+				delay = 	{{6,8}},
+				spread = 	{{5,7}},
+				speed = 	{{1}},
+				regen = 	{{50,60}},
+				mana_max = 	{{45,50}},
+				actions = {
+					{"SPITTER","SPITTER"},
+				},
+				gfx = {
+					sprite = "spitter_wand",
+					offset_x = 1.0,
+					tip_x = 9.0
+				}
+			}},
+			{ wand = {
+				name = 		{{"summon_stick"}},
+				capacity = 	{{4,4}},
+				per_round = {{1}},
+				reload = 	{{80,90}},
+				shuffle = 	{{1}},
+				delay = 	{{35,40}},
+				spread = 	{{2,3}},
+				speed = 	{{1}},
+				regen = 	{{20,30}},
+				mana_max = 	{{150,160}},
+				actions = {
+					{"SUMMON_EGG","SUMMON_EGG","SUMMON_EGG","SUMMON_EGG"},
+				},
+				gfx = {
+					sprite = "summon_stick",
+					offset_x = 1.0,
+					tip_x = 9.0
+				}
+			}},
 			{ potion = "water", amount = 1},
 			{ potion = "magic_liquid_charm", amount = 1},
 		},
@@ -1173,7 +1211,7 @@ loadout_list =
 	{
 		-- ID: 21
 		name = "Lord of the Flies",
-		description = {"","",""},
+		description = {"One part magic, one part filth.","If the flies don't kill you, the smell will.","You're the answer to \"What's the buzz?\"."},
 		class_id = "flylord",
 		color = "flylord",
 		

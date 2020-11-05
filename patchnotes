@@ -1,0 +1,6 @@
+Tweaked values across the board for wands, loadouts, etc. (too many to list)
+Moved all shield spells to always cast
+Added descriptions to loadouts
+Added puns
+Converted all wands to new wand building code (nothing front-end, just makes new loadouts way easier to make)
+UVs and loadout color files are now generated via script

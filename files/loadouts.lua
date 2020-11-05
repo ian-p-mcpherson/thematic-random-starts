@@ -1,9 +1,41 @@
+--[[ Wand Template
+
+note: 	gfx.sprite corresponds with a .png file in:
+		mods/thematic_random_starts/files/wands/gfx/	
+
+			{ wand = {
+				name = 		{{"wand_name"}},
+				capacity = 	{{1,2}},
+				actions = 	{{1}},
+				reload = 	{{40, 50}},
+				shuffle = 	{{0}},
+				delay = 	{{20,25}},
+				spread = 	{{0,5}},
+				speed = 	{{1}},
+				regen = 	{{40,50}},
+				mana_max = 	{{140,150}},
+				actions = {
+					{"LIGHT_BULLET", "MIST_SLIME"},
+				},
+				actions_permanent = {
+					{"SPEED"}
+				},
+				gfx = {
+					sprite = "wand_filename",
+					offset_x = 1.0,
+					offset_y = 1.0,
+					tip_x = 8.0,
+					tip_y = 0.0
+				}
+			}},
+]]
+
 loadout_list =
 {
 	{
 		-- ID: 1
 		name = "Slime Sorcerer",
-		description = {"A slimy fate awaits your foes...", "It's slime time."},
+		description = {"A slimy fate awaits your foes...", "Once upon a slime...", "What have you got to ooze?"},
 		class_id = "slime",
 		color = "slime",
 
@@ -15,8 +47,6 @@ loadout_list =
 		hp = 100,
 		items = 
 		{
-			"mods/thematic_random_starts/files/wands/slime_wand.xml",
-			"mods/thematic_random_starts/files/wands/slimesploder.xml",
 			{ wand = {
 				name = 		{{"slime_wand"}},
 				capacity = 	{{2,2}},
@@ -31,11 +61,30 @@ loadout_list =
 				actions = {
 					{"LIGHT_BULLET_TRIGGER", "MIST_SLIME"},
 				},
-				actions_permanent = {
-					{}
-				},
 				gfx = {
 					sprite = "slime_wand",
+					offset_x = 1.0
+				}
+			}},
+			{ wand = {
+				name = 		{{"slimesploder"}},
+				capacity = 	{{4,4}},
+				actions = 	{{1}},
+				reload = 	{{35, 40}},
+				shuffle = 	{{1}},
+				delay = 	{{30,40}},
+				spread = 	{{0,0}},
+				speed = 	{{1}},
+				regen = 	{{30,40}},
+				mana_max = 	{{150,160}},
+				actions = {
+					{"SLIMEBALL"},
+				},
+				actions_permanent = {
+					{"HITFX_EXPLOSION_SLIME"}
+				},
+				gfx = {
+					sprite = "slimesploder",
 					offset_x = 1.0
 				}
 			}},
@@ -49,6 +98,7 @@ loadout_list =
 	{
 		-- ID: 2
 		name = "Construction Conjurer",
+		description = {"One more inspection and you can retire...", "This place is NOT up to code...", "The suspense is building..."},
 		class_id = "construction",
 		color = "construction",
 		
@@ -73,6 +123,7 @@ loadout_list =
 	{
 		-- ID: 3
 		name = "Telekinetic",
+		description = {"","",""},
 		class_id = "telekinetic",
 		color = "telekinetic",
 		
@@ -95,6 +146,7 @@ loadout_list =
 	{
 		-- ID: 4
 		name = "Vampire",
+		description = {"","",""},
 		class_id = "vampire",
 		color = "vampire",
 		
@@ -118,6 +170,7 @@ loadout_list =
 	{
 		-- ID: 5
 		name = "Blood Cultist",
+		description = {"","",""},
 		class_id = "bloodcultist",
 		color = "bloodcultist",
 		
@@ -141,6 +194,7 @@ loadout_list =
 	{
 		-- ID: 6
 		name = "Ninja",
+		description = {"","",""},
 		class_id = "ninja",
 		color = "ninja",
 		
@@ -165,6 +219,7 @@ loadout_list =
 	{
 		-- ID: 7
 		name = "Laser Wizard",
+		description = {"","",""},
 		class_id = "laser",
 		color = "laser",
 		
@@ -188,6 +243,7 @@ loadout_list =
 	{
 		-- ID: 8
 		name = "Demolitionist",
+		description = {"","",""},
 		class_id = "exploder",
 		color = "exploder",
 		
@@ -212,6 +268,7 @@ loadout_list =
 	{
 		-- ID: 9
 		name = "Blastomancer",
+		description = {"","",""},
 		class_id = "blasto",
 		color = "blasto",
 		
@@ -236,6 +293,7 @@ loadout_list =
 	{
 		-- ID: 10
 		name = "Gambler",
+		description = {"","",""},
 		class_id = "gambler",
 		color = "gambler",
 		
@@ -259,6 +317,7 @@ loadout_list =
 	{
 		-- ID: 11
 		name = "Tele-Karate Master",
+		description = {"","",""},
 		class_id = "telekarate",
 		color = "telekarate",
 		
@@ -282,6 +341,7 @@ loadout_list =
 	{
 		-- ID: 12
 		name = "Berserker",
+		description = {"","",""},
 		class_id = "berzerker",
 		color = "berzerker",
 		
@@ -305,6 +365,7 @@ loadout_list =
 	{
 		-- ID: 13
 		name = "Eldritch Cultist",
+		description = {"","",""},
 		class_id = "eldritch",
 		color = "eldritch",
 		
@@ -328,6 +389,7 @@ loadout_list =
 	{
 		-- ID: 14
 		name = "Planar Cultist",
+		description = {"","",""},
 		class_id = "planar",
 		color = "planar",
 		
@@ -352,6 +414,7 @@ loadout_list =
 	{
 		-- ID: 15
 		name = "Crystal Seer",
+		description = {"","",""},
 		class_id = "seer",
 		color = "seer",
 		
@@ -376,6 +439,7 @@ loadout_list =
 	{
 		-- ID: 16
 		name = "Alchemist",
+		description = {"","",""},
 		class_id = "alchemist",
 		color = "alchemist",
 		
@@ -401,6 +465,7 @@ loadout_list =
 	{
 		-- ID: 17
 		name = "Pyromancer",
+		description = {"","",""},
 		class_id = "pyro",
 		color = "pyro",
 		
@@ -424,6 +489,7 @@ loadout_list =
 	{
 		-- ID: 18
 		name = "Arsonist",
+		description = {"","",""},
 		class_id = "arsonist",
 		color = "arsonist",
 		
@@ -448,6 +514,7 @@ loadout_list =
 	{
 		-- ID: 19
 		name = "Ratmancer",
+		description = {"","",""},
 		class_id = "ratmancer",
 		color = "ratmancer",
 		
@@ -471,6 +538,7 @@ loadout_list =
 	{
 		-- ID: 20
 		name = "Summoner",
+		description = {"","",""},
 		class_id = "summoner",
 		color = "summoner",
 		
@@ -496,6 +564,7 @@ loadout_list =
 	{
 		-- ID: 21
 		name = "Lord of the Flies",
+		description = {"","",""},
 		class_id = "flylord",
 		color = "flylord",
 		
@@ -519,6 +588,7 @@ loadout_list =
 	{
 		-- ID: 22
 		name = "Magnetmancer",
+		description = {"","",""},
 		class_id = "magnet",
 		color = "magnet",
 		
@@ -542,6 +612,7 @@ loadout_list =
 	{
 		-- ID: 23
 		name = "Air Sage",
+		description = {"","",""},
 		class_id = "airsage",
 		color = "airsage",
 		
@@ -565,6 +636,7 @@ loadout_list =
 	{
 		-- ID: 24
 		name = "Geomancer",
+		description = {"","",""},
 		class_id = "geomancer",
 		color = "geomancer",
 		
@@ -588,6 +660,7 @@ loadout_list =
 	{
 		-- ID: 26
 		name = "Adventurer",
+		description = {"","",""},
 		class_id = "adventurer",
 		color = "adventurer",
 		
@@ -611,6 +684,7 @@ loadout_list =
 	{
 		-- ID: 27
 		name = "Lightning Wizard",
+		description = {"","",""},
 		class_id = "lightning",
 		color = "lightning",
 		
@@ -634,6 +708,7 @@ loadout_list =
 	{
 		-- ID: 27
 		name = "Cryomancer",
+		description = {"","",""},
 		class_id = "cryomancer",
 		color = "cryomancer",
 		
@@ -657,6 +732,7 @@ loadout_list =
 	{
 		-- ID: 28
 		name = "Possessed Mage",
+		description = {"","",""},
 		class_id = "possessed",
 		color = "possessed",
 		
@@ -680,6 +756,7 @@ loadout_list =
 	{
 		-- ID: 29
 		name = "Wand Tinkerer",
+		description = {"","",""},
 		class_id = "tinker",
 		color = "tinker",
 		
@@ -703,6 +780,7 @@ loadout_list =
 	{
 		-- ID: 30
 		name = "Thrifty Shopper",
+		description = {"","",""},
 		class_id = "thrifty",
 		color = "thrifty",
 		
@@ -726,6 +804,7 @@ loadout_list =
 	{
 		-- ID: 31
 		name = "Storm Wizard",
+		description = {"","",""},
 		class_id = "storm",
 		color = "storm",
 		
@@ -749,6 +828,7 @@ loadout_list =
 	{
 		-- ID: 32
 		name = "Tidal Sorcerer",
+		description = {"","",""},
 		class_id = "tide",
 		color = "tide",
 		

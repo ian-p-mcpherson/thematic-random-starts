@@ -451,7 +451,7 @@ loadout_list =
 	{
 		-- ID: 8
 		name = "Demolitionist",
-		description = {"","",""},
+		description = {"Experience the magic of high-yield explosives.","You've been known to have a short fuse...","This new wand is dynamite."},
 		class_id = "exploder",
 		color = "exploder",
 		
@@ -463,8 +463,46 @@ loadout_list =
 		hp = 80,
 		items = 
 		{
-			"mods/thematic_random_starts/files/wands/brimstone_wand.xml",
-			"mods/thematic_random_starts/files/wands/tnt_stick.xml",
+			{ wand = {
+				name = 		{{"brimstone_wand"}},
+				capacity = 	{{1,1}},
+				per_round = {{1}},
+				reload = 	{{65,75}},
+				shuffle = 	{{1}},
+				delay = 	{{17,20}},
+				spread = 	{{7,10}},
+				speed = 	{{1}},
+				regen = 	{{20,30}},
+				mana_max = 	{{45,50}},
+				actions = {
+					{"FIRE_BLAST"},
+				},
+				gfx = {
+					sprite = "brimstone_wand",
+					offset_x = 2.0,
+					tip_x = 10.0
+				}
+			}},
+			{ wand = {
+				name = 		{{"tnt_stick"}},
+				capacity = 	{{1,1}},
+				per_round = {{1}},
+				reload = 	{{55,65}},
+				shuffle = 	{{1}},
+				delay = 	{{10,15}},
+				spread = 	{{3,4}},
+				speed = 	{{1}},
+				regen = 	{{40,60}},
+				mana_max = 	{{110,130}},
+				actions = {
+					{"DYNAMITE"},
+				},
+				gfx = {
+					sprite = "tnt_stick",
+					offset_x = 2.0,
+					tip_x = 10.0
+				}
+			}},
 			{ potion = "water", amount = 1},
 			{ potion = "gunpowder_unstable", amount = 1},
 		},
@@ -476,7 +514,7 @@ loadout_list =
 	{
 		-- ID: 9
 		name = "Blastomancer",
-		description = {"","",""},
+		description = {"This run is gonna be a blast.","Berserkium is the bomb.","You've got an explosive personality."},
 		class_id = "blasto",
 		color = "blasto",
 		
@@ -491,7 +529,6 @@ loadout_list =
 			"mods/thematic_random_starts/files/wands/novice_wand.xml",
 			"mods/thematic_random_starts/files/wands/bomb_stick.xml",
 			{ potion = "magic_liquid_berserk", amount = 1},
-			{ potion = "gunpowder_unstable", amount = 1},
 		},
 		perks =
 		{
@@ -501,7 +538,7 @@ loadout_list =
 	{
 		-- ID: 10
 		name = "Gambler",
-		description = {"","",""},
+		description = {"All in on odd.","",""},
 		class_id = "gambler",
 		color = "gambler",
 		
@@ -622,7 +659,7 @@ loadout_list =
 	{
 		-- ID: 15
 		name = "Crystal Seer",
-		description = {"","",""},
+		description = {"A mine is a terrible things to waste...","",""},
 		class_id = "seer",
 		color = "seer",
 		

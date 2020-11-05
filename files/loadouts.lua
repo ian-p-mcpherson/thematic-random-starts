@@ -798,7 +798,7 @@ loadout_list =
 	{
 		-- ID: 14
 		name = "Planar Cultist",
-		description = {"Your patron doesn't like visitors...","",""},
+		description = {"Your patron doesn't like visitors...","Planar magic is far out.","Your pocket dimension has gotten quite hungry..."},
 		class_id = "planar",
 		color = "planar",
 		
@@ -807,11 +807,48 @@ loadout_list =
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
 		cape_color = {226, 148, 239, 255},
 
-		hp = 90,
+		hp = 100,
 		items = 
 		{
-			"mods/thematic_random_starts/files/wands/apprentice_wand.xml",
-			"mods/thematic_random_starts/files/wands/portal_wand.xml",
+			{ wand = {
+				name = 		{{"apprentice_wand"}},
+				capacity = 	{{3,4}},
+				per_round = {{1}},
+				reload = 	{{55,60}},
+				shuffle = 	{{1}},
+				delay = 	{{7,10}},
+				spread = 	{{2,3}},
+				speed = 	{{1}},
+				regen = 	{{20,30}},
+				mana_max = 	{{45,50}},
+				actions = {
+					{"LIGHT_BULLET","LIGHT_BULLET"},
+				},
+				gfx = {
+					sprite = "apprentice_wand",
+					offset_x = 2.0
+				}
+			}},
+			{ wand = {
+				name = 		{{"portal_wand"}},
+				capacity = 	{{3,3}},
+				per_round = {{1}},
+				reload = 	{{35,45}},
+				shuffle = 	{{0}},
+				delay = 	{{50,55}},
+				spread = 	{{10,15}},
+				speed = 	{{1}},
+				regen = 	{{20,25}},
+				mana_max = 	{{140,150}},
+				actions = {
+					{"BLOOD_MAGIC","TELEPORT_CAST","TENTACLE_PORTAL"},
+				},
+				gfx = {
+					sprite = "portal_wand",
+					offset_x = 2.0,
+					tip_x = 9.0
+				}
+			}},
 			{ potion = "blood", amount = 1},
 
 		},

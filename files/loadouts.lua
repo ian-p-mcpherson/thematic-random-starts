@@ -927,7 +927,7 @@ loadout_list =
 	{
 		-- ID: 16
 		name = "Alchemist",
-		description = {"The Work is personal this time...","No need to be so reactionary...","You've always been a practical learner."},
+		description = {"The Work is personal this time...","No need to be so reactionary...","You've always been an experiential learner..."},
 		class_id = "alchemist",
 		color = "alchemist",
 		
@@ -972,7 +972,7 @@ loadout_list =
 	{
 		-- ID: 17
 		name = "Pyromancer",
-		description = {"","",""},
+		description = {"Pyromancers are so hot right now.","Basically an arsonist with a license.","You've studied to a great degree..."},
 		class_id = "pyro",
 		color = "pyro",
 		
@@ -984,8 +984,49 @@ loadout_list =
 		hp = 70,
 		items = 
 		{
-			"mods/thematic_random_starts/files/wands/pyromancer_wand.xml",
-			"mods/thematic_random_starts/files/wands/fireball_stick.xml",
+			{ wand = {
+				name = 		{{"pyromancer_wand"}},
+				capacity = 	{{2,2}},
+				per_round = {{1}},
+				reload = 	{{65,75}},
+				shuffle = 	{{0}},
+				delay = 	{{18,22}},
+				spread = 	{{7,10}},
+				speed = 	{{1}},
+				regen = 	{{20,30}},
+				mana_max = 	{{45,55}},
+				actions_permanent = {
+					{"ACCELERATING_SHOT"},
+				},
+				actions = {
+					{"FIRE_TRAIL","FIREBOMB"},
+				},
+				gfx = {
+					sprite = "pyromancer_wand",
+					offset_x = 2.0,
+					tip_x = 9.0
+				}
+			}},
+			{ wand = {
+				name = 		{{"fireball_stick"}},
+				capacity = 	{{2,2}},
+				per_round = {{1}},
+				reload = 	{{35,40}},
+				shuffle = 	{{0}},
+				delay = 	{{35,40}},
+				spread = 	{{20,25}},
+				speed = 	{{1}},
+				regen = 	{{45,50}},
+				mana_max = 	{{55,60}},
+				actions = {
+					{"LIGHT","GRENADE"},
+				},
+				gfx = {
+					sprite = "fireball_stick",
+					offset_x = 2.0,
+					tip_x = 9.0
+				}
+			}},
 			{ potion = "oil", amount = 1},
 		},
 		perks =
@@ -996,7 +1037,7 @@ loadout_list =
 	{
 		-- ID: 18
 		name = "Arsonist",
-		description = {"","",""},
+		description = {"You've got a burning passion...","But you prefer \"practical problem solver\".","It's only illegal if you get caught."},
 		class_id = "arsonist",
 		color = "arsonist",
 		

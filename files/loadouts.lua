@@ -279,13 +279,13 @@ loadout_list =
 				name = 		{{"blade_stick"}},
 				capacity = 	{{3,3}},
 				per_round = {{1}},
-				reload = 	{{10, 12}},
-				shuffle = 	{{1}},
-				delay = 	{{10,15}},
+				reload = 	{{20, 22}},
+				shuffle = 	{{0}},
+				delay = 	{{10,12}},
 				spread = 	{{20,22}},
 				speed = 	{{1}},
 				regen = 	{{35,40}},
-				mana_max = 	{{65,75}},
+				mana_max = 	{{25,30}},
 				actions = {
 					{"SPEED", "HITFX_CRITICAL_BLOOD", "DISC_BULLET"},
 				},
@@ -337,15 +337,12 @@ loadout_list =
 		hp = 60,
 		items = 
 		{
-
-			--"mods/thematic_random_starts/files/wands/ninja_stars.xml",
-			"mods/thematic_random_starts/files/wands/ninja_stars_alt.xml",
 			{ wand = {
 				name = 		{{"knife"}},
 				capacity = 	{{1,1}},
 				per_round = {{1}},
 				reload = 	{{12, 12}},
-				shuffle = 	{{1}},
+				shuffle = 	{{0}},
 				delay = 	{{1,1}},
 				spread = 	{{0,0}},
 				speed = 	{{1}},
@@ -358,6 +355,26 @@ loadout_list =
 					sprite = "knife",
 					offset_x = 1.0,
 					tip_x = 1.0
+				}
+			}},
+			{ wand = {
+				name = 		{{"ninja_stars"}},
+				capacity = 	{{4,4}},
+				per_round = {{1}},
+				reload = 	{{260, 270}},
+				shuffle = 	{{0}},
+				delay = 	{{30,40}},
+				spread = 	{{0,0}},
+				speed = 	{{1}},
+				regen = 	{{25,30}},
+				mana_max = 	{{65,70}},
+				actions = {
+					{"W_SHAPE", "DISC_BULLET", "DISC_BULLET", "DISC_BULLET"},
+				},
+				gfx = {
+					sprite = "ninja_stars",
+					offset_x = 3.0,
+					tip_x = 0.0
 				}
 			}},
 			{ potion = "smoke", amount = 1},

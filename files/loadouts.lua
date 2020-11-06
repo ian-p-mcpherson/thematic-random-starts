@@ -285,7 +285,7 @@ loadout_list =
 				spread = 	{{20,22}},
 				speed = 	{{1}},
 				regen = 	{{35,40}},
-				mana_max = 	{{25,30}},
+				mana_max = 	{{80,90}},
 				actions = {
 					{"SPEED", "HITFX_CRITICAL_BLOOD", "DISC_BULLET"},
 				},

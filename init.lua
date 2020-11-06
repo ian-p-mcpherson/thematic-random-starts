@@ -188,7 +188,10 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 	end
 
 	-- tell the player what class they are
-	GamePrintImportant( "You are a " .. loadout_name .. "",  tostring(get_random_from( loadout_choice.description )))
+	local a_an = "a"
+	local first_letter = string.lower(string.sub(loadout_name,1,1))
+	if ( first_letter == "a" or first_letter == "e" or first_letter == "i" or first_letter == "o" or first_letter == "u" ) then a_an = a_an .. "n" end
+	GamePrintImportant( "You are " .. a_an .. " " .. loadout_name .. "",  tostring(get_random_from( loadout_choice.description )))
 end
 
 function get_random_potion( rarity )

@@ -1450,30 +1450,103 @@ loadout_list =
 			"EXPLODING_GOLD",
 		}
 	},
---	{
---		-- ID: 26
---		name = "Adventurer",
---		description = {"","",""},
---		class_id = "adventurer",
---		color = "adventurer",
---		
---		robe_color = {224, 242, 255, 255},
---		belt_color = {151, 196, 218, 255},
---		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
---		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
---
---		hp = 80,
---		items = 
---		{
---			"mods/thematic_random_starts/files/wands/air_wand.xml",
---			"mods/thematic_random_starts/files/wands/levitator_wand.xml",
---			{ potion = "water", amount = 2, quantity = 0},
---		},
---		perks =
---		{
---			"GOLD_IS_FOREVER",
---		}
---	},
+	{
+		-- ID: 25
+		name = "Adventurer",
+		description = {"And not a single door to kick...","Where's the party at?","What does your bag of holding hold?"},
+		class_id = "adventurer",
+		color = "adventurer",
+		
+		robe_color = {94, 177, 255, 255},
+		belt_color = {94, 88, 71, 255},
+		cape_color_edge = {94, 88, 71, 255},
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
+		hp = 100,
+		items = 
+		{
+			{ wand = {
+				name = 		{{"heavy_crossbow"}},
+				capacity = 	{{1,1}},
+				per_round = {{1}},
+				reload = 	{{115,125}},
+				shuffle = 	{{1}},
+				delay = 	{{5,7}},
+				spread = 	{{1,2}},
+				speed = 	{{1}},
+				regen = 	{{20,25}},
+				mana_max = 	{{25,30}},
+				actions_permanent = {
+					{"DAMAGE"},
+				},
+				actions = {
+					{"ARROW"},
+				},
+				gfx = {
+					sprite = "crossbow",
+					offset_x = 4.0,
+					tip_x = 9.0,
+					tip_y = -1.0
+				}
+			}},
+			{ wand = {
+				name = 		{{"backpack"}},
+				capacity = 	{{4,4}},
+				per_round = {{1}},
+				reload = 	{{10,12}},
+				shuffle = 	{{1}},
+				delay = 	{{165,175}},
+				spread = 	{{10,12}},
+				speed = 	{{1}},
+				regen = 	{{20,22}},
+				mana_max = 	{{300,310}},
+				actions = {
+					{
+						{"SUMMON_ROCK","SUMMON_ROCK","SUMMON_ROCK","SUMMON_ROCK","SUMMON_ROCK","SUMMON_ROCK","SUMMON_ROCK","SUMMON_ROCK","PEBBLE"},
+						{"DYNAMITE","DYNAMITE","DYNAMITE","DYNAMITE","DYNAMITE","DYNAMITE","DYNAMITE","DYNAMITE","DYNAMITE","BOMB_CART"},
+						{"BOMB","BOMB","BOMB","BOMB","BOMB","BOMB","BOMB","BOMB","BOMB","GLITTER_BOMB","GLITTER_BOMB","BOMB_HOLY"},
+						{"SUMMON_EGG","SUMMON_EGG","SUMMON_EGG","MINE","MINE","SOILBALL","SPORE_POD","PROPANE_TANK","BLACK_HOLE","EXPLODING_DEER"}
+					},
+				},
+				gfx = {
+					sprite = "backpack",
+					offset_x = 2.0,
+					offset_y = 2.0,
+					tip_x = 4.0,
+					tip_y = -1.0
+				}
+			}},
+			{ wand = {
+				name = 		{{"map"}},
+				capacity = 	{{1,1}},
+				per_round = {{1}},
+				reload = 	{{60,60}},
+				shuffle = 	{{1}},
+				delay = 	{{10,10}},
+				spread = 	{{42,42}},
+				speed = 	{{1}},
+				regen = 	{{10,10}},
+				mana_max = 	{{100,100}},
+				actions = {
+					{"X_RAY"},
+				},
+				gfx = {
+					sprite = "map2",
+					offset_x = 2.0,
+					offset_y = 2.0,
+					tip_x = 4.0,
+					tip_y = -1.0
+				}
+			}},
+			{ potion = "water", amount = 1, quantity = 1000},
+			{ potion = "acid", amount = 1, quantity = 1000},
+			{ potion = "magic_liquid_hp_regeneration", amount = 1, quantity = 67},
+		},
+		perks =
+		{
+			"HEARTS_MORE_EXTRA_HP",
+		}
+	},
 --	{
 --		-- ID: 27
 --		name = "Lightning Wizard",

@@ -860,7 +860,7 @@ loadout_list =
 	{
 		-- ID: 15
 		name = "Crystal Seer",
-		description = {"A mine is a terrible things to waste...","The fungi tastes like schnozberries.","...but you didn't see that one coming."},
+		description = {"Deja vu?","The fungi tastes like schnozberries.","...but you didn't see that one coming."},
 		class_id = "seer",
 		color = "seer",
 		
@@ -1388,13 +1388,13 @@ loadout_list =
 	{
 		-- ID: 24
 		name = "Geomancer",
-		description = {"Your wand rocks.","",""},
+		description = {"Your wand rocks.","A mine is a terrible thing to waste...","Don't take this run for granite."},
 		class_id = "geomancer",
 		color = "geomancer",
 		
 		robe_color = {59, 117, 40, 255},
 		belt_color = {122, 92, 26, 255},
-		cape_color_edge = {122, 92, 26, 255}, -- default to robe_color
+		cape_color_edge = {122, 92, 26, 255},
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
 		hp = 100,
@@ -1412,7 +1412,7 @@ loadout_list =
 				regen = 	{{40,60}},
 				mana_max = 	{{110,130}},
 				actions_permanent = {
-					{"MINE"},
+					{"DELAYED_SPELL", "GRAVITY"},
 				},
 				actions = {
 					{"MINE"},

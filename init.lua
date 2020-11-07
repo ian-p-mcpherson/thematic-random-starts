@@ -64,7 +64,7 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 	-- get wallet
 	wallet = EntityGetFirstComponent( player_entity, "WalletComponent" )
 
-	local gfx_folder = loadout_choice.color or "default"
+	local gfx_folder = loadout_choice.class_color or "default"
 
 	-- set player sprite
 	local player_sprite_component = EntityGetFirstComponent( player_entity, "SpriteComponent" )

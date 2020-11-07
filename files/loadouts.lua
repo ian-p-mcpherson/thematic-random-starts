@@ -37,8 +37,8 @@ loadout_list =
 		name = "Slime Sorcerer",
 		description = {"A slimy fate awaits your foes...", "Once upon a slime...", "What have you got to ooze?"},
 		class_id = "slime",
-		color = "slime",
 
+		class_color = "slime",
 		robe_color = {198, 77, 179, 255},
 		belt_color = {132, 176, 74, 255},
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
@@ -100,8 +100,8 @@ loadout_list =
 		name = "Construction Conjurer",
 		description = {"One more inspection and you can retire...", "This place is NOT up to code...", "The suspense is building..."},
 		class_id = "construction",
-		color = "construction",
-		
+
+		class_color = "construction",
 		robe_color = {255, 204, 0, 255},
 		belt_color = {82, 67, 41, 255},
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
@@ -160,8 +160,8 @@ loadout_list =
 		name = "Telekinetic",
 		description = {"Time to give them a peice of your mind...","Catch.","Psychics have never been boulder."},
 		class_id = "telekinetic",
-		color = "telekinetic",
-		
+
+		class_color = "telekinetic",
 		robe_color = {180, 180, 160, 255},
 		belt_color = {137, 137, 127, 255},
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
@@ -202,8 +202,8 @@ loadout_list =
 		name = "Vampire",
 		description = {"Somehow you know this run will suck.","Your bite is worse than your bark.","Good thing a hardware store was nearby..."},
 		class_id = "vampire",
-		color = "vampire",
-		
+
+		class_color = "vampire",
 		robe_color = {60, 60, 60, 255},
 		belt_color = {100, 100, 100, 255},
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
@@ -265,8 +265,8 @@ loadout_list =
 		name = "Blood Cultist",
 		description = {"Time to find some new \"initiates\"...","You've got plenty of time to bleed.","You've learned to always B positive."},
 		class_id = "bloodcultist",
-		color = "bloodcultist",
-		
+
+		class_color = "bloodcultist",
 		robe_color = {175, 26, 26, 255},
 		belt_color = {89, 74, 44, 255},
 		cape_color_edge = {168, 152, 118, 255},
@@ -327,8 +327,8 @@ loadout_list =
 		name = "Ninja",
 		description = {"Silent, but deadly.","This loadout has a hidden feature.","You've been known to be a bit edgy..."},
 		class_id = "ninja",
-		color = "ninja",
-		
+
+		class_color = "ninja",
 		robe_color = {58, 62, 82, 255},
 		belt_color = {42, 44, 56, 255},
 		cape_color_edge = {42, 44, 56, 255},
@@ -390,8 +390,8 @@ loadout_list =
 		name = "Laser Wizard",
 		description = {"You're known to make light of bad situations...","You're rubber, they're glue.","Photon, photoff."},
 		class_id = "laser",
-		color = "laser",
-		
+
+		class_color = "laser",
 		robe_color = {85, 201, 108, 255},
 		belt_color = {218, 218, 118, 255},
 		cape_color_edge = {85, 201, 108, 255},
@@ -453,8 +453,8 @@ loadout_list =
 		name = "Demolitionist",
 		description = {"Experience the magic of high-yield explosives.","You've been known to have a short fuse...","This new wand is dynamite."},
 		class_id = "exploder",
-		color = "exploder",
-		
+
+		class_color = "exploder",
 		robe_color = {189, 56, 56, 255},
 		belt_color = {130, 101, 73, 255},
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
@@ -516,8 +516,8 @@ loadout_list =
 		name = "Blastomancer",
 		description = {"This run is gonna be a blast.","Berserkium is the bomb.","You've got an explosive personality."},
 		class_id = "blasto",
-		color = "blasto",
-		
+
+		class_color = "blasto",
 		robe_color = {106, 114, 147, 255},
 		belt_color = {103, 66, 57, 255},
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
@@ -578,8 +578,8 @@ loadout_list =
 		name = "Gambler",
 		description = {"Fish? Again?!","All in on worm.","Never tell me the odds. (It's for the best)"},
 		class_id = "gambler",
-		color = "gambler",
-		
+
+		class_color = "gambler",
 		robe_color = {126, 28, 255, 255},
 		belt_color = {222, 194, 16, 255},
 		cape_color_edge = {222, 194, 16, 255},
@@ -627,8 +627,8 @@ loadout_list =
 		name = "Tele-Karate Master",
 		description = {"Acceleratium has a real kick to it.","Master of the martial dark arts.","Sorcery is afoot..."},
 		class_id = "telekarate",
-		color = "telekarate",
-		
+
+		class_color = "telekarate",
 		robe_color = {210, 210, 220, 255},
 		belt_color = {60, 60, 65, 255},
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
@@ -673,8 +673,8 @@ loadout_list =
 		name = "Berserker",
 		description = {"Doomed to be a slayer of sorts...","...and you're all out of bubblegum.","To kill the boss, shoot at it until it dies."},
 		class_id = "berzerker",
-		color = "berzerker",
-		
+
+		class_color = "berzerker",
 		robe_color = {77, 94, 67, 255},
 		belt_color = {76, 76, 60, 255},
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
@@ -737,8 +737,8 @@ loadout_list =
 		name = "Eldritch Cultist",
 		description = {"You're a sucker for faustian bargains.","The robes don't fit quite like they used to...","Let's get kraken."},
 		class_id = "eldritch",
-		color = "eldritch",
-		
+
+		class_color = "eldritch",
 		robe_color = {105, 103, 135, 255},
 		belt_color = {74, 73, 96, 255},
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
@@ -800,8 +800,8 @@ loadout_list =
 		name = "Planar Cultist",
 		description = {"Your patron doesn't like visitors...","Planar magic is far out.","Your pocket dimension has gotten quite hungry..."},
 		class_id = "planar",
-		color = "planar",
-		
+
+		class_color = "planar",
 		robe_color = {230, 230, 204, 255},
 		belt_color = {112, 109, 99, 255},
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
@@ -862,8 +862,8 @@ loadout_list =
 		name = "Crystal Seer",
 		description = {"Deja vu?","The fungi tastes like schnozberries.","...but you didn't see that one coming."},
 		class_id = "seer",
-		color = "seer",
-		
+
+		class_color = "seer",
 		robe_color = {191, 123, 199, 255},
 		belt_color = {207, 205, 205, 255},
 		cape_color_edge = {207, 205, 205, 255},
@@ -929,8 +929,8 @@ loadout_list =
 		name = "Alchemist",
 		description = {"The Work is personal this time...","No need to be so reactionary...","You've always been an experiential learner..."},
 		class_id = "alchemist",
-		color = "alchemist",
-		
+
+		class_color = "alchemist",
 		robe_color = {68, 102, 79, 255},
 		belt_color = {181, 176, 130, 255},
 		cape_color_edge = {181, 176, 130, 255},
@@ -974,8 +974,8 @@ loadout_list =
 		name = "Pyromancer",
 		description = {"Pyromancers are so hot right now.","Basically an arsonist with a license.","You've studied to a great degree..."},
 		class_id = "pyro",
-		color = "pyro",
-		
+
+		class_color = "pyro",
 		robe_color = {237, 134, 0, 255},
 		belt_color = {105, 70, 52, 255},
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
@@ -1039,8 +1039,8 @@ loadout_list =
 		name = "Arsonist",
 		description = {"You've got a burning passion...","But you prefer \"practical problem solver\".","It's only illegal if you get caught."},
 		class_id = "arsonist",
-		color = "arsonist",
-		
+
+		class_color = "arsonist",
 		robe_color = {209, 160, 0, 255},
 		belt_color = {99, 93, 90, 255},
 		cape_color_edge = {99, 93, 90, 255},
@@ -1104,8 +1104,8 @@ loadout_list =
 		name = "Ratmancer",
 		description = {"\"Ratify\" takes on a whole new meaning...","...and you wonder if the Moon is actually made of cheese.","Ratting on someone has never been taken more literally..."},
 		class_id = "ratmancer",
-		color = "ratmancer",
-		
+
+		class_color = "ratmancer",
 		robe_color = {128, 105, 92, 255},
 		belt_color = {59, 40, 34, 255},
 		cape_color_edge = {94, 80, 72, 255},
@@ -1149,8 +1149,8 @@ loadout_list =
 		name = "Summoner",
 		description = {"You can't summon without breaking some eggs...","Something is wrong with your perfume...","Friendly fire has never been more friendly."},
 		class_id = "summoner",
-		color = "summoner",
-		
+
+		class_color = "summoner",
 		robe_color = {207, 116, 144, 255},
 		belt_color = {142, 200, 212, 255},
 		cape_color_edge = {142, 200, 212, 255},
@@ -1213,8 +1213,8 @@ loadout_list =
 		name = "Lord of the Flies",
 		description = {"Is... is that real?.","If the flies don't kill you, the smell will.","You're the answer to \"What's the buzz?\"."},
 		class_id = "flylord",
-		color = "flylord",
-		
+
+		class_color = "flylord",
 		robe_color = {77, 68, 56, 255},
 		belt_color = {46, 43, 39, 255},
 		cape_color_edge = {46, 43, 39, 255},
@@ -1278,8 +1278,8 @@ loadout_list =
 		name = "Magnetmancer",
 		description = {"Most attractive sorcerer in the land...","You're positive you've been here before...","Don't be so negative..."},
 		class_id = "magnet",
-		color = "magnet",
-		
+
+		class_color = "magnet",
 		robe_color = {107, 117, 161, 255},
 		belt_color = {56, 68, 214, 255},
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
@@ -1344,8 +1344,8 @@ loadout_list =
 		name = "Air Sage",
 		description = {"What a gas.","You've always been an airhead...","Your wand blows."},
 		class_id = "airsage",
-		color = "airsage",
-		
+
+		class_color = "airsage",
 		robe_color = {224, 242, 255, 255},
 		belt_color = {151, 196, 218, 255},
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
@@ -1390,8 +1390,8 @@ loadout_list =
 		name = "Geomancer",
 		description = {"Your wand rocks.","A mine is a terrible thing to waste...","Don't take this run for granite."},
 		class_id = "geomancer",
-		color = "geomancer",
-		
+
+		class_color = "geomancer",
 		robe_color = {59, 117, 40, 255},
 		belt_color = {122, 92, 26, 255},
 		cape_color_edge = {122, 92, 26, 255},
@@ -1455,8 +1455,8 @@ loadout_list =
 		name = "Adventurer",
 		description = {"And not a single door to kick...","Where's the party at?","What does your bag of holding hold?"},
 		class_id = "adventurer",
-		color = "adventurer",
-		
+
+		class_color = "adventurer",
 		robe_color = {94, 177, 255, 255},
 		belt_color = {94, 88, 71, 255},
 		cape_color_edge = {94, 88, 71, 255},
@@ -1531,7 +1531,7 @@ loadout_list =
 					{"X_RAY"},
 				},
 				gfx = {
-					sprite = "map2",
+					sprite = "map",
 					offset_x = 2.0,
 					offset_y = 2.0,
 					tip_x = 4.0,
@@ -1552,7 +1552,7 @@ loadout_list =
 --		name = "Lightning Wizard",
 --		description = {"","",""},
 --		class_id = "lightning",
---		color = "lightning",
+--		class_color = "lightning",
 --		
 --		robe_color = {224, 242, 255, 255},
 --		belt_color = {151, 196, 218, 255},
@@ -1576,7 +1576,7 @@ loadout_list =
 --		name = "Cryomancer",
 --		description = {"","",""},
 --		class_id = "cryomancer",
---		color = "cryomancer",
+--		class_color = "cryomancer",
 --		
 --		robe_color = {224, 242, 255, 255},
 --		belt_color = {151, 196, 218, 255},
@@ -1600,7 +1600,7 @@ loadout_list =
 --		name = "Exorcist",
 --		description = {"This mine is on of your old haunts...","...and you hope you won't get repossessed.",""},
 --		class_id = "possessed",
---		color = "possessed",
+--		class_color = "possessed",
 --		
 --		robe_color = {224, 242, 255, 255},
 --		belt_color = {151, 196, 218, 255},
@@ -1624,7 +1624,7 @@ loadout_list =
 --		name = "Wand Tinkerer",
 --		description = {"","",""},
 --		class_id = "tinker",
---		color = "tinker",
+--		class_color = "tinker",
 --		
 --		robe_color = {224, 242, 255, 255},
 --		belt_color = {151, 196, 218, 255},
@@ -1648,7 +1648,7 @@ loadout_list =
 --		name = "Thrifty Shopper",
 --		description = {"","",""},
 --		class_id = "thrifty",
---		color = "thrifty",
+--		class_color = "thrifty",
 --		
 --		robe_color = {224, 242, 255, 255},
 --		belt_color = {151, 196, 218, 255},
@@ -1672,7 +1672,7 @@ loadout_list =
 --		name = "Storm Wizard",
 --		description = {"","",""},
 --		class_id = "storm",
---		color = "storm",
+--		class_color = "storm",
 --		
 --		robe_color = {224, 242, 255, 255},
 --		belt_color = {151, 196, 218, 255},
@@ -1696,7 +1696,7 @@ loadout_list =
 --		name = "Tidal Sorcerer",
 --		description = {"","",""},
 --		class_id = "tide",
---		color = "tide",
+--		class_color = "tide",
 --		
 --		robe_color = {224, 242, 255, 255},
 --		belt_color = {151, 196, 218, 255},

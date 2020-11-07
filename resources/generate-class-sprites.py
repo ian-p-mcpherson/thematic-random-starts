@@ -22,6 +22,12 @@ from shutil import copyfile
 #
 #############################################################
 
+# Defaults for easy command-line runs
+default_image_path = "G:\\Steam\\steamapps\\common\\Noita\\mods\\thematic_random_starts\\resources\\player.xcf"
+default_csv_path = "G:\\Steam\\steamapps\\common\\Noita\\mods\\thematic_random_starts\\resources\\"
+default_csv_name = "test_palettes.csv"
+default_output_path = "G:\\Steam\\steamapps\\common\\Noita\\mods\\thematic_random_starts\\files\\"
+
 # Debug mode
 debug = True
 
@@ -129,6 +135,29 @@ def clamp(num, num_min, num_max):
 #        Main Script
 #
 #############################################################
+
+def generateSpritesCmd(image, csv_location, csv_file, image_output, debugMode):
+    global default_image_path
+    global default_csv_path
+    global default_csv_name
+    global default_output_path
+
+    # Set defaults for command line runs
+    if image == "default":
+        new_image = pdb.gimp_file_load(default_image_path, default_image_path)
+    else:
+        new_image = pdb.gimp_file_load(image, image)
+    if csv_location == "default":
+        new_csv_location = default_csv_path
+    if csv_file == "default":
+        new_csv_file = default_csv_name
+    if image_output == "default":
+        new_image_output = default_output_path
+    if debugMode == "true":
+        new_debugMode = True
+    else:
+        new_debugMode = False
+    generateSprites(new_image, new_csv_location, new_csv_file, new_image_output, new_debugMode)
 
 # Main entry point
 def generateSprites(image, csv_location, csv_file, image_output, debugMode):
@@ -257,12 +286,33 @@ register(
     [
         (PF_IMAGE, 'image', 'Input image', None),
         (PF_STRING, 'csv_location', 'CSV location:', 'G:\\Steam\\steamapps\\common\\Noita\\mods\\thematic_random_starts\\resources\\'),
-        (PF_STRING, 'csv_file', 'CSV input:', 'palettes.csv'),
+        (PF_STRING, 'csv_file', 'CSV input:', 'test_palettes.csv'),
         (PF_STRING, 'image_output', 'Output location:', 'G:\\Steam\\steamapps\\common\\Noita\\mods\\thematic_random_starts\\files\\'),
-        (PF_BOOL, "debugMode", "Debug Mode", True),
+        (PF_BOOL, "debugMode", "Debug Mode", False),
     ],
     [],
     generateSprites,
+    menu='<Image>/File/Noita'
+)
+
+register(
+    'generate-class-sprites-cmd',
+    'Generate Class Sprites CMD',
+    'Generate class sprites cmd',
+    'Ian McPherson',
+    'Ian McPherson',
+    '2020',
+    'Generate Class Sprites CMD',
+    '*',
+    [
+        (PF_STRING, 'image', 'Input image', "G:\\Steam\\steamapps\\common\\Noita\\mods\\thematic_random_starts\\resources\\player.xcf"),
+        (PF_STRING, 'csv_location', 'CSV location:', 'G:\\Steam\\steamapps\\common\\Noita\\mods\\thematic_random_starts\\resources\\'),
+        (PF_STRING, 'csv_file', 'CSV input:', 'changed_palettes.csv'),
+        (PF_STRING, 'image_output', 'Output location:', 'G:\\Steam\\steamapps\\common\\Noita\\mods\\thematic_random_starts\\files\\'),
+        (PF_STRING, "debugMode", "Debug Mode", "false"),
+    ],
+    [],
+    generateSpritesCmd,
     menu='<Image>/File/Noita'
 )
 

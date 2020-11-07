@@ -788,7 +788,7 @@ loadout_list =
 					tip_x = 7.0
 				}
 			}},
-			{ potion = "magic_liquid_berserk", amount = 1},
+			{ potion = "blood", amount = 1},
 		},
 		perks =
 		{
@@ -1211,7 +1211,7 @@ loadout_list =
 	{
 		-- ID: 21
 		name = "Lord of the Flies",
-		description = {"Is... is that real?.","If the flies don't kill you, the smell will.","You're the answer to \"What's the buzz?\"."},
+		description = {"Is... is that real?.","Don't get your bottles mixed up....","You're the answer to \"What's the buzz?\"."},
 		class_id = "flylord",
 
 		class_color = "flylord",
@@ -1314,15 +1314,15 @@ loadout_list =
 				name = 		{{"bubbler"}},
 				capacity = 	{{4,4}},
 				per_round = {{1}},
-				reload = 	{{115,120}},
+				reload = 	{{80,85}},
 				shuffle = 	{{0}},
-				delay = 	{{1,2}},
-				spread = 	{{0,0}},
+				delay = 	{{-10,-10}},
+				spread = 	{{45,50}},
 				speed = 	{{1}},
 				regen = 	{{45,50}},
 				mana_max = 	{{30,32}},
 				actions_permanent = {
-					{"LIFETIME", "HEAVY_SPREAD"},
+					{"LIFETIME"},
 				},
 				actions = {
 					{"BUBBLESHOT","BUBBLESHOT","BUBBLESHOT","BUBBLESHOT"},
@@ -1356,7 +1356,7 @@ loadout_list =
 		{
 			{ wand = {
 				name = 		{{"air_wand"}},
-				capacity = 	{{3,3}},
+				capacity = 	{{4,4}},
 				per_round = {{1}},
 				reload = 	{{45,50}},
 				shuffle = 	{{0}},
@@ -1369,7 +1369,7 @@ loadout_list =
 					{"KNOCKBACK"},
 				},
 				actions = {
-					{"AIR_BULLET","AIR_BULLET","AIR_BULLET"},
+					{"AIR_BULLET","AIR_BULLET","AIR_BULLET","AIR_BULLET"},
 				},
 				gfx = {
 					sprite = "air_wand",

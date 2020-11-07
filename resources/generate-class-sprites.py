@@ -33,7 +33,7 @@ debug = True
 
 # csv delimeters
 column_delim = "|"
-color_delim = ", "
+color_delim = ","
 
 # List of all layers used by the sprite generator
 layersToIndex = ['torso', 'right_thigh', 'right_hand', 'right_arm', 'left_thigh', 'left_hand', 'left_arm', 'head', 'player_arm', 'player']
@@ -230,16 +230,16 @@ def set_class_colors(data):
 
     if len(data) > 3:
         # Get all 6 colors from CSV
-        text_robe_light = data[1].split(color_delim)
-        text_robe_med = data[2].split(color_delim)
-        text_robe_dark = data[3].split(color_delim)
-        text_robe_belt = data[4].split(color_delim)
-        text_robe_lhand = data[5].split(color_delim)
-        text_robe_rhand = data[6].split(color_delim)
+        text_robe_light = data[1].replace(" ","").split(color_delim)
+        text_robe_med = data[2].replace(" ","").split(color_delim)
+        text_robe_dark = data[3].replace(" ","").split(color_delim)
+        text_robe_belt = data[4].replace(" ","").split(color_delim)
+        text_robe_lhand = data[5].replace(" ","").split(color_delim)
+        text_robe_rhand = data[6].replace(" ","").split(color_delim)
     else:
         # Get 2 colors from CSV and shade remaining with code
-        text_robe_light = data[1].split(color_delim)
-        text_robe_belt = data[2].split(color_delim)
+        text_robe_light = data[1].replace(" ","").split(color_delim)
+        text_robe_belt = data[2].replace(" ","").split(color_delim)
         text_robe_med = [str(int(float(text_robe_light[0])*0.8)), str(int(float(text_robe_light[1])*0.8)), str(int(float(text_robe_light[2])*0.8))]
         text_robe_dark = [str(int(float(text_robe_med[0])*0.8)), str(int(float(text_robe_med[1])*0.8)), str(int(float(text_robe_med[2])*0.8))]
         text_robe_lhand = [str(clamp(int(float(text_robe_belt[0])*1.15),0,255)), str(clamp(int(float(text_robe_belt[1])*1.15),0,255)), str(clamp(int(float(text_robe_belt[2])*1.15),0,255))]

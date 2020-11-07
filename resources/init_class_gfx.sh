@@ -64,7 +64,7 @@ printf -v ChangedPalettes "%s" $(diff --changed-group-format="%>" --unchanged-gr
 printf "%s" "$ChangedPalettes" > changed_palettes.csv
 
 # Call GIMP and genereate the
-gimp-2.10.exe -n --no-interface --batch "(python-fu-generate-class-sprites-cmd RUN-NONINTERACTIVE \"default\" \"default\" \"default\" \"default\" \"default\")" --batch "(gimp-quit 1)"
+#gimp-2.10.exe -n --no-interface --batch "(python-fu-generate-class-sprites-cmd RUN-NONINTERACTIVE \"default\" \"default\" \"default\" \"default\" \"default\")" --batch "(gimp-quit 1)"
 
 # Current palettes and working palettes are now in sync
-cp working_palettes.csv palettes.csv
+#cp working_palettes.csv palettes.csv

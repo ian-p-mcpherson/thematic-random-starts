@@ -1339,30 +1339,52 @@ loadout_list =
 			"ATTRACT_ITEMS",
 		}
 	},
---	{
---		-- ID: 23
---		name = "Air Sage",
---		description = {"","",""},
---		class_id = "airsage",
---		color = "airsage",
---		
---		robe_color = {224, 242, 255, 255},
---		belt_color = {151, 196, 218, 255},
---		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
---		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
---
---		hp = 90,
---		items = 
---		{
---			"mods/thematic_random_starts/files/wands/air_wand.xml",
---			"mods/thematic_random_starts/files/wands/rain_stick.xml",
---			{ potion = "water", amount = 2, quantity = 0},
---		},
---		perks =
---		{
---			"LOW_GRAVITY",
---		}
---	},
+	{
+		-- ID: 23
+		name = "Air Sage",
+		description = {"What a gas.","You've always been an airhead...","Your wand blows."},
+		class_id = "airsage",
+		color = "airsage",
+		
+		robe_color = {224, 242, 255, 255},
+		belt_color = {151, 196, 218, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
+		hp = 90,
+		items = 
+		{
+			{ wand = {
+				name = 		{{"air_wand"}},
+				capacity = 	{{3,3}},
+				per_round = {{1}},
+				reload = 	{{55,60}},
+				shuffle = 	{{0}},
+				delay = 	{{2,2}},
+				spread = 	{{7,9}},
+				speed = 	{{1}},
+				regen = 	{{50,60}},
+				mana_max = 	{{45,50}},
+				actions_permanent = {
+					{"KNOCKBACK"},
+				},
+				actions = {
+					{"AIR_BULLET","AIR_BULLET","AIR_BULLET"},
+				},
+				gfx = {
+					sprite = "air_wand",
+					offset_x = 2.0,
+					tip_x = 6.0
+				}
+			}},
+			{ potion = "water", amount = 1, quantity = 1000},
+			{ potion = "water", amount = 1, quantity = 0},
+		},
+		perks =
+		{
+			"LOW_GRAVITY",
+		}
+	},
 --	{
 --		-- ID: 24
 --		name = "Geomancer",

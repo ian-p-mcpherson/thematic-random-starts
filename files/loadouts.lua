@@ -1273,30 +1273,72 @@ loadout_list =
 			"GENOME_MORE_HATRED",
 		}
 	},
---	{
---		-- ID: 22
---		name = "Magnetmancer",
---		description = {"Your mother did say you were attractive...","",""},
---		class_id = "magnet",
---		color = "magnet",
---		
---		robe_color = {107, 117, 161, 255},
---		belt_color = {56, 68, 214, 255},
---		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
---		cape_color = {131, 64, 64, 255},
---
---		hp = 100,
---		items = 
---		{
---			"mods/thematic_random_starts/files/wands/magnet_stick.xml",
---			"mods/thematic_random_starts/files/wands/ball_wand.xml",
---			{ potion = "water", amount = 1},
---		},
---		perks =
---		{
---			"ATTRACT_ITEMS",
---		}
---	},
+	{
+		-- ID: 22
+		name = "Magnetmancer",
+		description = {"Most attractive sorcerer in the land...","You're positive you've been here before...","Don't be so negative..."},
+		class_id = "magnet",
+		color = "magnet",
+		
+		robe_color = {107, 117, 161, 255},
+		belt_color = {56, 68, 214, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {131, 64, 64, 255},
+
+		hp = 100,
+		items = 
+		{
+			{ wand = {
+				name = 		{{"magnet_stick"}},
+				capacity = 	{{1,1}},
+				per_round = {{1}},
+				reload = 	{{130,135}},
+				shuffle = 	{{1}},
+				delay = 	{{10,15}},
+				spread = 	{{0,0}},
+				speed = 	{{1}},
+				regen = 	{{40,60}},
+				mana_max = 	{{130,140}},
+				actions_permanent = {
+					{"GRAVITY_FIELD_ENEMY", "LIGHT_SHOT"},
+				},
+				actions = {
+					{"LIGHT_BULLET"},
+				},
+				gfx = {
+					sprite = "magnet_stick",
+					offset_x = 3.0
+				}
+			}},
+			{ wand = {
+				name = 		{{"bubbler"}},
+				capacity = 	{{4,4}},
+				per_round = {{1}},
+				reload = 	{{115,120}},
+				shuffle = 	{{0}},
+				delay = 	{{1,2}},
+				spread = 	{{0,0}},
+				speed = 	{{1}},
+				regen = 	{{45,50}},
+				mana_max = 	{{30,32}},
+				actions_permanent = {
+					{"LIFETIME", "HEAVY_SPREAD"},
+				},
+				actions = {
+					{"BUBBLESHOT","BUBBLESHOT","BUBBLESHOT","BUBBLESHOT"},
+				},
+				gfx = {
+					sprite = "bubbler",
+					offset_x = 1.0
+				}
+			}},
+			{ potion = "water", amount = 1},
+		},
+		perks =
+		{
+			"ATTRACT_ITEMS",
+		}
+	},
 --	{
 --		-- ID: 23
 --		name = "Air Sage",

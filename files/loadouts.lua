@@ -1358,7 +1358,7 @@ loadout_list =
 				name = 		{{"air_wand"}},
 				capacity = 	{{3,3}},
 				per_round = {{1}},
-				reload = 	{{55,60}},
+				reload = 	{{45,50}},
 				shuffle = 	{{0}},
 				delay = 	{{2,2}},
 				spread = 	{{7,9}},
@@ -1385,30 +1385,71 @@ loadout_list =
 			"LOW_GRAVITY",
 		}
 	},
---	{
---		-- ID: 24
---		name = "Geomancer",
---		description = {"","",""},
---		class_id = "geomancer",
---		color = "geomancer",
---		
---		robe_color = {224, 242, 255, 255},
---		belt_color = {151, 196, 218, 255},
---		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
---		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
---
---		hp = 100,
---		items = 
---		{
---			"mods/thematic_random_starts/files/wands/air_wand.xml",
---			"mods/thematic_random_starts/files/wands/levitator_wand.xml",
---			{ potion = "water", amount = 2, quantity = 0},
---		},
---		perks =
---		{
---			"EXPLODING_GOLD",
---		}
---	},
+	{
+		-- ID: 24
+		name = "Geomancer",
+		description = {"Your wand rocks.","",""},
+		class_id = "geomancer",
+		color = "geomancer",
+		
+		robe_color = {59, 117, 40, 255},
+		belt_color = {122, 92, 26, 255},
+		cape_color_edge = {122, 92, 26, 255}, -- default to robe_color
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
+		hp = 100,
+		items = 
+		{
+			{ wand = {
+				name = 		{{"crystal_stick"}},
+				capacity = 	{{3,4}},
+				per_round = {{1}},
+				reload = 	{{95,100}},
+				shuffle = 	{{1}},
+				delay = 	{{10,15}},
+				spread = 	{{0,5}},
+				speed = 	{{1}},
+				regen = 	{{40,60}},
+				mana_max = 	{{110,130}},
+				actions_permanent = {
+					{"MINE"},
+				},
+				actions = {
+					{"MINE"},
+				},
+				gfx = {
+					sprite = "crystal_stick",
+					offset_x = 1.0,
+					tip_x = 10.0
+				}
+			}},
+			{ wand = {
+				name = 		{{"pebble_stick"}},
+				capacity = 	{{4,4}},
+				per_round = {{1}},
+				reload = 	{{55,65}},
+				shuffle = 	{{1}},
+				delay = 	{{10,15}},
+				spread = 	{{3,5}},
+				speed = 	{{1}},
+				regen = 	{{40,60}},
+				mana_max = 	{{110,130}},
+				actions = {
+					{"SUMMON_ROCK", "SUMMON_ROCK"},
+				},
+				gfx = {
+					sprite = "pebble_stick",
+					offset_x = 1.0,
+					tip_x = 10.0
+				}
+			}},
+			{ potion = "mud", amount = 1, quantity = 1000},
+		},
+		perks =
+		{
+			"EXPLODING_GOLD",
+		}
+	},
 --	{
 --		-- ID: 26
 --		name = "Adventurer",
@@ -1483,8 +1524,8 @@ loadout_list =
 --	},
 --	{
 --		-- ID: 28
---		name = "Possessed Mage",
---		description = {"","",""},
+--		name = "Exorcist",
+--		description = {"This mine is on of your old haunts...","...and you hope you won't get repossessed.",""},
 --		class_id = "possessed",
 --		color = "possessed",
 --		

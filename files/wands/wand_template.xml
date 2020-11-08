@@ -2,7 +2,7 @@
 
    <AbilityComponent
 		_enabled="1" 
-		sprite_file="mods/thematic_random_starts/files/wands/gfx/novice_wand.xml"
+		sprite_file="mods/thematic_random_starts/files/wands/gfx/novice_wand.png"
 		swim_propel_amount="0"
 		ui_name=""
 		drop_as_item_on_death="0"

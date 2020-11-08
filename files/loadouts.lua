@@ -1515,30 +1515,70 @@ loadout_list =
 			"HEARTS_MORE_EXTRA_HP",
 		}
 	},
---	{
---		-- ID: 27
---		name = "Lightning Wizard",
---		description = {"","",""},
---		class_id = "lightning",
---		class_color = "lightning",
---		
---		robe_color = {224, 242, 255, 255},
---		belt_color = {151, 196, 218, 255},
---		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
---		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
---
---		hp = 80,
---		items = 
---		{
---			"mods/thematic_random_starts/files/wands/air_wand.xml",
---			"mods/thematic_random_starts/files/wands/levitator_wand.xml",
---			{ potion = "water", amount = 2, quantity = 0},
---		},
---		perks =
---		{
---			"ELECTRICITY",
---		}
---	},
+	{
+		-- ID: 26
+		name = "Lightning Wizard",
+		description = {"Shocking, isn't it?","Don't let them steal your thunder...",""},
+		class_id = "lightning",
+		class_color = "lightning",
+		
+		robe_color = {51, 173, 255, 255},
+		belt_color = {201, 209, 214, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {225, 237, 245, 255}, 
+
+		hp = 70,
+		items = 
+		{
+			{ wand = {
+				name = 		{{"shockball_wand"}},
+				capacity = 	{{1,1}},
+				per_round = {{1}},
+				reload = 	{{60,61}},
+				shuffle = 	{{1}},
+				delay = 	{{2,3}},
+				spread = 	{{4,6}},
+				speed = 	{{1}},
+				regen = 	{{20,22}},
+				mana_max = 	{{30,32}},
+				actions_permanent = {
+					{"ELECTRIC_CHARGE"},
+				},
+				actions = {
+					{"BUBBLESHOT"},
+				},
+				gfx = {
+					sprite = "shockball_wand",
+					offset_x = 1.0
+				}
+			}},
+			{ wand = {
+				name = 		{{"rain_stick"}},
+				capacity = 	{{2,3}},
+				per_round = {{1}},
+				reload = 	{{45,50}},
+				shuffle = 	{{1}},
+				delay = 	{{15,20}},
+				spread = 	{{0,2}},
+				speed = 	{{1}},
+				regen = 	{{25,30}},
+				mana_max = 	{{100,120}},
+				actions = {
+					{"CLOUD_WATER"},
+				},
+				gfx = {
+					sprite = "rain_stick",
+					offset_x = 1.0,
+					tip_x = 10.0
+				}
+			}},
+			{ potion = "water", amount = 1, quantity = 1000},
+		},
+		perks =
+		{
+			"ELECTRICITY",
+		}
+	},
 --	{
 --		-- ID: 27
 --		name = "Cryomancer",

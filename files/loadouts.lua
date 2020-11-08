@@ -1,35 +1,3 @@
---[[ Wand Template
-
-note: 	gfx.sprite corresponds with a .png file in:
-		mods/thematic_random_starts/files/wands/gfx/	
-
-			{ wand = {
-				name = 		{{"wand_name"}},
-				capacity = 	{{1,2}},
-				per_round = {{1}},
-				reload = 	{{40,50}},
-				shuffle = 	{{0}},
-				delay = 	{{20,25}},
-				spread = 	{{0,5}},
-				speed = 	{{1}},
-				regen = 	{{40,50}},
-				mana_max = 	{{140,150}},
-				actions = {
-					{"LIGHT_BULLET", "MIST_SLIME"},
-				},
-				actions_permanent = {
-					{"SPEED"}
-				},
-				gfx = {
-					sprite = "wand_filename",
-					offset_x = 1.0,
-					offset_y = 1.0,
-					tip_x = 8.0,
-					tip_y = 0.0
-				}
-			}},
-]]
-
 loadout_list =
 {
 	{
@@ -931,7 +899,7 @@ loadout_list =
 		class_id = "alchemist",
 
 		class_color = "alchemist",
-		robe_color = {68, 102, 79, 255},
+		robe_color = {59, 204, 182, 255},
 		belt_color = {181, 176, 130, 255},
 		cape_color_edge = {181, 176, 130, 255},
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge

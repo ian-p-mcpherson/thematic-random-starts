@@ -60,11 +60,19 @@ done
 printf "%s" "$WorkingPalettes" > working_palettes.csv
 
 # Find which palettes changed since last update
-printf -v ChangedPalettes "%s" $(diff --changed-group-format="%>" --unchanged-group-format="" working_palettes.csv palettes.csv)
+printf -v ChangedPalettes "%s" $(diff --changed-group-format="%<" --unchanged-group-format="" working_palettes.csv palettes.csv)
 printf "%s" "$ChangedPalettes" > changed_palettes.csv
 
-# Call GIMP and genereate the
-#gimp-2.10.exe -n --no-interface --batch "(python-fu-generate-class-sprites-cmd RUN-NONINTERACTIVE \"default\" \"default\" \"default\" \"default\" \"default\")" --batch "(gimp-quit 1)"
+# If changed palettes exist
+ChangedLines=$(echo -n "$ChangedPalettes" | grep -c '^')
+if [ "$ChangedLines" != "0" ]
+then
+	printf "%s changed palettes found, generating...\n" "$ChangedLines"
+	# Call GIMP and genereate chaned palettes
+	gimp-2.10.exe -n --no-interface --batch "(python-fu-generate-class-sprites-cmd RUN-NONINTERACTIVE \"default\" \"default\" \"default\" \"default\" \"default\")" --batch "(gimp-quit 1)"
 
-# Current palettes and working palettes are now in sync
-#cp working_palettes.csv palettes.csv
+	# Current palettes and working palettes are now in sync
+	cp working_palettes.csv palettes.csv
+else
+	printf "No palette changes found, closing...\n"
+fi 

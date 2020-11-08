@@ -25,7 +25,7 @@ from shutil import copyfile
 # Defaults for easy command-line runs
 default_image_path = "G:\\Steam\\steamapps\\common\\Noita\\mods\\thematic_random_starts\\resources\\player.xcf"
 default_csv_path = "G:\\Steam\\steamapps\\common\\Noita\\mods\\thematic_random_starts\\resources\\"
-default_csv_name = "test_palettes.csv"
+default_csv_name = "changed_palettes.csv"
 default_output_path = "G:\\Steam\\steamapps\\common\\Noita\\mods\\thematic_random_starts\\files\\"
 
 # Debug mode

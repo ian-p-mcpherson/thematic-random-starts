@@ -106,8 +106,8 @@ loadout_list =
 				delay = 	{{3,3}},
 				spread = 	{{0,0}},
 				speed = 	{{1}},
-				regen = 	{{50,60}},
-				mana_max = 	{{20,30}},
+				regen = 	{{1,1}},
+				mana_max = 	{{1,1}},
 				actions = {
 					{"DIGGER"},
 				},
@@ -1518,7 +1518,7 @@ loadout_list =
 	{
 		-- ID: 26
 		name = "Lightning Wizard",
-		description = {"Shocking, isn't it?","Don't let them steal your thunder...",""},
+		description = {"Shocking, isn't it?","Don't let them steal your thunder...","You know how to conduct yourself."},
 		class_id = "lightning",
 		class_color = "lightning",
 		
@@ -1579,30 +1579,69 @@ loadout_list =
 			"ELECTRICITY",
 		}
 	},
---	{
---		-- ID: 27
---		name = "Cryomancer",
---		description = {"","",""},
---		class_id = "cryomancer",
---		class_color = "cryomancer",
---		
---		robe_color = {224, 242, 255, 255},
---		belt_color = {151, 196, 218, 255},
---		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
---		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
---
---		hp = 100,
---		items = 
---		{
---			"mods/thematic_random_starts/files/wands/air_wand.xml",
---			"mods/thematic_random_starts/files/wands/levitator_wand.xml",
---			{ potion = "water", amount = 2, quantity = 0},
---		},
---		perks =
---		{
---			"FREEZE_FIELD",
---		}
---	},
+	{
+		-- ID: 27
+		name = "Cryomancer",
+		description = {"You know the drill...","Your skills are chilling.","You've always had a cold heart."},
+		class_id = "cryomancer",
+		class_color = "cryomancer",
+		
+		robe_color = {175, 200, 255, 255},
+		belt_color = {73, 73, 83, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
+		hp = 100,
+		items = 
+		{
+			{ wand = {
+				name = 		{{"freeze_wand"}},
+				capacity = 	{{2,2}},
+				per_round = {{1}},
+				reload = 	{{90,95}},
+				shuffle = 	{{0}},
+				delay = 	{{10,15}},
+				spread = 	{{0,0}},
+				speed = 	{{1}},
+				regen = 	{{40,60}},
+				mana_max = 	{{130,140}},
+				actions_permanent = {
+					{"LIGHT_SHOT"},
+				},
+				actions = {
+					{"FREEZE", "AIR_BULLET"},
+				},
+				gfx = {
+					sprite = "freeze_wand",
+					offset_x = 1.0,
+					tip_x = 9.0
+				}
+			}},
+			{ wand = {
+				name = 		{{"cryo_drill"}},
+				capacity = 	{{1,1}},
+				per_round = {{1}},
+				reload = 	{{5,5}},
+				shuffle = 	{{0}},
+				delay = 	{{3,3}},
+				spread = 	{{0,0}},
+				speed = 	{{1}},
+				regen = 	{{1,1}},
+				mana_max = 	{{1,1}},
+				actions = {
+					{"DIGGER"},
+				},
+				gfx = {
+					sprite = "cryo_drill",
+				}
+			}},
+			{ potion = "blood_cold", amount = 1, quantity = 1000},
+		},
+		perks =
+		{
+			"FREEZE_FIELD",
+		}
+	},
 --	{
 --		-- ID: 28
 --		name = "Exorcist",

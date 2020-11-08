@@ -168,7 +168,7 @@ def generateSprites(image, csv_location, csv_file, image_output, debugMode):
     pdb.gimp_context_set_feather(False)
     pdb.gimp_context_set_sample_threshold_int(0)
     pdb.gimp_context_set_sample_merged(False)
-    with open(csv_location + csv_file, 'r') as f:
+    with open(csv_location + csv_file, 'rU') as f:
         reader = csv.reader(f, delimiter = column_delim)
         for row in reader:
             base_folder = getFolder(image_output, "%s\\" % row[0])

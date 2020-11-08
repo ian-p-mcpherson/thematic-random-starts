@@ -69,7 +69,7 @@ if [ "$ChangedLines" != "0" ]
 then
 	printf "%s changed palettes found, generating...\n" "$ChangedLines"
 	# Call GIMP and genereate chaned palettes
-	gimp-2.10.exe -n --no-interface --batch "(python-fu-generate-class-sprites-cmd RUN-NONINTERACTIVE \"default\" \"default\" \"default\" \"default\" \"default\")" --batch "(gimp-quit 1)"
+	gimp-2.10.exe -n -idf --batch "(python-fu-generate-class-sprites-cmd RUN-NONINTERACTIVE \"default\" \"default\" \"default\" \"default\" \"default\")" --batch "(gimp-quit 1)"
 
 	# Current palettes and working palettes are now in sync
 	cp working_palettes.csv palettes.csv

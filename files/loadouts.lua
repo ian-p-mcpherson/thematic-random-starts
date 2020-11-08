@@ -1345,7 +1345,7 @@ loadout_list =
 					tip_x = 6.0
 				}
 			}},
-			{ potion = "water", amount = 1, quantity = 1000},
+			{ potion = "water", amount = 1},
 			{ potion = "water", amount = 1, quantity = 0},
 		},
 		perks =
@@ -1411,7 +1411,7 @@ loadout_list =
 					tip_x = 10.0
 				}
 			}},
-			{ potion = "mud", amount = 1, quantity = 1000},
+			{ potion = "mud", amount = 1},
 		},
 		perks =
 		{
@@ -1506,8 +1506,8 @@ loadout_list =
 					tip_y = -1.0
 				}
 			}},
-			{ potion = "water", amount = 1, quantity = 1000},
-			{ potion = "acid", amount = 1, quantity = 1000},
+			{ potion = "water", amount = 1},
+			{ potion = "acid", amount = 1},
 			{ potion = "magic_liquid_hp_regeneration", amount = 1, quantity = 67},
 		},
 		perks =
@@ -1572,7 +1572,7 @@ loadout_list =
 					tip_x = 10.0
 				}
 			}},
-			{ potion = "water", amount = 1, quantity = 1000},
+			{ potion = "water", amount = 1},
 		},
 		perks =
 		{
@@ -1598,7 +1598,7 @@ loadout_list =
 				name = 		{{"freeze_wand"}},
 				capacity = 	{{2,2}},
 				per_round = {{1}},
-				reload = 	{{90,95}},
+				reload = 	{{50,55}},
 				shuffle = 	{{0}},
 				delay = 	{{10,15}},
 				spread = 	{{0,0}},
@@ -1635,37 +1635,59 @@ loadout_list =
 					sprite = "cryo_drill",
 				}
 			}},
-			{ potion = "blood_cold", amount = 1, quantity = 1000},
+			{ potion = "blood_cold", amount = 1},
 		},
 		perks =
 		{
 			"FREEZE_FIELD",
 		}
 	},
---	{
---		-- ID: 28
---		name = "Exorcist",
---		description = {"This mine is on of your old haunts...","...and you hope you won't get repossessed.",""},
---		class_id = "possessed",
---		class_color = "possessed",
---		
---		robe_color = {224, 242, 255, 255},
---		belt_color = {151, 196, 218, 255},
---		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
---		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
---
---		hp = 90,
---		items = 
---		{
---			"mods/thematic_random_starts/files/wands/air_wand.xml",
---			"mods/thematic_random_starts/files/wands/levitator_wand.xml",
---			{ potion = "water", amount = 2, quantity = 0},
---		},
---		perks =
---		{
---			"ANGRY_GHOST",
---		}
---	},
+	{
+		-- ID: 28
+		name = "Exorcist",
+		description = {"This mine is one of your old haunts...","...and you hope you won't get repossessed.","...and your pal is named Steve."},
+		class_id = "possessed",
+		class_color = "possessed",
+		
+		robe_color = {54, 54, 55, 255},
+		belt_color = {219, 219, 220, 255},
+		cape_color_edge = {219, 219, 219, 255},
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
+		hp = 70,
+		items = 
+		{
+			{ wand = {
+				name = 		{{"exoricist_wand"}},
+				capacity = 	{{1,1}},
+				per_round = {{1}},
+				reload = 	{{48,52}},
+				shuffle = 	{{0}},
+				delay = 	{{10,15}},
+				spread = 	{{1,2}},
+				speed = 	{{1}},
+				regen = 	{{30,35}},
+				mana_max = 	{{50,55}},
+				actions_permanent = {
+					{"LIGHT"}
+				},
+				actions = {
+					{"LIGHT_BULLET"},
+				},
+				gfx = {
+					sprite = "exorcist_wand",
+					offset_x = 2.0,
+					tip_x = 9.0
+				}
+			}},
+			{ potion = "water", amount = 1},
+			{ potion = "purifying_powder", amount = 1, quantity = 500},
+		},
+		perks =
+		{
+			"ANGRY_GHOST",
+		}
+	},
 --	{
 --		-- ID: 29
 --		name = "Wand Tinkerer",
@@ -1673,17 +1695,15 @@ loadout_list =
 --		class_id = "tinker",
 --		class_color = "tinker",
 --		
---		robe_color = {224, 242, 255, 255},
---		belt_color = {151, 196, 218, 255},
---		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+--		robe_color = {232, 197, 115, 255},
+--		belt_color = {115, 92, 70, 255},
+--		cape_color_edge = {115, 92, 70, 255},
 --		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 --
 --		hp = 70,
 --		items = 
 --		{
---			"mods/thematic_random_starts/files/wands/air_wand.xml",
---			"mods/thematic_random_starts/files/wands/levitator_wand.xml",
---			{ potion = "water", amount = 2, quantity = 0},
+--			{ potion = "water", amount = 1},
 --		},
 --		perks =
 --		{

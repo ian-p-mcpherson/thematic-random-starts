@@ -567,6 +567,9 @@ loadout_list =
 				speed = 	{{1}},
 				regen = 	{{50,60}},
 				mana_max = 	{{100,120}},
+				actions_permanent = {
+					{"FIZZLE"},
+				},
 				actions = {
 					{
 						"DAMAGE_RANDOM", 
@@ -1688,28 +1691,80 @@ loadout_list =
 			"ANGRY_GHOST",
 		}
 	},
---	{
---		-- ID: 29
---		name = "Wand Tinkerer",
---		description = {"","",""},
---		class_id = "tinker",
---		class_color = "tinker",
---		
---		robe_color = {232, 197, 115, 255},
---		belt_color = {115, 92, 70, 255},
---		cape_color_edge = {115, 92, 70, 255},
---		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
---
---		hp = 70,
---		items = 
---		{
---			{ potion = "water", amount = 1},
---		},
---		perks =
---		{
---			"EDIT_WANDS_EVERYWHERE",
---		}
---	},
+	{
+		-- ID: 29
+		name = "Wand Tinkerer",
+		description = {"You ever try a wand without looking at it?","...yeah this wand looks perfectly safe.","Pretty the duct tape is holding..."},
+		class_id = "tinker",
+		class_color = "tinker",
+		
+		robe_color = {232, 197, 115, 255},
+		belt_color = {115, 92, 70, 255},
+		cape_color_edge = {115, 92, 70, 255},
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
+		hp = 60,
+		items = 
+		{
+			{ wand = {
+				name = 		{{"tinker_wand"}},
+				capacity = 	{{4,4}},
+				per_round = {{1}},
+				reload = 	{{48,52}},
+				shuffle = 	{{0}},
+				delay = 	{{10,15}},
+				spread = 	{{3,4}},
+				speed = 	{{1}},
+				regen = 	{{40,45}},
+				mana_max = 	{{150,155}},
+				actions_permanent = {
+					{"FIZZLE"}
+				},
+				actions = {
+					{
+						{ "BUBBLESHOT", "BOUNCY_ORB", "ARROW", "FIREBOMB", "RUBBER_BALL", "SPITTER", "LIGHT_BULLET"},
+						{ "BUBBLESHOT", "BOUNCY_ORB", "ARROW", "FIREBOMB", "RUBBER_BALL", "SPITTER", "LIGHT_BULLET"}
+					},
+				},
+				gfx = {
+					sprite = "tinker_wand",
+					offset_x = 2.0,
+					tip_x = 9.0
+				}
+			}},
+			{ wand = {
+				name = 		{{"toolbox"}},
+				capacity = 	{{8,8}},
+				per_round = {{0}},
+				reload = 	{{60,60}},
+				shuffle = 	{{0}},
+				delay = 	{{60,60}},
+				spread = 	{{30,30}},
+				speed = 	{{1}},
+				regen = 	{{1,1}},
+				mana_max = 	{{1,1}},
+				actions = {
+					{
+						{ "TORCH_ELECTRIC", "DISC_BULLET_BIG","ACIDSHOT","PURPLE_EXPLOSION_FIELD"}, --dangerous things
+						{ "CHAINSAW", "DIGGER", "LUMINOUS_DRILL", "LUMINOUS_DRILL_LASER"}, --good utility
+						{ "BOUNCE", "PIERCING_SHOT", "BURST_2", "BURST_3", "DELAYED_SPELL", "LIFETIME"}, --modifiers
+						{ "LIGHT_BULLET_TRIGGER", "BULLET_TRIGGER", "SLOW_BULLET_TRIGGER", "SPITTER_TIMER"}, --triggers
+						{ "LIGHT_BULLET_TRIGGER", "BULLET_TRIGGER", "SLOW_BULLET_TRIGGER", "SPITTER_TIMER"} --misc bits
+					},
+				},
+				gfx = {
+					sprite = "toolbox",
+					offset_x = 5.0,
+					offset_y = -1.0
+				}
+			}},
+			{ potion = "water", amount = 1},
+		},
+		perks =
+		{
+			"EDIT_WANDS_EVERYWHERE",
+		}
+	},
 --	{
 --		-- ID: 30
 --		name = "Thrifty Shopper",

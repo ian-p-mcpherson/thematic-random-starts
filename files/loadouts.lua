@@ -1871,14 +1871,61 @@ loadout_list =
 					offset_x = 2.0,
 					tip_x = 12.0
 				}
-			}}
+			}},
 			{ potion = "water", amount = 1, quantity = 0},
 		},
 		perks =
 		{
 			"SPEED_DIVER",
 		}
-	}
+	},
+	{
+		-- ID: 32
+		name = "Lukki Initiate",
+		description = {"It's your lukki day...","Multiple things are afoot...","But you still kick with your human feet."},
+		class_id = "lukki",
+
+		class_color = "lukki",
+		robe_color = {155, 111, 154, 255},
+		belt_color = {89, 67, 84, 255},
+		cape_color_edge = {89, 67, 84, 255},
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
+		hp = 80,
+		items = 
+		{
+			{ wand = {
+				name = 		{{"lukki_wand"}},
+				capacity = 	{{2,2}},
+				per_round = {{1}},
+				reload = 	{{40,45}},
+				shuffle = 	{{0}},
+				delay = 	{{50,55}},
+				spread = 	{{4,6}},
+				speed = 	{{1}},
+				regen = 	{{30,50}},
+				mana_max = 	{{100,110}},
+				actions_permanent = {
+					{"GRAVITY"}
+				},
+				actions = {
+					{"ACIDSHOT","ACIDSHOT"}
+				},
+				gfx = {
+					sprite = "lukki_wand",
+					offset_x = 1.0,
+					offset_y = -1.0,
+					tip_x = 13.0,
+					tip_y = 1.0
+				}
+			}},
+			{ potion = "acid", amount = 1, quantity = 1000},
+		},
+		perks =
+		{
+			"ATTACK_FOOT",
+		}
+	},
 }
 
 -- {

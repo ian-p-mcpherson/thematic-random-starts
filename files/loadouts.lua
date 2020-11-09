@@ -1766,30 +1766,52 @@ loadout_list =
 			"EDIT_WANDS_EVERYWHERE",
 		}
 	},
---	{
---		-- ID: 30
---		name = "Thrifty Shopper",
---		description = {"","",""},
---		class_id = "thrifty",
---		class_color = "thrifty",
---		
---		robe_color = {224, 242, 255, 255},
---		belt_color = {151, 196, 218, 255},
---		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
---		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
---
---		hp = 90,
---		items = 
---		{
---			"mods/thematic_random_starts/files/wands/shiddy_wand.xml",
---			{ potion = "water", amount = 1, quantity = 500},
---			{ money = 200},
---		},
---		perks =
---		{
---			"EXTRA_PERK",
---		}
---	},
+	{
+		-- ID: 30
+		name = "Thrifty Shopper",
+		description = {"Don't spend it all in one place.","This wand was a bargain!","You hope there's a sale!"},
+		class_id = "thrifty",
+		class_color = "thrifty",
+		
+		robe_color = {159, 214, 171, 255},
+		belt_color = {105, 96, 74, 255},
+		cape_color_edge = {105, 96, 74, 255}, -- default to robe_color
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
+		hp = 90,
+		items = 
+		{
+			{ wand = {
+				name = 		{{"shiddy_wand"}},
+				capacity = 	{{1,1}},
+				per_round = {{1}},
+				reload = 	{{70,75}},
+				shuffle = 	{{1}},
+				delay = 	{{60,65}},
+				spread = 	{{7,9}},
+				speed = 	{{1}},
+				regen = 	{{20,22}},
+				mana_max = 	{{30,40}},
+				actions_permanent = {
+					{"FIZZLE"}
+				},
+				actions = {
+					{"FIREBOMB"}
+				},
+				gfx = {
+					sprite = "shiddy_wand",
+					offset_x = 2.0,
+					tip_x = 10.0
+				}
+			}},
+			{ potion = "water", amount = 1, quantity = 500},
+			{ money = 200},
+		},
+		perks =
+		{
+			"EXTRA_PERK",
+		}
+	},
 --	{
 --		-- ID: 31
 --		name = "Storm Wizard",

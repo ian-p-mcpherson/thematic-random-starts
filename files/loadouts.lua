@@ -718,7 +718,6 @@ loadout_list =
 		hp = 90,
 		items = 
 		{
-			"mods/thematic_random_starts/files/wands/tentacle_stick.xml",
 			{ wand = {
 				name = 		{{"tentacle_stick"}},
 				capacity = 	{{4,4}},

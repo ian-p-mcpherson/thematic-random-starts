@@ -1694,7 +1694,7 @@ loadout_list =
 	{
 		-- ID: 29
 		name = "Wand Tinkerer",
-		description = {"You ever try a wand without looking at it?","...yeah this wand looks perfectly safe.","Pretty the duct tape is holding..."},
+		description = {"You ever try a wand without looking at it?","...yeah this wand looks perfectly safe.","You're pretty sure the duct tape is holding..."},
 		class_id = "tinker",
 		class_color = "tinker",
 		
@@ -1722,8 +1722,8 @@ loadout_list =
 				},
 				actions = {
 					{
-						{ "BUBBLESHOT", "BOUNCY_ORB", "ARROW", "FIREBOMB", "RUBBER_BALL", "SPITTER", "LIGHT_BULLET"},
-						{ "BUBBLESHOT", "BOUNCY_ORB", "ARROW", "FIREBOMB", "RUBBER_BALL", "SPITTER", "LIGHT_BULLET"}
+						{"BUBBLESHOT", "BOUNCY_ORB", "ARROW", "FIREBOMB", "RUBBER_BALL", "SPITTER", "LIGHT_BULLET"},
+						{"BUBBLESHOT", "BOUNCY_ORB", "ARROW", "FIREBOMB", "RUBBER_BALL", "SPITTER", "LIGHT_BULLET"}
 					},
 				},
 				gfx = {
@@ -1745,11 +1745,12 @@ loadout_list =
 				mana_max = 	{{1,1}},
 				actions = {
 					{
-						{ "TORCH_ELECTRIC", "DISC_BULLET_BIG","ACIDSHOT","PURPLE_EXPLOSION_FIELD"}, --dangerous things
-						{ "CHAINSAW", "DIGGER", "LUMINOUS_DRILL", "LUMINOUS_DRILL_LASER"}, --good utility
-						{ "BOUNCE", "PIERCING_SHOT", "BURST_2", "BURST_3", "DELAYED_SPELL", "LIFETIME"}, --modifiers
-						{ "LIGHT_BULLET_TRIGGER", "BULLET_TRIGGER", "SLOW_BULLET_TRIGGER", "SPITTER_TIMER"}, --triggers
-						{ "LIGHT_BULLET_TRIGGER", "BULLET_TRIGGER", "SLOW_BULLET_TRIGGER", "SPITTER_TIMER"} --misc bits
+						{"CHAINSAW", "DIGGER", "LUMINOUS_DRILL", "LASER_LUMINOUS_DRILL"}, --good utility
+						{"BOUNCE", "BURST_2", "DELAYED_SPELL", "LIFETIME","KNOCKBACK","LIFETIME","SPREAD_REDUCE","KNOCKBACK","SPEED"}, --modifiers
+						{"BURST_2", "BURST_3", "DELAYED_SPELL","SCATTER_2","SCATTER_3","Y_SHAPE","W_SHAPE"}, --modifiers (splits only)
+						{"BUBBLESHOT_TRIGGER","LIGHT_BULLET_TRIGGER", "SPITTER_TIMER","SPITTER_TIMER","ADD_TRIGGER","ADD_TIMER"}, --triggers/timers
+						{"DISC_BULLET_BIG","DISC_BULLET","SLIMEBALL","LIGHT_BULLET_TRIGGER","TELEPORT_PROJECTILE"}, --misc
+						{"SUMMON_ROCK","SUMMON_HOLLOW_EGG","LIGHT","RECOIL_DAMPER","T_SHAPE"} --fluff
 					},
 				},
 				gfx = {
@@ -1758,7 +1759,7 @@ loadout_list =
 					offset_y = -1.0
 				}
 			}},
-			{ potion = "water", amount = 1},
+			{ potion = "water", amount = 1, quantiy = 0},
 		},
 		perks =
 		{

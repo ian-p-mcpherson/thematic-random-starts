@@ -1775,7 +1775,7 @@ loadout_list =
 		
 		robe_color = {159, 214, 171, 255},
 		belt_color = {105, 96, 74, 255},
-		cape_color_edge = {105, 96, 74, 255}, -- default to robe_color
+		cape_color_edge = {105, 96, 74, 255},
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
 		hp = 90,
@@ -1812,30 +1812,73 @@ loadout_list =
 			"EXTRA_PERK",
 		}
 	},
---	{
---		-- ID: 31
---		name = "Tidal Sorcerer",
---		description = {"","",""},
---		class_id = "tide",
---		class_color = "tide",
---		
---		robe_color = {224, 242, 255, 255},
---		belt_color = {151, 196, 218, 255},
---		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
---		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
---
---		hp = 90,
---		items = 
---		{
---			"mods/thematic_random_starts/files/wands/shiddy_wand.xml",
---			{ potion = "water", amount = 1, quantity = 500},
---			{ money = 200},
---		},
---		perks =
---		{
---			"EXTRA_PERK",
---		}
---	}
+	{
+		-- ID: 31
+		name = "Tidal Sorcerer",
+		description = {"It's sink or swim...","Something's fishy...","You've been known to turn the tides..."},
+		class_id = "tide",
+		class_color = "tide",
+		
+		robe_color = {65, 95, 217, 255},
+		belt_color = {219, 207, 74, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+
+		hp = 100,
+		items = 
+		{
+			{ wand = {
+				name = 		{{"harpoon_gun"}},
+				capacity = 	{{2,2}},
+				per_round = {{1}},
+				reload = 	{{45,50}},
+				shuffle = 	{{0}},
+				delay = 	{{15,15}},
+				spread = 	{{0,0}},
+				speed = 	{{1}},
+				regen = 	{{50,120}},
+				mana_max = 	{{100,110}},
+				actions_permanent = {
+					{"SPEED"}
+				},
+				actions = {
+					{"HITFX_CRITICAL_WATER","ARROW"}
+				},
+				gfx = {
+					sprite = "harpoon_gun",
+					offset_x = 4.0,
+					offset_y = 2.0,
+					tip_x = 9.0,
+					tip_y = -1.0
+				}
+			}},
+			{ wand = {
+				name = 		{{"flood_stick"}},
+				capacity = 	{{1,1}},
+				per_round = {{1}},
+				reload = 	{{300,310}},
+				shuffle = 	{{1}},
+				delay = 	{{60,65}},
+				spread = 	{{0,0}},
+				speed = 	{{1}},
+				regen = 	{{2,3}},
+				mana_max = 	{{20,22}},
+				actions = {
+					{"CIRCLE_WATER"}
+				},
+				gfx = {
+					sprite = "flood_stick",
+					offset_x = 2.0,
+					tip_x = 12.0
+				}
+			}}
+			{ potion = "water", amount = 1, quantity = 0},
+		},
+		perks =
+		{
+			"SPEED_DIVER",
+		}
+	}
 }
 
 -- {

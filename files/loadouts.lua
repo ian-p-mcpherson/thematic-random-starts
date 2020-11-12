@@ -302,7 +302,7 @@ loadout_list =
 		cape_color_edge = {42, 44, 56, 255},
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
-		hp = 60,
+		hp = 70,
 		items = 
 		{
 			{ wand = {
@@ -553,7 +553,7 @@ loadout_list =
 		cape_color_edge = {222, 194, 16, 255},
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
-		hp = 60,
+		hp = 70,
 		items = 
 		{
 			{ wand = {
@@ -651,7 +651,7 @@ loadout_list =
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
-		hp = 80,
+		hp = 70,
 		items = 
 		{
 			{ wand = {
@@ -677,7 +677,7 @@ loadout_list =
 				}
 			}},
 			{ wand = {
-				name = 		{{"chainsaw"}},
+				name = 		{{"chainsaw_zerk"}},
 				capacity = 	{{1,1}},
 				per_round = {{1}},
 				reload = 	{{12,12}},
@@ -685,13 +685,13 @@ loadout_list =
 				delay = 	{{10,10}},
 				spread = 	{{0,0}},
 				speed = 	{{1}},
-				regen = 	{{20,22}},
+				regen = 	{{48,52}},
 				mana_max = 	{{20,30}},
 				actions = {
 					{"CHAINSAW"},
 				},
 				gfx = {
-					sprite = "chainsaw",
+					sprite = "chainsaw_zerk",
 					offset_x = 1.0,
 					tip_x = 6.0
 				}
@@ -715,7 +715,7 @@ loadout_list =
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
 		cape_color = {40, 40, 50, 255},
 
-		hp = 90,
+		hp = 100,
 		items = 
 		{
 			{ wand = {
@@ -1126,7 +1126,7 @@ loadout_list =
 		cape_color_edge = {142, 200, 212, 255},
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
-		hp = 100,
+		hp = 90,
 		items = 
 		{
 			{ wand = {
@@ -1198,14 +1198,14 @@ loadout_list =
 				capacity = 	{{1,1}},
 				per_round = {{1}},
 				reload = 	{{10,12}},
-				shuffle = 	{{1}},
+				shuffle = 	{{0}},
 				delay = 	{{25,30}},
 				spread = 	{{20,22}},
 				speed = 	{{1}},
 				regen = 	{{9,11}},
 				mana_max = 	{{360,370}},
 				actions_permanent = {
-					{"DELAYED_SPELL"},
+					{"CLIPPING_SHOT"},
 				},
 				actions = {
 					{"FRIEND_FLY"},
@@ -1321,7 +1321,7 @@ loadout_list =
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
-		hp = 90,
+		hp = 100,
 		items = 
 		{
 			{ wand = {
@@ -1529,7 +1529,7 @@ loadout_list =
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
 		cape_color = {225, 237, 245, 255}, 
 
-		hp = 70,
+		hp = 80,
 		items = 
 		{
 			{ wand = {
@@ -1656,7 +1656,7 @@ loadout_list =
 		cape_color_edge = {219, 219, 219, 255},
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
-		hp = 70,
+		hp = 80,
 		items = 
 		{
 			{ wand = {
@@ -1702,7 +1702,7 @@ loadout_list =
 		cape_color_edge = {115, 92, 70, 255},
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
-		hp = 60,
+		hp = 70,
 		items = 
 		{
 			{ wand = {
@@ -1890,7 +1890,7 @@ loadout_list =
 		cape_color_edge = {89, 67, 84, 255},
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
-		hp = 80,
+		hp = 90,
 		items = 
 		{
 			{ wand = {

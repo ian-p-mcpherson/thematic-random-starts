@@ -10,7 +10,7 @@ A loadout consists of one perk, one or two thematic wands, an appropriate potion
 Please leave comments, ideas, or balance suggestions in the discussion tab in the steam workshop via the link below.
 
 # To Install
-Download and unzip under the "mods" directory in your Noita game install, then activate it on the mods submenu ingame.
+Download and unzip or check it out via Git into the "mods" directory in your Noita game installation, then activate it on the mods submenu ingame.
 
 This mod is also available via the steam workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=2274888657
 

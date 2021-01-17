@@ -6,7 +6,7 @@ dofile( "data/scripts/perks/perk.lua" )
 ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/thematic_random_starts/files/spells/gun_actions.lua")
 
 -- Edit this if you want to choose a class byt he ID in loadouts.lua
-local loadout_override = -1
+local loadout_override = 41
 
 -- cape defaults (gray)
 local robe_rgba = {140, 140, 140, 255}
@@ -186,6 +186,12 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 		ComponentSetValue2(playerPlatforming, "jump_velocity_x", 100)
 		ComponentSetValue2(playerPlatforming, "run_velocity", 180)
 	end
+
+	-- Spawn a homunculus for the homunculist (This happens automatically now?)
+	--if ( loadout_choice.class_id == "homunculist" ) then
+	--	EntityLoad( "data/entities/misc/homunculus.xml", x, y )
+	--	EntityLoad( "data/entities/particles/swarm_poof.xml", x, y )
+	--end
 
 	-- tell the player what class they are
 	local a_an = "a"

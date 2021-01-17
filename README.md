@@ -3,7 +3,7 @@
 # Thematic Random Starts - A Noita Mod
 A collection of starting loadouts that aim to be somewhat balanced with one another. This mod's goal is to make the first five to ten minutes of the game a fresh experience as many of the loadouts have a certain playstyle in mind.
 
-There are currently 31 curated starting loadouts, and one of which will be given to the player at random when starting a new game.
+There are currently 32 curated starting loadouts, and one of which will be given to the player at random when starting a new game.
 
 A loadout consists of one perk, one or two thematic wands, an appropriate potion or two, and a snazzy robe color scheme to tie it all together.
 

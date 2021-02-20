@@ -34,12 +34,13 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 	local x,y = EntityGetTransform( player_entity )
 	SetRandomSeed( x + 344, y - 523 )
 
-	for i,j in ipairs(loadout_exceptions) do
-		table.remove (loadout_list, j)
+	if ( loadout_override > 0) then loadout_rnd = loadout_override 	
+	else
+		for i,j in ipairs(loadout_exceptions) do
+			table.remove (loadout_list, j)
+		end
+		local loadout_rnd = Random( 1, #loadout_list )
 	end
-	
-	local loadout_rnd = Random( 1, #loadout_list )
-	if ( loadout_override > 0) then loadout_rnd = loadout_override end
 	local loadout_choice = loadout_list[loadout_rnd]
 	local loadout_name = loadout_choice.name
 	

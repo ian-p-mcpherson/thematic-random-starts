@@ -7,6 +7,9 @@ ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/thematic_random_start
 
 -- Edit this if you want to choose a class byt he ID in loadouts.lua
 local loadout_override = 41
+-- Edit this to add classes that you don't want to see (provided example in comment)
+local loadout_exceptions = {} -- {5, 6, 7, 11, 19, 20, 21, 22, 29}
+table.sort(loadout_exceptions, function(a,b) return a>b end) -- this to reorder the table by highest element
 
 -- cape defaults (gray)
 local robe_rgba = {140, 140, 140, 255}
@@ -31,8 +34,14 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 	local x,y = EntityGetTransform( player_entity )
 	SetRandomSeed( x + 344, y - 523 )
 	
-	local loadout_rnd = Random( 1, #loadout_list )
-	if ( loadout_override > 0) then loadout_rnd = loadout_override end
+	local loadout_rnd
+	if ( loadout_override > 0) then loadout_rnd = loadout_override 	
+	else
+		for i,j in ipairs(loadout_exceptions) do
+			table.remove (loadout_list, j)
+		end
+		loadout_rnd = Random( 1, #loadout_list )
+	end
 	local loadout_choice = loadout_list[loadout_rnd]
 	local loadout_name = loadout_choice.name
 	

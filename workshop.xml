@@ -1,6 +1,6 @@
 <Mod
 	name="Thematic Random Starts"
-	description="A collection of starting loadouts that aim to be somewhat balanced with one another. Each is designed to make the first few minutes of the game more interesting."
+	description="A collection of 32 starting loadouts that aim to be somewhat balanced with one another. Each is designed to make the first few minutes of the game more interesting."
 	tags="gameplay,quality of life,loadouts,tweaks"
 	dont_upload_folders="temp|resources"
 	dont_upload_files=""

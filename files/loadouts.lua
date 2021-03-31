@@ -120,7 +120,7 @@ loadout_list =
 		},
 		perks =
 		{
-			"HIGH_GRAVITY",
+			"MAP",
 		}
 	},
 	{
@@ -168,7 +168,7 @@ loadout_list =
 	{
 		-- ID: 4
 		name = "Vampire",
-		description = {"Somehow you know this run will suck.","Your bite is worse than your bark.","Good thing a hardware store was nearby..."},
+		description = {"Somehow you know this run will suck.","The bleeding edge of magic...","Chop chop, get to it."},
 		class_id = "vampire",
 
 		class_color = "vampire",
@@ -177,7 +177,7 @@ loadout_list =
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
 		cape_color = {175, 26, 26, 255},
 
-		hp = 60,
+		hp = 50,
 		items = 
 		{
 			{ wand = {
@@ -202,23 +202,23 @@ loadout_list =
 				}
 			}},
 			{ wand = {
-				name = 		{{"chainsaw"}},
-				capacity = 	{{1,1}},
+				name = 		{{"vampire_wand"}},
+				capacity = 	{{0,0}},
 				per_round = {{1}},
-				reload = 	{{12,12}},
-				shuffle = 	{{1}},
-				delay = 	{{10,10}},
+				reload = 	{{26,28}},
+				shuffle = 	{{0}},
+				delay = 	{{10,12}},
 				spread = 	{{0,0}},
 				speed = 	{{1}},
-				regen = 	{{20,22}},
-				mana_max = 	{{20,30}},
-				actions = {
+				regen = 	{{1,1}},
+				mana_max = 	{{1,1}},
+				actions_permanent = {
 					{"CHAINSAW"},
 				},
 				gfx = {
-					sprite = "chainsaw",
+					sprite = "vampire_wand",
 					offset_x = 1.0,
-					tip_x = 6.0
+					tip_x = 4.0
 				}
 			}},
 			{ potion = "blood", amount = 1},
@@ -250,7 +250,7 @@ loadout_list =
 				reload = 	{{20,22}},
 				shuffle = 	{{0}},
 				delay = 	{{10,12}},
-				spread = 	{{20,22}},
+				spread = 	{{12,14}},
 				speed = 	{{1}},
 				regen = 	{{35,40}},
 				mana_max = 	{{80,90}},
@@ -293,7 +293,7 @@ loadout_list =
 	{
 		-- ID: 6
 		name = "Ninja",
-		description = {"Silent, but deadly.","This loadout has a hidden feature.","You've been known to be a bit edgy..."},
+		description = {"Silent, but deadly.","Your perk has a hidden feature.","You've been known to be a bit edgy..."},
 		class_id = "ninja",
 
 		class_color = "ninja",
@@ -374,7 +374,7 @@ loadout_list =
 				per_round = {{1}},
 				reload = 	{{25,30}},
 				shuffle = 	{{0}},
-				delay = 	{{50,55}},
+				delay = 	{{60,65}},
 				spread = 	{{0,0}},
 				speed = 	{{1}},
 				regen = 	{{90,105}},
@@ -428,7 +428,7 @@ loadout_list =
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
-		hp = 80,
+		hp = 70,
 		items = 
 		{
 			{ wand = {
@@ -491,7 +491,7 @@ loadout_list =
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
-		hp = 100,
+		hp = 90,
 		items = 
 		{
 			{ wand = {
@@ -610,9 +610,9 @@ loadout_list =
 		{
 			{ wand = {
 				name = 		{{"telekarate_wand"}},
-				capacity = 	{{3,3}},
+				capacity = 	{{2,2}},
 				per_round = {{1}},
-				reload = 	{{60,60}},
+				reload = 	{{80,80}},
 				shuffle = 	{{0}},
 				delay = 	{{18,22}},
 				spread = 	{{0,0}},
@@ -620,13 +620,33 @@ loadout_list =
 				regen = 	{{115,120}},
 				mana_max = 	{{190,210}},
 				actions = {
-					{"BURST_2", "TELEPORT_PROJECTILE_STATIC", "TELEPORT_PROJECTILE"},
+					{"TELEPORT_PROJECTILE_SHORT", "TELEPORT_PROJECTILE_SHORT"},
 				},
 				actions_permanent = {
 					{"ENERGY_SHIELD_SECTOR"},
 				},
 				gfx = {
 					sprite = "telekarate_wand",
+					offset_x = 2.0,
+					tip_x = 8.0
+				}
+			}},
+			{ wand = {
+				name = 		{{"return_wand"}},
+				capacity = 	{{1,1}},
+				per_round = {{1}},
+				reload = 	{{60,60}},
+				shuffle = 	{{0}},
+				delay = 	{{18,22}},
+				spread = 	{{0,0}},
+				speed = 	{{1}},
+				regen = 	{{60,70}},
+				mana_max = 	{{40,45}},
+				actions = {
+					{"TELEPORT_PROJECTILE_CLOSER"},
+				},
+				gfx = {
+					sprite = "return_wand",
 					offset_x = 2.0,
 					tip_x = 8.0
 				}
@@ -665,6 +685,9 @@ loadout_list =
 				speed = 	{{1}},
 				regen = 	{{20,25}},
 				mana_max = 	{{50,55}},
+				actions_permanent = {
+					{"RECOIL"},
+				},
 				actions = {
 					{"BUCKSHOT", "BUCKSHOT"},
 				},
@@ -715,7 +738,7 @@ loadout_list =
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
 		cape_color = {40, 40, 50, 255},
 
-		hp = 100,
+		hp = 90,
 		items = 
 		{
 			{ wand = {
@@ -854,7 +877,7 @@ loadout_list =
 				regen = 	{{20,30}},
 				mana_max = 	{{45,50}},
 				actions = {
-					{"PIPE_BOMB","PIPE_BOMB"},
+					{"PIPE_BOMB","PIPE_BOMB","PIPE_BOMB"},
 				},
 				gfx = {
 					sprite = "crystal_wand",
@@ -872,11 +895,8 @@ loadout_list =
 				speed = 	{{1}},
 				regen = 	{{20,20}},
 				mana_max = 	{{50,50}},
-				actions_permanent = {
-					{"DELAYED_SPELL"},
-				},
 				actions = {
-					{"PIPE_BOMB_DETONATOR"},
+					{"BOMB_DETONATOR"},
 				},
 				gfx = {
 					sprite = "crystal_detonator",
@@ -942,7 +962,7 @@ loadout_list =
 	{
 		-- ID: 17
 		name = "Pyromancer",
-		description = {"Pyromancers are so hot right now.","Basically an arsonist with a license.","You've studied to a great degree..."},
+		description = {"Pyromancers are so hot right now.","Essentially an arsonist with a license.","You've studied to a great degree..."},
 		class_id = "pyro",
 
 		class_color = "pyro",
@@ -951,7 +971,7 @@ loadout_list =
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
-		hp = 70,
+		hp = 80,
 		items = 
 		{
 			{ wand = {
@@ -1016,7 +1036,7 @@ loadout_list =
 		cape_color_edge = {99, 93, 90, 255},
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
-		hp = 100,
+		hp = 80,
 		items = 
 		{
 			{ wand = {
@@ -1126,7 +1146,7 @@ loadout_list =
 		cape_color_edge = {142, 200, 212, 255},
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
-		hp = 90,
+		hp = 100,
 		items = 
 		{
 			{ wand = {
@@ -1199,13 +1219,13 @@ loadout_list =
 				per_round = {{1}},
 				reload = 	{{10,12}},
 				shuffle = 	{{0}},
-				delay = 	{{25,30}},
+				delay = 	{{180,180}},
 				spread = 	{{20,22}},
 				speed = 	{{1}},
-				regen = 	{{9,11}},
-				mana_max = 	{{360,370}},
+				regen = 	{{90, 100}},
+				mana_max = 	{{180,190}},
 				actions_permanent = {
-					{"CLIPPING_SHOT"},
+					{"LIFETIME_DOWN", "LIFETIME_DOWN", "LIFETIME_DOWN", "LIFETIME_DOWN", "LIFETIME_DOWN"},
 				},
 				actions = {
 					{"FRIEND_FLY"},
@@ -1347,12 +1367,12 @@ loadout_list =
 					tip_x = 6.0
 				}
 			}},
-			{ potion = "water", amount = 1},
+			{ potion = "magic_liquid_faster_levitation", amount = 1},
 			{ potion = "water", amount = 1, quantity = 0},
 		},
 		perks =
 		{
-			"LOW_GRAVITY",
+			"ANGRY_LEVITATION",
 		}
 	},
 	{
@@ -1371,6 +1391,29 @@ loadout_list =
 		items = 
 		{
 			{ wand = {
+				name = 		{{"petrify_wand"}},
+				capacity = 	{{2,2}},
+				per_round = {{1}},
+				reload = 	{{10,12}},
+				shuffle = 	{{0}},
+				delay = 	{{35,40}},
+				spread = 	{{0,5}},
+				speed = 	{{1}},
+				regen = 	{{40,60}},
+				mana_max = 	{{110,130}},
+				actions_permanent = {
+					{"COLOUR_RED","HITFX_PETRIFY"},
+				},
+				actions = {
+					{"HITFX_PETRIFY", "RUBBER_BALL"},
+				},
+				gfx = {
+					sprite = "petrify_wand",
+					offset_x = 1.0,
+					tip_x = 10.0
+				}
+			}},
+			{ wand = {
 				name = 		{{"crystal_stick"}},
 				capacity = 	{{3,4}},
 				per_round = {{1}},
@@ -1382,33 +1425,13 @@ loadout_list =
 				regen = 	{{40,60}},
 				mana_max = 	{{110,130}},
 				actions_permanent = {
-					{"DELAYED_SPELL", "GRAVITY"},
+					{"GRAVITY"},
 				},
 				actions = {
 					{"MINE"},
 				},
 				gfx = {
 					sprite = "crystal_stick",
-					offset_x = 1.0,
-					tip_x = 10.0
-				}
-			}},
-			{ wand = {
-				name = 		{{"pebble_stick"}},
-				capacity = 	{{4,4}},
-				per_round = {{1}},
-				reload = 	{{55,65}},
-				shuffle = 	{{1}},
-				delay = 	{{10,15}},
-				spread = 	{{3,5}},
-				speed = 	{{1}},
-				regen = 	{{40,60}},
-				mana_max = 	{{110,130}},
-				actions = {
-					{"SUMMON_ROCK", "SUMMON_ROCK"},
-				},
-				gfx = {
-					sprite = "pebble_stick",
 					offset_x = 1.0,
 					tip_x = 10.0
 				}
@@ -1453,7 +1476,7 @@ loadout_list =
 					{"ARROW"},
 				},
 				gfx = {
-					sprite = "crossbow",
+					sprite = "heavy_crossbow",
 					offset_x = 4.0,
 					tip_x = 9.0,
 					tip_y = -1.0
@@ -1475,7 +1498,7 @@ loadout_list =
 						{"SUMMON_ROCK","SUMMON_ROCK","SUMMON_ROCK","SUMMON_ROCK","SUMMON_ROCK","SUMMON_ROCK","SUMMON_ROCK","SUMMON_ROCK","PEBBLE"},
 						{"DYNAMITE","DYNAMITE","DYNAMITE","DYNAMITE","DYNAMITE","DYNAMITE","DYNAMITE","DYNAMITE","DYNAMITE","BOMB_CART"},
 						{"BOMB","BOMB","BOMB","BOMB","BOMB","BOMB","BOMB","BOMB","BOMB","GLITTER_BOMB","GLITTER_BOMB","BOMB_HOLY"},
-						{"SUMMON_EGG","SUMMON_EGG","SUMMON_EGG","MINE","MINE","SOILBALL","SPORE_POD","PROPANE_TANK","BLACK_HOLE","EXPLODING_DEER"}
+						{"SUMMON_EGG","SUMMON_EGG","SUMMON_EGG","MINE","MINE","EXPLODING_DUCKS","SPORE_POD","PROPANE_TANK","BLACK_HOLE","EXPLODING_DEER"}
 					},
 				},
 				gfx = {
@@ -1514,7 +1537,7 @@ loadout_list =
 		},
 		perks =
 		{
-			"HEARTS_MORE_EXTRA_HP",
+			"ITEM_RADAR",
 		}
 	},
 	{
@@ -1539,7 +1562,7 @@ loadout_list =
 				reload = 	{{60,61}},
 				shuffle = 	{{1}},
 				delay = 	{{2,3}},
-				spread = 	{{4,6}},
+				spread = 	{{2,3}},
 				speed = 	{{1}},
 				regen = 	{{20,22}},
 				mana_max = 	{{30,32}},
@@ -1656,7 +1679,7 @@ loadout_list =
 		cape_color_edge = {219, 219, 219, 255},
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
-		hp = 80,
+		hp = 90,
 		items = 
 		{
 			{ wand = {
@@ -1777,7 +1800,7 @@ loadout_list =
 		cape_color_edge = {105, 96, 74, 255},
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
-		hp = 90,
+		hp = 100,
 		items = 
 		{
 			{ wand = {
@@ -1804,11 +1827,11 @@ loadout_list =
 				}
 			}},
 			{ potion = "water", amount = 2, quantity = 500},
-			{ money = 200},
+			{ money = 250},
 		},
 		perks =
 		{
-			"EXTRA_PERK",
+			"EXTRA_SHOP_ITEM",
 		}
 	},
 	{
@@ -1830,7 +1853,7 @@ loadout_list =
 				name = 		{{"harpoon_gun"}},
 				capacity = 	{{2,2}},
 				per_round = {{1}},
-				reload = 	{{45,50}},
+				reload = 	{{70,75}},
 				shuffle = 	{{0}},
 				delay = 	{{15,15}},
 				spread = 	{{0,0}},
@@ -1895,7 +1918,7 @@ loadout_list =
 		{
 			{ wand = {
 				name = 		{{"lukki_wand"}},
-				capacity = 	{{2,2}},
+				capacity = 	{{4,4}},
 				per_round = {{1}},
 				reload = 	{{40,45}},
 				shuffle = 	{{0}},
@@ -1905,10 +1928,10 @@ loadout_list =
 				regen = 	{{30,50}},
 				mana_max = 	{{100,110}},
 				actions_permanent = {
-					{"GRAVITY"}
+					{"GRAVITY", "SPEED"}
 				},
 				actions = {
-					{"ACIDSHOT","ACIDSHOT"}
+					{"ACIDSHOT","ACIDSHOT","ACIDSHOT","ACIDSHOT"}
 				},
 				gfx = {
 					sprite = "lukki_wand",
@@ -1918,6 +1941,7 @@ loadout_list =
 					tip_y = 1.0
 				}
 			}},
+			{ potion = "water", amount = 1, quantity = 1000},
 			{ potion = "acid", amount = 1, quantity = 1000},
 		},
 		perks =
@@ -1925,509 +1949,555 @@ loadout_list =
 			"ATTACK_FOOT",
 		}
 	},
-		{
-		-- ID: 33
-		name = "Platformer",
-		description = {"It's a steady job.","You have an odd urge eat mushrooms...","Mustache not included."},
-		class_id = "platformer",
-
-		class_color = "thrifty",
-		robe_color = {155, 111, 154, 255},
-		belt_color = {89, 67, 84, 255},
-		cape_color_edge = {89, 67, 84, 255},
-		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
-
-		hp = 100,
-		items = 
-		{
-			{ wand = {
-				name = 		{{"platformer_wand"}},
-				capacity = 	{{4,4}},
-				per_round = {{1}},
-				reload = 	{{35,40}},
-				shuffle = 	{{0}},
-				delay = 	{{6,8}},
-				spread = 	{{5,7}},
-				speed = 	{{1}},
-				regen = 	{{50,60}},
-				mana_max = 	{{45,50}},
-				actions = {
-					{"GRAVITY","BOUNCE","FIREBOMB"},
-				},
-				gfx = {
-					sprite = "platformer_wand",
-					offset_x = 1.0,
-					tip_x = 9.0
-				}
-			}},
-			{ wand = {
-				name = 		{{"platform_stick"}},
-				capacity = 	{{4,4}},
-				per_round = {{1}},
-				reload = 	{{12,15}},
-				shuffle = 	{{0}},
-				delay = 	{{170,180}},
-				spread = 	{{0,0}},
-				speed = 	{{1}},
-				regen = 	{{20,22}},
-				mana_max = 	{{70,70}},
-				actions = {
-					{"LASER_LUMINOUS_DRILL","TEMPORARY_PLATFORM","LASER_LUMINOUS_DRILL","TEMPORARY_PLATFORM"}
-				},
-				gfx = {
-					sprite = "platform_stick",
-					offset_x = 2.0
-				}
-			}},
-			{ potion = "water", amount = 1, quantity = 1000},
-			{ potion = "blood_fungi", amount = 1, quantity = 1000},
-		},
-		perks =
-		{
-			"NO_MORE_KNOCKBACK",
-		}
-	},
-	{
-		-- ID: 34
-		name = "Necromancer",
-		description = {"Knock \'em dead.","Keep an eye on your minions at all times.","Your foes are dying to get a wand."},
-		class_id = "necromancer",
-
-		class_color = "thrifty",
-		robe_color = {155, 111, 154, 255},
-		belt_color = {89, 67, 84, 255},
-		cape_color_edge = {89, 67, 84, 255},
-		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
-
-		hp = 80,
-		items = 
-		{
-			{ wand = {
-				name = 		{{"necromancy_wand"}},
-				capacity = 	{{2,2}},
-				per_round = {{1}},
-				reload = 	{{25,30}},
-				shuffle = 	{{0}},
-				delay = 	{{3,3}},
-				spread = 	{{13,17}},
-				speed = 	{{1}},
-				regen = 	{{30,35}},
-				mana_max = 	{{120,125}},
-				actions = {
-					{"NECROMANCY","LIGHT_BULLET"},
-				},
-				gfx = {
-					sprite = "necromancy_wand",
-					offset_x = 1.0,
-					tip_y = -1.0
-				}
-			}},
-			{ wand = {
-				name = 		{{"eyeball"}},
-				capacity = 	{{1,1}},
-				per_round = {{1}},
-				reload = 	{{35,40}},
-				shuffle = 	{{1}},
-				delay = 	{{10,15}},
-				spread = 	{{2,3}},
-				speed = 	{{1}},
-				regen = 	{{50,60}},
-				mana_max = 	{{100,110}},
-				actions = {
-					{"LIGHT_BULLET"},
-				},
-				gfx = {
-					sprite = "eyeball",
-					offset_y = -2.0,
-					tip_x = 4.0,
-					tip_y = 1.0
-				}
-			}},
-			{ wand = {
-				name = 		{{"eyeball"}},
-				capacity = 	{{1,1}},
-				per_round = {{1}},
-				reload = 	{{35,40}},
-				shuffle = 	{{1}},
-				delay = 	{{10,15}},
-				spread = 	{{2,3}},
-				speed = 	{{1}},
-				regen = 	{{50,60}},
-				mana_max = 	{{100,110}},
-				actions = {
-					{"LIGHT_BULLET"},
-				},
-				gfx = {
-					sprite = "eyeball",
-					offset_y = -2.0,
-					tip_x = 4.0,
-					tip_y = 1.0
-				}
-			}},
-			{ wand = {
-				name = 		{{"eyeball"}},
-				capacity = 	{{1,1}},
-				per_round = {{1}},
-				reload = 	{{35,40}},
-				shuffle = 	{{1}},
-				delay = 	{{10,15}},
-				spread = 	{{2,3}},
-				speed = 	{{1}},
-				regen = 	{{50,60}},
-				mana_max = 	{{100,110}},
-				actions = {
-					{"LIGHT_BULLET"},
-				},
-				gfx = {
-					sprite = "eyeball",
-					offset_y = -2.0,
-					tip_x = 4.0,
-					tip_y = 1.0
-				}
-			}},
-			{ potion = "blood", amount = 1, quantity = 1000},
-		},
-		perks =
-		{
-			"RESPAWN",
-		}
-	},
-	{
-		-- ID: 35
-		name = "Hunter",
-		description = {"Noita is the most dangerous game.","I hope you have a license.","Where'd you get your hands on deer eggs?"},
-		class_id = "hunter",
-
-		class_color = "thrifty",
-		robe_color = {155, 111, 154, 255},
-		belt_color = {89, 67, 84, 255},
-		cape_color_edge = {89, 67, 84, 255},
-		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
-
-		hp = 100,
-		items = 
-		{
-			{ wand = {
-				name = 		{{"boomstick"}},
-				capacity = 	{{2,2}},
-				per_round = {{1}},
-				reload = 	{{160,170}},
-				shuffle = 	{{1}},
-				delay = 	{{1,2}},
-				spread = 	{{5,7}},
-				speed = 	{{1}},
-				regen = 	{{20,25}},
-				mana_max = 	{{50,55}},
-				actions = {
-					{"BUCKSHOT", "BUCKSHOT"},
-				},
-				gfx = {
-					sprite = "boomstick",
-					offset_x = 3.0,
-					offset_y = 1.0,
-					tip_x = 7.0,
-					tip_y = -3.0
-				}
-			}},
-			{ wand = {
-				name = 		{{"deer_stick"}},
-				capacity = 	{{2,2}},
-				per_round = {{1}},
-				reload = 	{{300,300}},
-				shuffle = 	{{0}},
-				delay = 	{{30,40}},
-				spread = 	{{10,12}},
-				speed = 	{{1}},
-				regen = 	{{30,32}},
-				mana_max = 	{{155,160}},
-				actions = {
-					{"SUMMON_HOLLOW_EGG","EXPLODING_DEER"},
-				},
-				gfx = {
-					sprite = "deer_stick2212da",
-					offset_x = 1.0
-				}
-			}},
-			{ potion = "water", amount = 1, quantity = 1000},
-			{ potion = "magic_liquid_invisibility", amount = 1, quantity = 200},
-		},
-		perks =
-		{
-			"RADAR_ENEMY",
-		}
-	},
-	{
-		-- ID: 36
-		name = "Sniper",
-		description = {"You prefer long-distance relationships.","Time to scope things out.","Bolt-action wands aren't exclusive lightning wzards."},
-		class_id = "sniper",
-
-		class_color = "thrifty",
-		robe_color = {155, 111, 154, 255},
-		belt_color = {89, 67, 84, 255},
-		cape_color_edge = {89, 67, 84, 255},
-		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
-
-		hp = 100,
-		items = 
-		{
-			{ wand = {
-				name = 		{{"sniper_wand"}},
-				capacity = 	{{4,4}},
-				per_round = {{1}},
-				reload = 	{{170,180}},
-				shuffle = 	{{0}},
-				delay = 	{{30,30}},
-				spread = 	{{0,0}},
-				speed = 	{{1}},
-				regen = 	{{20,22}},
-				mana_max = 	{{50,52}},
-				actions = {
-					{"SPEED", "DAMAGE","SPREAD_REDUCE","BUCKSHOT"}
-				},
-				gfx = {
-					sprite = "sniper_wand",
-					offset_x = 1.0
-				}
-			}},
-			{ wand = {
-				name = 		{{"rangefinder"}},
-				capacity = 	{{1,1}},
-				per_round = {{1}},
-				reload = 	{{60,60}},
-				shuffle = 	{{1}},
-				delay = 	{{10,10}},
-				spread = 	{{42,42}},
-				speed = 	{{1}},
-				regen = 	{{10,10}},
-				mana_max = 	{{100,100}},
-				actions = {
-					{"X_RAY"},
-				},
-				gfx = {
-					sprite = "rangefinder",
-					offset_x = 1.0
-				}
-			}},
-			{ potion = "water", amount = 1, quantity = 1000},
-			{ potion = "magic_liquid_invisibility", amount = 1, quantity = 200},
-		},
-		perks =
-		{
-			"LASER_AIM",
-		}
-	},
-	{
-		-- ID: 37
-		name = "Toxic Shaman",
-		description = {"I think these eggs are expired...","You're just \"brutally honest\".","Banned the Noita forums."},
-		class_id = "sludge",
-
-		class_color = "thrifty",
-		robe_color = {155, 111, 154, 255},
-		belt_color = {89, 67, 84, 255},
-		cape_color_edge = {89, 67, 84, 255},
-		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
-
-		hp = 90,
-		items = 
-		{
-			{ wand = {
-				name = 		{{"toxic_wand"}},
-				capacity = 	{{2,2}},
-				per_round = {{1}},
-				reload = 	{{65,70}},
-				shuffle = 	{{0}},
-				delay = 	{{10,15}},
-				spread = 	{{0,0}},
-				speed = 	{{1}},
-				regen = 	{{80,90}},
-				mana_max = 	{{110,115}},
-				actions = {
-					{"SUMMON_HOLLOW_EGG","MIST_RADIOACTIVE"}
-				},
-				gfx = {
-					sprite = "novice_wand",
-					offset_x = 1.0
-				}
-			}},
-				{ wand = {
-				name = 		{{"poison_wand"}},
-				capacity = 	{{2,2}},
-				per_round = {{1}},
-				reload = 	{{65,70}},
-				shuffle = 	{{0}},
-				delay = 	{{10,15}},
-				spread = 	{{0,0}},
-				speed = 	{{1}},
-				regen = 	{{80,90}},
-				mana_max = 	{{110,115}},
-				actions = {
-					{"SUMMON_HOLLOW_EGG","POISON_BLAST"}
-				},
-				gfx = {
-					sprite = "novice_wand",
-					offset_x = 1.0
-				}
-			}},
-			{ potion = "radioactive_liquid", amount = 1, quantity = 1000},
-			{ potion = "poison", amount = 1, quantity = 1000},
-		},
-		perks =
-		{
-			"PROTECTION_RADIOACTIVITY",
-		}
-	},
-	{
-		-- ID: 38
-		name = "Metal Wizard",
-		description = {"What goes around, comes around...","Toughest wizard you ever saw...","You have an angle grinder."},
-		class_id = "armor",
-
-		class_color = "thrifty",
-		robe_color = {155, 111, 154, 255},
-		belt_color = {89, 67, 84, 255},
-		cape_color_edge = {89, 67, 84, 255},
-		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
-
-		hp = 80,
-		items = 
-		{
-			{ wand = {
-				name = 		{{"angle_grinder"}},
-				capacity = 	{{4,4}},
-				per_round = {{1}},
-				reload = 	{{65,70}},
-				shuffle = 	{{0}},
-				delay = 	{{10,15}},
-				spread = 	{{0,0}},
-				speed = 	{{1}},
-				regen = 	{{50,60}},
-				mana_max = 	{{110,115}},
-				actions_permanent = {
-					{"LINE_ARC"},
-				},
-				actions = {
-					{"DISC_BULLET","DISC_BULLET"}
-				},
-				gfx = {
-					sprite = "angle_grinder",
-					offset_x = 1.0
-				}
-			}},
-			{ wand = {
-				name = 		{{"table_saw"}},
-				capacity = 	{{2,2}},
-				per_round = {{1}},
-				reload = 	{{115,125}},
-				shuffle = 	{{0}},
-				delay = 	{{30,30}},
-				spread = 	{{0,0}},
-				speed = 	{{1}},
-				regen = 	{{30,32}},
-				mana_max = 	{{50,50}},
-				actions = {
-					{"HORIZONTAL_ARC","DISC_BULLET_BIG"}
-				},
-				gfx = {
-					sprite = "table_saw",
-					offset_x = 1.0
-				}
-			}},
-			{ potion = "oil", amount = 1, quantity = 1000},
-			--{ potion = "magic_liquid_protection_all", amount = 1, quantity = 200},
-		},
-		perks =
-		{
-			"STAINLESS_ARMOUR",
-		}
-	},
-	{
-		-- ID: 39
-		name = "Mushroomancer",
-		description = {"At parties you're a pretty fungi.","The moldy robes are a feature.","It's always the same mold story with you..."},
-		class_id = "mushroomancer",
-
-		class_color = "thrifty",
-		robe_color = {155, 111, 154, 255},
-		belt_color = {89, 67, 84, 255},
-		cape_color_edge = {89, 67, 84, 255},
-		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
-
-		hp = 100,
-		items = 
-		{
-			{ wand = {
-				name = 		{{"shroom_wand"}},
-				capacity = 	{{3,3}},
-				per_round = {{1}},
-				reload = 	{{135,145}},
-				shuffle = 	{{1}},
-				delay = 	{{-20,-20}},
-				spread = 	{{0,0}},
-				speed = 	{{1}},
-				regen = 	{{25,26}},
-				mana_max = 	{{47,48}},
-				actions_permanent = {
-					{"GRAVITY"}
-				},
-				actions = {
-					{"SPORE_POD","SPORE_POD","SPORE_POD"}
-				},
-				gfx = {
-					sprite = "shroom_wand",
-					offset_x = 1.0
-				}
-			}},
-			{ potion = "water", amount = 1, quantity = 1000},
-			{ potion = "blood_fungi", amount = 1, quantity = 1000},
-		},
-		perks =
-		{
-			"LEVITATION_TRAIL",
-		}
-	},
-	{
-		-- ID: 40
-		name = "Homunculist",
-		description = {"This isn't what your mother meant by \"Make some friends\".","Watch out, they're a bit trigger-happy.","Apprentices are overrated."},
-		class_id = "homunculist",
-
-		class_color = "thrifty",
-		robe_color = {155, 111, 154, 255},
-		belt_color = {89, 67, 84, 255},
-		cape_color_edge = {89, 67, 84, 255},
-		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
-
-		hp = 90,
-		items = 
-		{
-			{ wand = {
-				name = 		{{"homunculist_wand"}},
-				capacity = 	{{3,4}},
-				per_round = {{1}},
-				reload = 	{{120,130}},
-				shuffle = 	{{0}},
-				delay = 	{{12,15}},
-				spread = 	{{0,0}},
-				speed = 	{{1}},
-				regen = 	{{30,32}},
-				mana_max = 	{{50,50}},
-				actions = {
-					{"LASER"},{"SLOW_BULLET"},{"FIREBOMB","FIREBOMB"},{"SPITTER", "SPITTER", "SPITTER"},{"BULLET","BULLET"}
-				},
-				gfx = {
-					sprite = "homunculist_wand",
-					offset_x = 2.0
-				}
-			}},
-			{ potion = "water", amount = 1, quantity = 1000},
-		},
-		perks =
-		{
-			"HOMUNCULUS",
-		}
-	},
+--		{
+--		-- ID: 33
+--		name = "Platformer",
+--		description = {"It's a steady job.","You have an odd urge eat mushrooms...","Mustache not included."},
+--		class_id = "platformer",
+--
+--		class_color = "thrifty",
+--		robe_color = {155, 111, 154, 255},
+--		belt_color = {89, 67, 84, 255},
+--		cape_color_edge = {89, 67, 84, 255},
+--		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+--
+--		hp = 100,
+--		items = 
+--		{
+--			{ wand = {
+--				name = 		{{"platformer_wand"}},
+--				capacity = 	{{4,4}},
+--				per_round = {{1}},
+--				reload = 	{{35,40}},
+--				shuffle = 	{{0}},
+--				delay = 	{{6,8}},
+--				spread = 	{{5,7}},
+--				speed = 	{{1}},
+--				regen = 	{{50,60}},
+--				mana_max = 	{{45,50}},
+--				actions = {
+--					{"GRAVITY","BOUNCE","FIREBOMB"},
+--				},
+--				gfx = {
+--					sprite = "platformer_wand",
+--					offset_x = 1.0,
+--					tip_x = 9.0
+--				}
+--			}},
+--			{ wand = {
+--				name = 		{{"platform_stick"}},
+--				capacity = 	{{4,4}},
+--				per_round = {{1}},
+--				reload = 	{{12,15}},
+--				shuffle = 	{{0}},
+--				delay = 	{{170,180}},
+--				spread = 	{{0,0}},
+--				speed = 	{{1}},
+--				regen = 	{{20,22}},
+--				mana_max = 	{{70,70}},
+--				actions = {
+--					{"LASER_LUMINOUS_DRILL","TEMPORARY_PLATFORM","LASER_LUMINOUS_DRILL","TEMPORARY_PLATFORM"}
+--				},
+--				gfx = {
+--					sprite = "platform_stick",
+--					offset_x = 2.0
+--				}
+--			}},
+--			{ potion = "water", amount = 1, quantity = 1000},
+--			{ potion = "blood_fungi", amount = 1, quantity = 1000},
+--		},
+--		perks =
+--		{
+--			"NO_MORE_KNOCKBACK",
+--		}
+--	},
+--	{
+--		-- ID: 34
+--		name = "Necromancer",
+--		description = {"Knock \'em dead.","Keep an eye on your minions at all times.","Your foes are dying to get a wand."},
+--		class_id = "necromancer",
+--
+--		class_color = "thrifty",
+--		robe_color = {155, 111, 154, 255},
+--		belt_color = {89, 67, 84, 255},
+--		cape_color_edge = {89, 67, 84, 255},
+--		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+--
+--		hp = 80,
+--		items = 
+--		{
+--			{ wand = {
+--				name = 		{{"necromancy_wand"}},
+--				capacity = 	{{2,2}},
+--				per_round = {{1}},
+--				reload = 	{{25,30}},
+--				shuffle = 	{{0}},
+--				delay = 	{{3,3}},
+--				spread = 	{{13,17}},
+--				speed = 	{{1}},
+--				regen = 	{{30,35}},
+--				mana_max = 	{{120,125}},
+--				actions = {
+--					{"NECROMANCY","LIGHT_BULLET"},
+--				},
+--				gfx = {
+--					sprite = "necromancy_wand",
+--					offset_x = 1.0,
+--					tip_y = -1.0
+--				}
+--			}},
+--			{ wand = {
+--				name = 		{{"eyeball"}},
+--				capacity = 	{{1,1}},
+--				per_round = {{1}},
+--				reload = 	{{35,40}},
+--				shuffle = 	{{1}},
+--				delay = 	{{10,15}},
+--				spread = 	{{2,3}},
+--				speed = 	{{1}},
+--				regen = 	{{50,60}},
+--				mana_max = 	{{100,110}},
+--				actions = {
+--					{"LIGHT_BULLET"},
+--				},
+--				gfx = {
+--					sprite = "eyeball",
+--					offset_y = -2.0,
+--					tip_x = 4.0,
+--					tip_y = 1.0
+--				}
+--			}},
+--			{ wand = {
+--				name = 		{{"eyeball"}},
+--				capacity = 	{{1,1}},
+--				per_round = {{1}},
+--				reload = 	{{35,40}},
+--				shuffle = 	{{1}},
+--				delay = 	{{10,15}},
+--				spread = 	{{2,3}},
+--				speed = 	{{1}},
+--				regen = 	{{50,60}},
+--				mana_max = 	{{100,110}},
+--				actions = {
+--					{"LIGHT_BULLET"},
+--				},
+--				gfx = {
+--					sprite = "eyeball",
+--					offset_y = -2.0,
+--					tip_x = 4.0,
+--					tip_y = 1.0
+--				}
+--			}},
+--			{ wand = {
+--				name = 		{{"eyeball"}},
+--				capacity = 	{{1,1}},
+--				per_round = {{1}},
+--				reload = 	{{35,40}},
+--				shuffle = 	{{1}},
+--				delay = 	{{10,15}},
+--				spread = 	{{2,3}},
+--				speed = 	{{1}},
+--				regen = 	{{50,60}},
+--				mana_max = 	{{100,110}},
+--				actions = {
+--					{"LIGHT_BULLET"},
+--				},
+--				gfx = {
+--					sprite = "eyeball",
+--					offset_y = -2.0,
+--					tip_x = 4.0,
+--					tip_y = 1.0
+--				}
+--			}},
+--			{ potion = "blood", amount = 1, quantity = 1000},
+--		},
+--		perks =
+--		{
+--			"RESPAWN",
+--		}
+--	},
+--	{
+--		-- ID: 35
+--		name = "Hunter",
+--		description = {"Noita is the most dangerous game.","I hope you have a license.","Where'd you get your hands on deer eggs?"},
+--		class_id = "hunter",
+--
+--		class_color = "thrifty",
+--		robe_color = {155, 111, 154, 255},
+--		belt_color = {89, 67, 84, 255},
+--		cape_color_edge = {89, 67, 84, 255},
+--		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+--
+--		hp = 100,
+--		items = 
+--		{
+--			{ wand = {
+--				name = 		{{"shotgun"}},
+--				capacity = 	{{6,6}},
+--				per_round = {{1}},
+--				reload = 	{{240,250}},
+--				shuffle = 	{{1}},
+--				delay = 	{{15,17}},
+--				spread = 	{{5,7}},
+--				speed = 	{{1}},
+--				regen = 	{{60,75}},
+--				mana_max = 	{{50,55}},
+--				actions_permanent = {
+--					{"KNOCKBACK"},
+--				},
+--				actions = {
+--					{"BUCKSHOT", "BUCKSHOT", "BUCKSHOT", "BUCKSHOT", "BUCKSHOT", "BUCKSHOT"},
+--				},
+--				gfx = {
+--					sprite = "shotgun",
+--					offset_x = 3.0,
+--					offset_y = 1.0,
+--					tip_x = 7.0,
+--					tip_y = -3.0
+--				}
+--			}},
+--			{ wand = {
+--				name = 		{{"deer_stick"}},
+--				capacity = 	{{2,2}},
+--				per_round = {{1}},
+--				reload = 	{{300,300}},
+--				shuffle = 	{{0}},
+--				delay = 	{{30,40}},
+--				spread = 	{{10,12}},
+--				speed = 	{{1}},
+--				regen = 	{{30,32}},
+--				mana_max = 	{{155,160}},
+--				actions = {
+--					{"SUMMON_HOLLOW_EGG","EXPLODING_DEER"},
+--				},
+--				gfx = {
+--					sprite = "deer_stick",
+--					offset_x = 1.0
+--				}
+--			}},
+--			{ potion = "water", amount = 1, quantity = 1000},
+--			{ potion = "magic_liquid_invisibility", amount = 1, quantity = 250},
+--		},
+--		perks =
+--		{
+--			"RADAR_ENEMY",
+--		}
+--	},
+--	{
+--		-- ID: 36
+--		name = "Sniper",
+--		description = {"You prefer long-distance relationships.","Time to scope things out.","Bolt-action wands aren't exclusive lightning wzards."},
+--		class_id = "sniper",
+--
+--		class_color = "thrifty",
+--		robe_color = {155, 111, 154, 255},
+--		belt_color = {89, 67, 84, 255},
+--		cape_color_edge = {89, 67, 84, 255},
+--		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+--
+--		hp = 100,
+--		items = 
+--		{
+--			{ wand = {
+--				name = 		{{"sniper_wand"}},
+--				capacity = 	{{4,4}},
+--				per_round = {{1}},
+--				reload = 	{{300,300}},
+--				shuffle = 	{{0}},
+--				delay = 	{{90,90}},
+--				spread = 	{{-10,-10}},
+--				speed = 	{{1}},
+--				regen = 	{{3,3}},
+--				mana_max = 	{{6,6}},
+--				actions_permanent = {
+--					{"DAMAGE", "DAMAGE", "SPEED"}
+--				},
+--				actions = {
+--					{"FUNKY_SPELL", "FUNKY_SPELL", "FUNKY_SPELL", "FUNKY_SPELL"}
+--				},
+--				gfx = {
+--					sprite = "sniper_wand",
+--					offset_x = 1.0
+--				}
+--			}},
+--			{ wand = {
+--				name = 		{{"rangefinder"}},
+--				capacity = 	{{1,1}},
+--				per_round = {{1}},
+--				reload = 	{{60,60}},
+--				shuffle = 	{{1}},
+--				delay = 	{{10,10}},
+--				spread = 	{{42,42}},
+--				speed = 	{{1}},
+--				regen = 	{{10,10}},
+--				mana_max = 	{{100,100}},
+--				actions = {
+--					{"X_RAY"},
+--				},
+--				gfx = {
+--					sprite = "rangefinder",
+--					offset_x = 1.0
+--				}
+--			}},
+--			{ potion = "magic_liquid_invisibility", amount = 1, quantity = 250},
+--		},
+--		perks =
+--		{
+--			"LASER_AIM",
+--		}
+--	},
+--	{
+--		-- ID: 37
+--		name = "Toxic Shaman",
+--		description = {"I think these eggs are expired...","You're just \"brutally honest\".","Banned the Noita forums."},
+--		class_id = "sludge",
+--
+--		class_color = "thrifty",
+--		robe_color = {155, 111, 154, 255},
+--		belt_color = {89, 67, 84, 255},
+--		cape_color_edge = {89, 67, 84, 255},
+--		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+--
+--		hp = 90,
+--		items = 
+--		{
+--			{ wand = {
+--				name = 		{{"toxic_wand"}},
+--				capacity = 	{{2,2}},
+--				per_round = {{1}},
+--				reload = 	{{65,70}},
+--				shuffle = 	{{0}},
+--				delay = 	{{10,15}},
+--				spread = 	{{0,0}},
+--				speed = 	{{1}},
+--				regen = 	{{80,90}},
+--				mana_max = 	{{110,115}},
+--				actions = {
+--					{"SUMMON_HOLLOW_EGG","MIST_RADIOACTIVE"}
+--				},
+--				gfx = {
+--					sprite = "novice_wand",
+--					offset_x = 1.0
+--				}
+--			}},
+--				{ wand = {
+--				name = 		{{"poison_wand"}},
+--				capacity = 	{{2,2}},
+--				per_round = {{1}},
+--				reload = 	{{65,70}},
+--				shuffle = 	{{0}},
+--				delay = 	{{10,15}},
+--				spread = 	{{0,0}},
+--				speed = 	{{1}},
+--				regen = 	{{80,90}},
+--				mana_max = 	{{110,115}},
+--				actions = {
+--					{"SUMMON_HOLLOW_EGG","POISON_BLAST"}
+--				},
+--				gfx = {
+--					sprite = "novice_wand",
+--					offset_x = 1.0
+--				}
+--			}},
+--			{ potion = "radioactive_liquid", amount = 1, quantity = 1000},
+--			{ potion = "poison", amount = 1, quantity = 1000},
+--		},
+--		perks =
+--		{
+--			"PROTECTION_RADIOACTIVITY",
+--		}
+--	},
+--	{
+--		-- ID: 38
+--		name = "Metal Wizard",
+--		description = {"What goes around, comes around...","Toughest wizard you ever saw...","You have an angle grinder."},
+--		class_id = "armor",
+--
+--		class_color = "thrifty",
+--		robe_color = {155, 111, 154, 255},
+--		belt_color = {89, 67, 84, 255},
+--		cape_color_edge = {89, 67, 84, 255},
+--		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+--
+--		hp = 80,
+--		items = 
+--		{
+--			{ wand = {
+--				name = 		{{"angle_grinder"}},
+--				capacity = 	{{4,4}},
+--				per_round = {{1}},
+--				reload = 	{{65,70}},
+--				shuffle = 	{{0}},
+--				delay = 	{{10,15}},
+--				spread = 	{{0,0}},
+--				speed = 	{{1}},
+--				regen = 	{{50,60}},
+--				mana_max = 	{{110,115}},
+--				actions_permanent = {
+--					{"LINE_ARC"},
+--				},
+--				actions = {
+--					{"DISC_BULLET","DISC_BULLET"}
+--				},
+--				gfx = {
+--					sprite = "angle_grinder",
+--					offset_x = 1.0
+--				}
+--			}},
+--			{ wand = {
+--				name = 		{{"table_saw"}},
+--				capacity = 	{{2,2}},
+--				per_round = {{1}},
+--				reload = 	{{115,125}},
+--				shuffle = 	{{0}},
+--				delay = 	{{30,30}},
+--				spread = 	{{0,0}},
+--				speed = 	{{1}},
+--				regen = 	{{30,32}},
+--				mana_max = 	{{50,50}},
+--				actions = {
+--					{"HORIZONTAL_ARC","DISC_BULLET_BIG"}
+--				},
+--				gfx = {
+--					sprite = "table_saw",
+--					offset_x = 1.0
+--				}
+--			}},
+--			{ potion = "oil", amount = 1, quantity = 1000},
+--			--{ potion = "magic_liquid_protection_all", amount = 1, quantity = 200},
+--		},
+--		perks =
+--		{
+--			"STAINLESS_ARMOUR",
+--		}
+--	},
+--	{
+--		-- ID: 39
+--		name = "Mushroomancer",
+--		description = {"At parties you're a pretty fungi.","The moldy robes are a feature.","It's always the same mold story with you..."},
+--		class_id = "mushroomancer",
+--
+--		class_color = "thrifty",
+--		robe_color = {155, 111, 154, 255},
+--		belt_color = {89, 67, 84, 255},
+--		cape_color_edge = {89, 67, 84, 255},
+--		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+--
+--		hp = 100,
+--		items = 
+--		{
+--			{ wand = {
+--				name = 		{{"shroom_wand"}},
+--				capacity = 	{{3,3}},
+--				per_round = {{1}},
+--				reload = 	{{135,145}},
+--				shuffle = 	{{1}},
+--				delay = 	{{-20,-20}},
+--				spread = 	{{0,0}},
+--				speed = 	{{1}},
+--				regen = 	{{25,26}},
+--				mana_max = 	{{47,48}},
+--				actions_permanent = {
+--					{"GRAVITY"}
+--				},
+--				actions = {
+--					{"SPORE_POD","SPORE_POD","SPORE_POD"}
+--				},
+--				gfx = {
+--					sprite = "shroom_wand",
+--					offset_x = 1.0
+--				}
+--			}},
+--			{ potion = "water", amount = 1, quantity = 1000},
+--			{ potion = "blood_fungi", amount = 1, quantity = 1000},
+--		},
+--		perks =
+--		{
+--			"LEVITATION_TRAIL",
+--		}
+--	},
+--	{
+--		-- ID: 40
+--		name = "Homunculist",
+--		description = {"This isn't what your mother meant by \"Make some friends\".","Watch out, they're a bit trigger-happy.","Apprentices are overrated."},
+--		class_id = "homunculist",
+--
+--		class_color = "thrifty",
+--		robe_color = {155, 111, 154, 255},
+--		belt_color = {89, 67, 84, 255},
+--		cape_color_edge = {89, 67, 84, 255},
+--		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+--
+--		hp = 90,
+--		items = 
+--		{
+--			{ wand = {
+--				name = 		{{"homunculist_wand"}},
+--				capacity = 	{{3,4}},
+--				per_round = {{1}},
+--				reload = 	{{120,130}},
+--				shuffle = 	{{0}},
+--				delay = 	{{12,15}},
+--				spread = 	{{0,0}},
+--				speed = 	{{1}},
+--				regen = 	{{30,32}},
+--				mana_max = 	{{50,50}},
+--				actions = {
+--					{"LASER"},{"SLOW_BULLET"},{"FIREBOMB","FIREBOMB"},{"SPITTER", "SPITTER", "SPITTER"},{"BULLET","BULLET"}
+--				},
+--				gfx = {
+--					sprite = "homunculist_wand",
+--					offset_x = 2.0
+--				}
+--			}},
+--			{ potion = "water", amount = 1, quantity = 1000},
+--		},
+--		perks =
+--		{
+--			"HOMUNCULUS",
+--		}
+--	},
+--	{
+--		-- ID: 41
+--		name = "Explorer",
+--		description = {"","",""},
+--		class_id = "explorer",
+--
+--		class_color = "thrifty",
+--		robe_color = {155, 111, 154, 255},
+--		belt_color = {89, 67, 84, 255},
+--		cape_color_edge = {89, 67, 84, 255},
+--		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+--
+--		hp = 90,
+--		items = 
+--		{
+--			{ wand = {
+--				name = 		{{"homunculist_wand"}},
+--				capacity = 	{{12,12}},
+--				per_round = {{1}},
+--				reload = 	{{2,2}},
+--				shuffle = 	{{0}},
+--				delay = 	{{10,10}},
+--				spread = 	{{0,0}},
+--				speed = 	{{1}},
+--				regen = 	{{300,320}},
+--				mana_max = 	{{500,500}},
+--				actions = {
+--					{"HITFX_PETRIFY", "LIGHT_BULLET"}
+--				},
+--				gfx = {
+--					sprite = "homunculist_wand",
+--					offset_x = 2.0
+--				}
+--			}},
+--			{ potion = "water", amount = 1, quantity = 1000},
+--		},
+--		perks =
+--		{
+--			"TELEPORTITIS", "TELEPORTITIS_DODGE"
+--		}
+--	},
 }
 
 -- {

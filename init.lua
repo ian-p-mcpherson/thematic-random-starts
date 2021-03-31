@@ -6,7 +6,8 @@ dofile( "data/scripts/perks/perk.lua" )
 ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/thematic_random_starts/files/spells/gun_actions.lua")
 
 -- Edit this if you want to choose a class byt he ID in loadouts.lua
-local loadout_override = 41
+local loadout_override = -1
+
 -- Edit this to add classes that you don't want to see (provided example in comment)
 local loadout_exceptions = {} -- {5, 6, 7, 11, 19, 20, 21, 22, 29}
 table.sort(loadout_exceptions, function(a,b) return a>b end) -- this to reorder the table by highest element

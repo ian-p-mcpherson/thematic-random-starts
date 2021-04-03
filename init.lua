@@ -2,15 +2,14 @@ dofile( "mods/thematic_random_starts/files/loadouts.lua" )
 dofile( "mods/thematic_random_starts/files/scripts/wmpls_utils.lua")
 dofile( "data/scripts/gun/procedural/gun_procedural_better.lua")
 dofile( "data/scripts/perks/perk.lua" )
+dofile( "data/scripts/lib/mod_settings.lua" )
 
+-- Add custom spells
 ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/thematic_random_starts/files/spells/gun_actions.lua")
 
--- Edit this if you want to choose a class byt he ID in loadouts.lua
+-- These settings are now managed via "Mod settings" in the in-game UI
 local loadout_override = -1
-
--- Edit this to add classes that you don't want to see (provided example in comment)
-local loadout_exceptions = {} -- {5, 6, 7, 11, 19, 20, 21, 22, 29}
-table.sort(loadout_exceptions, function(a,b) return a>b end) -- this to reorder the table by highest element
+local loadout_exceptions = {} 
 
 -- cape defaults (gray)
 local robe_rgba = {140, 140, 140, 255}
@@ -22,30 +21,47 @@ local cape_edge_rgba = {140, 140, 140, 255}
 wand_gfx_root = "mods/thematic_random_starts/files/wands/gfx/"
 
 function OnPlayerSpawned( player_entity ) -- this runs when player entity has been created
-
-	EntitySave( EntityGetWithTag( "player_unit" ), "print_entity.xml" )
-	debug_entity( EntityGetWithTag( "player_unit" ) )
-
+	-- init the mod
 	local init_check_flag = "start_loadouts_init_done"
 	if GameHasFlagRun( init_check_flag ) then
 		return
 	end
 	GameAddFlagRun( init_check_flag )
 
+	-- get the override id if random is disabled
+	if ( ModSettingGet("thematic_random_starts.enable_random") == false ) then 
+		loadout_override = math.floor(ModSettingGet("thematic_random_starts.loadout_override"))
+	end
+
+	-- get a random seed
 	local x,y = EntityGetTransform( player_entity )
 	SetRandomSeed( x + 344, y - 523 )
-	
+
+	-- get a random loadout ID
 	local loadout_rnd
-	if ( loadout_override > 0) then loadout_rnd = loadout_override 	
+	if ( loadout_override > 0) then 
+		loadout_rnd = loadout_override
 	else
+		loadout_exceptions = get_loadout_exceptions()
 		for i,j in ipairs(loadout_exceptions) do
 			table.remove (loadout_list, j)
 		end
-		loadout_rnd = Random( 1, #loadout_list )
+		if #loadout_list == 0 then
+			loadout_rnd = 0
+		else
+			loadout_rnd = Random( 1, #loadout_list )
+		end
 	end
+
+	-- catch for when a player disables all loadouts for some reason
+	if loadout_rnd == 0 then
+		GamePrintImportant( "You are feeling normal.",  "You have no loadouts enabled!")
+		return
+	end
+
+	-- gather vars for setting up the player
 	local loadout_choice = loadout_list[loadout_rnd]
 	local loadout_name = loadout_choice.name
-	
 	local inventory = nil
 	local cape = nil
 	local player_arm = nil
@@ -344,4 +360,16 @@ function init_wand( config )
 	end
 
 	return entity
+end
+
+function get_loadout_exceptions()
+	local exclusions = {}
+	for i=1, #loadout_list, 1 do
+		local ld = ModSettingGet("thematic_random_starts.id_" .. str(i))
+		if ld ~= nil and ld ~= '' and ld == false then 
+			exclusions[#exclusions + 1] = i
+		end
+	end
+	table.sort(exclusions, function(a,b) return a>b end)
+	return exclusions
 end

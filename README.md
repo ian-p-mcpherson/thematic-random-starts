@@ -7,6 +7,8 @@ There are currently 32 curated starting loadouts, and one of which will be given
 
 A loadout consists of one perk, one or two thematic wands, an appropriate potion or two, and a snazzy robe color scheme to tie it all together.
 
+An ingame options menu can be accessed to customize your experience at "Options > Mod settings > Thematic Random Starts".
+
 Please leave comments, ideas, or balance suggestions in the discussion tab in the steam workshop via the link below.
 
 # To Install

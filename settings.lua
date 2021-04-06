@@ -21,7 +21,7 @@ mod_settings =
 {
     {
         id = "enable_random",
-        ui_name = "Enable Random Loadouts",
+        ui_name = "Random Loadouts",
         ui_description = "Randomly choose a loadout for me when the game begins.",
         value_default = true,
         scope = MOD_SETTING_SCOPE_NEW_GAME,
@@ -33,14 +33,13 @@ mod_settings =
         value_default = 1,
         value_min = 1,
         value_max = 32,
-        value_display_multiplier = 1,
         value_display_formatting = " ID $0",
         scope = MOD_SETTING_SCOPE_NEW_GAME,
     },
     {
         category_id = "random_loadouts",
         ui_name = "Random Loadouts",
-        ui_description = "Enable or disable loadouts when Random Loadouts are enabled.",
+        ui_description = "Enable or disable specific loadouts when Random Loadouts is turned on.",
         foldable = true,
         _folded = true,
         settings = {

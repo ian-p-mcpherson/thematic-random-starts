@@ -30,7 +30,7 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 
 	-- get the override id if random is disabled
 	if ( ModSettingGet("thematic_random_starts.enable_random") == false ) then 
-		loadout_override = math.ceil(ModSettingGet("thematic_random_starts.loadout_override"))
+		loadout_override = math.ceil(ModSettingGet("thematic_random_starts.loadout_override") - 0.5)
 	end
 
 	-- get a random seed
@@ -52,6 +52,9 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 			loadout_rnd = Random( 1, #loadout_list )
 		end
 	end
+
+	-- Debug loadout override
+	--loadout_rnd = 33
 
 	-- catch for when a player disables all loadouts for some reason
 	if loadout_rnd == 0 then

@@ -29,7 +29,7 @@ mod_settings =
     {
         id = "loadout_override",
         ui_name = "Loadout Choice",
-        ui_description = "Start with this loadout ID if Random Loadouts is disabled (IDs displayed below)",
+        ui_description = "Start with this loadout ID if Random Loadouts is turned off (IDs displayed below)",
         value_default = 1,
         value_min = 1,
         value_max = 32,

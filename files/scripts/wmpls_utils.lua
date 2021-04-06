@@ -37,3 +37,10 @@ function debug_entity(e)
   end
   print("--- END ENTITY DATA ---")
 end
+
+function getPlayerEntity()
+    local players = EntityGetWithTag("player_unit")
+    if #players == 0 then return end
+
+    return players[1]
+end

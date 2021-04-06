@@ -13,58 +13,69 @@ table.insert(actions,
       add_projectile("mods/thematic_random_starts/files/spells/knife/knife.xml")
       c.fire_rate_wait = 0
       
-      --dofile_once("mods/thematic_random_starts/files/scripts/wmpls_utils.lua")
-      --dofile_once("data/scripts/lib/utilities.lua")
-      --
-      ---- tweakable vars
-      --local teleport_range = 90
-      --
-      ---- prep for teleport
-      --local x = 0
-      --local y = 0
-      --local pos_x = 0 
-      --local pos_y = 0 
-      --local entity_id = EntityGetWithTag( "player_unit" )
-      --for i,entity in pairs( entity_id ) do 
-      --  pos_x, pos_y = EntityGetTransform( entity )
-      --end
-      --
-      --EntitySave( entity_id, "test_entity" )
-      --debug_entity(entity_id)
-      --
-      --GamePrint("player position (" .. pos_x .. ", " .. pos_y .. ")", "")
-      --
-      ---- teleport direction from player aim
-      --local aim_comp = EntityGetFirstComponent(entity_id, "SpriteComponent", "aiming_reticle")
-      --
-      --GamePrint("aim reticle (" .. aim_comp.offset_x .. ", " .. aim_comp.offset_y .. ")", "")
-      --
-      --component_read( aim_comp, { offset_x = 0, offset_y = 0 }, function(comp)
-      --  x = aim_comp.offset_x
-      --  y = aim_comp.offset_y - 4
-      --  x, y = vec_normalize(x, y)
-      --  x, y = vec_mult(x, y, teleport_range)
-      --  x, y = vec_rotate(x, y, -math.pi * 0.5 * sign(x)) -- rotate 90 towards top
-      --  local did_hit
-      --  did_hit,x,y = RaytracePlatforms(pos_x, pos_y, pos_x + x, pos_y + y)
-      --end)
-      --
-      --GamePrint("before reel back (" .. x .. ", " .. y .. ")", "")
-      --
-      ---- reel it back a bit so we're less likely to end up inside a wall
-      --local back_x = pos_x - x
-      --local back_y = pos_y - y
-      --local back_distance = math.min(20, get_magnitude(back_x, back_y)) -- don't overshoot
-      --back_x, back_y = vec_normalize(back_x, back_y)
-      --x = x + back_x * back_distance
-      --y = y + back_y * back_distance
-      --
-      --GamePrint("after reel back (" .. x .. ", " .. y .. ")", "")
-      --
-      ---- teleport
-      --for i,entity_id in pairs( entity_id ) do 
-      --  --EntitySetTransform(entity_id, x, y)
-      --end
+      dofile_once("mods/thematic_random_starts/files/scripts/wmpls_utils.lua")
+      dofile_once("data/scripts/lib/utilities.lua")
+      
+      -- tweakable vars
+      local teleport_range = 65
+      
+      -- prep for teleport
+      local player_entity = getPlayerEntity()
+
+
+      -- TEST
+      --local player_entity = getPlayerEntity()
+      --EntitySave( player_entity, "player.xml" ) -- This results in a player object with an "aiming_reticle" tagged component
+      --local pos_x, pos_y = EntityGetTransform( player_entity )
+      --GamePrint("player position (" .. pos_x .. ", " .. pos_y .. ")", "") -- This reports the player's position accurately
+      --local aim_comp = EntityGetComponent(root_id, "SpriteComponent", "aiming_reticle")
+      --EntitySave( aim_comp, "aim_comp.xml" ) -- This results in some background object and I do not know why
+
+     --EntitySave( player_entity, "test_3.xml" )
+      local pos_x, pos_y = EntityGetTransform( player_entity )
+      pos_y = pos_y - 4
+
+      --GamePrint("player position (" .. str(pos_x) .. ", " .. str(pos_y) .. ")", "")
+      
+
+      local mouse_x, mouse_y = DEBUG_GetMouseWorld()
+      --GamePrint("mouse position (" .. str(mouse_x) .. ", " .. str(mouse_y) .. ")", "")
+
+      -- Do a raycast for wall detection
+      local hit_x = mouse_x - pos_x
+      local hit_y = mouse_y - pos_y 
+      hit_x, hit_y = vec_normalize(hit_x, hit_y)
+      hit_x, hit_y = vec_mult(hit_x, hit_y, teleport_range)
+      local did_hit
+      did_hit,hit_x,hit_y = RaytracePlatforms(pos_x, pos_y, pos_x + hit_x, pos_y + hit_y)
+
+      --GamePrint("did hit: " .. str(did_hit) .. "")
+
+
+
+      
+      --GamePrint("before reel back (" .. str(hit_x) .. ", " .. str(hit_y) .. ")", "")
+      
+      -- reel it back a bit so we're less likely to end up inside a wall
+      local back_x = pos_x - hit_x
+      local back_y = pos_y - hit_y
+      local back_distance = math.min(20, get_magnitude(back_x, back_y)) -- don't overshoot
+      back_x, back_y = vec_normalize(back_x, back_y)
+      hit_x = hit_x + back_x * back_distance
+      hit_y = hit_y + back_y * back_distance
+      
+      --GamePrint("after reel back (" .. str(hit_x) .. ", " .. str(hit_y) .. ")", "")
+      
+
+      --EntityLoad("data/entities/particles/poof_red_tiny.xml", hit_x, hit_y)
+      --EntityLoad("data/entities/particles/poof_yellow_tiny.xml", pos_x, pos_y)
+      --EntityLoad("data/entities/particles/poof_yellow_tiny.xml", mouse_x, mouse_y)
+
+      -- teleport
+      EntitySetTransform(player_entity, hit_x, hit_y)
+      --LoadPixelScene("data/biome_impl/teleportitis_dodge_hole.png", "", hit_x-3, hit_y-12, "", true)
+
+
     end,
   }
 )

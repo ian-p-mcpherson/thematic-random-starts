@@ -12,6 +12,7 @@ ModMaterialsFileAdd("mods/thematic_random_starts/files/materials/materials.xml")
 
 -- These settings are now managed via "Mod settings" in the in-game UI
 local loadout_override = 0
+local robes_only_mode = false
 local loadout_exceptions = {} 
 
 -- cape defaults (gray)
@@ -34,6 +35,11 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 	-- get the override id if random is disabled
 	if ( ModSettingGet("thematic_random_starts.enable_random") == false ) then 
 		loadout_override = math.ceil(ModSettingGet("thematic_random_starts.loadout_override") - 0.5)
+	end
+
+	-- get robes only mode flag
+	if ( ModSettingGet("thematic_random_starts.robes_only_mode") == true) then
+		robes_only_mode = true
 	end
 
 	-- get a random seed
@@ -143,107 +149,100 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 	-- refresh sprites
 	EntityRefreshSprite(player_entity, player_sprite_component)
 
-	-- set inventory contents
-	if ( inventory ~= nil ) then
-		local inventory_items = EntityGetAllChildren( inventory )
-		
-		-- remove default items
-		if inventory_items ~= nil then
-			for i,item_entity in ipairs( inventory_items ) do
-				GameKillInventoryItem( player_entity, item_entity )
+	-- check for robes only mode
+	local notify_text = "You are dressed like"
+	if robes_only_mode == false then
+		notify_text = "You are"
+		-- set inventory contents
+		if ( inventory ~= nil) then
+			local inventory_items = EntityGetAllChildren( inventory )
+			
+			-- remove default items
+			if inventory_items ~= nil then
+				for i,item_entity in ipairs( inventory_items ) do
+					GameKillInventoryItem( player_entity, item_entity )
+				end
 			end
-		end
 
-		-- add loadout items
-		local loadout_items = loadout_choice.items
-		for item_id,loadout_item in ipairs( loadout_items ) do
-			if ( tostring( type( loadout_item ) ) ~= "table" ) then
-				local item_entity = EntityLoad( loadout_item )
-				EntityAddChild( inventory, item_entity )
-			else
-				local amount = loadout_item.amount or 1
-				
-				for i=1,amount do
-					local item_option = ""
+			-- add loadout items
+			local loadout_items = loadout_choice.items
+			for item_id,loadout_item in ipairs( loadout_items ) do
+				if ( tostring( type( loadout_item ) ) ~= "table" ) then
+					local item_entity = EntityLoad( loadout_item )
+					EntityAddChild( inventory, item_entity )
+				else
+					local amount = loadout_item.amount or 1
 					
-					if ( loadout_item.options ~= nil ) then
-						local item_options = loadout_item.options
-						local item_options_rnd = Random( 1, #item_options )
+					for i=1,amount do
+						local item_option = ""
 						
-						item_option = item_options[item_options_rnd]
-					else
-						item_option = loadout_item[1]
-					end
-					
-					if ( loadout_item.wand ~= nil) then
-						-- handle wands
-						local new_wand = init_wand(loadout_item.wand)
-						if ( new_wand ~= nil ) then
-							EntityAddChild( inventory, new_wand )
-						end
-					elseif ( loadout_item.potion ~= nil) then
-						-- handle potions
-						local rarity = loadout_item.rarity or 0
-						local potion_amount = loadout_item.quantity or 1000
-						item_entity = EntityLoad( "mods/thematic_random_starts/files/potions/potion_template.xml" )
-						if ( loadout_item.potion ~= "random" ) then
-							AddMaterialInventoryMaterial( item_entity, loadout_item.potion, potion_amount )
+						if ( loadout_item.options ~= nil ) then
+							local item_options = loadout_item.options
+							local item_options_rnd = Random( 1, #item_options )
+							
+							item_option = item_options[item_options_rnd]
 						else
-							AddMaterialInventoryMaterial( item_entity, get_random_potion( rarity ), potion_amount )
+							item_option = loadout_item[1]
 						end
-					elseif ( loadout_item.money ~= nil) then
-						-- handle money
-						ComponentSetValue( wallet, "money", loadout_item.money )
-					else
-						-- handle everything else
-						item_entity = EntityLoad( item_option )
-					end
+						
+						if ( loadout_item.wand ~= nil) then
+							-- handle wands
+							local new_wand = init_wand(loadout_item.wand)
+							if ( new_wand ~= nil ) then
+								EntityAddChild( inventory, new_wand )
+							end
+						elseif ( loadout_item.potion ~= nil) then
+							-- handle potions
+							local rarity = loadout_item.rarity or 0
+							local potion_amount = loadout_item.quantity or 1000
+							item_entity = EntityLoad( "mods/thematic_random_starts/files/potions/potion_template.xml" )
+							if ( loadout_item.potion ~= "random" ) then
+								AddMaterialInventoryMaterial( item_entity, loadout_item.potion, potion_amount )
+							else
+								AddMaterialInventoryMaterial( item_entity, get_random_potion( rarity ), potion_amount )
+							end
+						elseif ( loadout_item.money ~= nil) then
+							-- handle money
+							ComponentSetValue( wallet, "money", loadout_item.money )
+						else
+							-- handle everything else
+							item_entity = EntityLoad( item_option )
+						end
 
-					if item_entity then
-						EntityAddChild( inventory, item_entity )
+						if item_entity then
+							EntityAddChild( inventory, item_entity )
+						end
 					end
 				end
 			end
 		end
-	end
 
-	-- add perks
-	if ( loadout_choice.perks ~= nil ) then
-		for i,perk_name in ipairs( loadout_choice.perks ) do
-			local perk_entity = perk_spawn( x, y, perk_name )
-			if ( perk_entity ~= nil ) then
-				perk_pickup( perk_entity, player_entity, EntityGetName( perk_entity ), false, false )
-			end
-		end	
-	end
+		-- add perks
+		if ( loadout_choice.perks ~= nil ) then
+			for i,perk_name in ipairs( loadout_choice.perks ) do
+				local perk_entity = perk_spawn( x, y, perk_name )
+				if ( perk_entity ~= nil ) then
+					perk_pickup( perk_entity, player_entity, EntityGetName( perk_entity ), false, false )
+				end
+			end	
+		end
 
-	-- set HP
-	local damagemodels = EntityGetComponent( player_entity, "DamageModelComponent" )
-	local hp_modified = loadout_choice.hp / 25
-	for i,damagemodel in ipairs(damagemodels) do
-		ComponentSetValue( damagemodel, "max_hp_old", hp_modified )
-		ComponentSetValue( damagemodel, "max_hp", hp_modified )
-		ComponentSetValue( damagemodel, "hp", hp_modified)
-		ComponentSetValue( damagemodel, "mLastMaxHpChangeFrame", GameGetFrameNum() )
-	end
-
-	-- class specific code:
-	-- no jumps code (no classes have this yet)
-	if ( loadout_choice.class_id == "CHANGEME" ) then
-		local playerData = EntityGetFirstComponent(player_entity, "CharacterDataComponent")
-		local playerPlatforming = EntityGetFirstComponent(player_entity, "CharacterPlatformingComponent")
-		ComponentSetValue2(playerData, "fly_time_max", 0)
-		ComponentSetValue2(playerData, "buoyancy_check_offset_y", -999999)
-		ComponentSetValue2(playerPlatforming, "jump_velocity_y", -180)
-		ComponentSetValue2(playerPlatforming, "jump_velocity_x", 100)
-		ComponentSetValue2(playerPlatforming, "run_velocity", 180)
+		-- set HP
+		local damagemodels = EntityGetComponent( player_entity, "DamageModelComponent" )
+		local hp_modified = loadout_choice.hp / 25
+		for i,damagemodel in ipairs(damagemodels) do
+			ComponentSetValue( damagemodel, "max_hp_old", hp_modified )
+			ComponentSetValue( damagemodel, "max_hp", hp_modified )
+			ComponentSetValue( damagemodel, "hp", hp_modified)
+			ComponentSetValue( damagemodel, "mLastMaxHpChangeFrame", GameGetFrameNum() )
+		end
 	end
 
 	-- tell the player what class they are
 	local a_an = "a"
 	local first_letter = string.lower(string.sub(loadout_name,1,1))
 	if ( first_letter == "a" or first_letter == "e" or first_letter == "i" or first_letter == "o" or first_letter == "u" ) then a_an = a_an .. "n" end
-	GamePrintImportant( "You are " .. a_an .. " " .. loadout_name .. "",  tostring(get_random_from( loadout_choice.description )))
+	GamePrintImportant( notify_text .. " " .. a_an .. " " .. loadout_name .. "",  tostring(get_random_from( loadout_choice.description )))
 end
 
 function get_random_potion( rarity )

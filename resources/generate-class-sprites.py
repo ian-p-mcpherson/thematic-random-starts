@@ -93,7 +93,7 @@ def findLayer(layer_or_image, name):
         return result[0]
     return None
 
-# Recursive fintion to find layers by name in nested layer groups
+# Recursive funtion to find layers by name in nested layer groups
 def findLayerRecursive(layer_or_image, name, layers):
     for layer in layer_or_image.layers:
         if layer.name == name:

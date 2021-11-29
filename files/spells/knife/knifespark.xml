@@ -1,13 +1,15 @@
 <Sprite
 filename="mods/thematic_random_starts/files/spells/knife/sword_slash.png"
 offset_x="3.5"
-offset_y="3.5"
-default_animation="explosion"
+offset_y="13.5"
+default_animation="slash"
+sprite_random_rotation="0"
+rotation="0"
  >
 
 <!-- explosion -->
 <RectAnimation
-name="explosion"
+name="slash"
 pos_x="0"
 pos_y="0"
 frame_count="4"

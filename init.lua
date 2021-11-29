@@ -7,8 +7,11 @@ dofile( "data/scripts/lib/mod_settings.lua" )
 -- Add custom spells
 ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/thematic_random_starts/files/spells/gun_actions.lua")
 
+-- Add custom materials
+ModMaterialsFileAdd("mods/thematic_random_starts/files/materials/materials.xml")
+
 -- These settings are now managed via "Mod settings" in the in-game UI
-local loadout_override = -1
+local loadout_override = 0
 local loadout_exceptions = {} 
 
 -- cape defaults (gray)
@@ -53,18 +56,7 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 		end
 	end
 
-	-- Debug loadout override
-	--loadout_rnd = 33
-
-	-- catch for when a player disables all loadouts for some reason
-	if loadout_rnd == 0 then
-		GamePrintImportant( "You are feeling normal.",  "You have no loadouts enabled!")
-		return
-	end
-
-	-- gather vars for setting up the player
-	local loadout_choice = loadout_list[loadout_rnd]
-	local loadout_name = loadout_choice.name
+	-- initialize player vars
 	local inventory = nil
 	local cape = nil
 	local player_arm = nil
@@ -92,6 +84,37 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 
 	-- get wallet
 	wallet = EntityGetFirstComponent( player_entity, "WalletComponent" )
+
+	-- compute improbability
+	local improbability = Random( 1, 8767128 )
+	if improbability == 1 then
+		GamePrintImportant( "We have normality?",  "What a high improbability factor...")
+		local item_entity = EntityLoad( "mods/thematic_random_starts/files/potions/potion_template.xml" )
+		AddMaterialInventoryMaterial( item_entity, "gargleblaster", 1000 )
+		EntityAddChild( inventory, item_entity )
+		local pos_x, pos_y = EntityGetTransform( player_entity )
+		pos_y = pos_y - 100
+		pos_x = pos_x - 0
+
+		-- TODO make a whale and a bowl of petunias
+		--local whale = EntityLoad ( "mods/thematic_random_starts/files/entities/improbability/whale.xml", pos_x, pos_y )
+		--local whale = EntityLoad ( "data/entities/verlet_chains/worm/verlet_worm.xml", pos_x, pos_y )
+
+		return
+	end
+
+	-- debug loadout override
+	--loadout_rnd = 51
+
+	-- catch for when a player disables all loadouts for some reason
+	if loadout_rnd == 0 then
+		GamePrintImportant( "You are feeling normal.",  "You have no loadouts enabled!")
+		return
+	end
+
+	-- gather vars for setting up the player
+	local loadout_choice = loadout_list[loadout_rnd]
+	local loadout_name = loadout_choice.name
 
 	local gfx_folder = loadout_choice.class_color or "default"
 
@@ -215,12 +238,6 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 		ComponentSetValue2(playerPlatforming, "jump_velocity_x", 100)
 		ComponentSetValue2(playerPlatforming, "run_velocity", 180)
 	end
-
-	-- Spawn a homunculus for the homunculist (This happens automatically now?)
-	--if ( loadout_choice.class_id == "homunculist" ) then
-	--	EntityLoad( "data/entities/misc/homunculus.xml", x, y )
-	--	EntityLoad( "data/entities/particles/swarm_poof.xml", x, y )
-	--end
 
 	-- tell the player what class they are
 	local a_an = "a"

@@ -1,0 +1,134 @@
+<Entity tags="worm_crystal">
+
+	<UIInfoComponent
+		name="Lucky Nugget"
+	></UIInfoComponent>
+
+	<PhysicsBodyComponent 
+		_tags="enabled_in_world"
+		uid="1" 
+		allow_sleep="1" 
+		angular_damping="0" 
+		fixed_rotation="0" 
+		is_bullet="1" 
+		linear_damping="0"
+		auto_clean="1"
+		hax_fix_going_through_ground="1"
+		on_death_leave_physics_body="0"
+		on_death_really_leave_body="0"
+	></PhysicsBodyComponent>
+
+	<PhysicsImageShapeComponent 
+		body_id="1"
+		centered="1"
+		image_file="data/items_gfx/goldnugget_12px.png"
+		material="gold_box2d" >
+	></PhysicsImageShapeComponent>
+
+	<PhysicsThrowableComponent
+		max_throw_speed="130"
+		throw_force_coeff="1.5"
+	></PhysicsThrowableComponent>
+
+	<ProjectileComponent
+		_tags="enabled_in_world"
+		lifetime="-1"
+		penetrate_entities="1"
+		never_hit_player="1"
+	></ProjectileComponent>
+
+	<VelocityComponent
+		_tags="enabled_in_world"
+	></VelocityComponent>
+	
+	<ItemComponent
+		_tags="enabled_in_world"
+		max_child_items="0"
+		is_pickable="1"
+		is_equipable_forced="1"
+		ui_sprite="mods/thematic_random_starts/files/entities/goldnugget.png"
+		preferred_inventory="QUICK"
+		item_name="Lucky Nugget"
+		ui_description="You'd never trade your lucky nugget..."
+	></ItemComponent>
+  
+	<SpriteComponent
+		_tags="enabled_in_hand"
+		_enabled="0"
+		offset_x="4"
+		offset_y="4"
+		image_file="mods/thematic_random_starts/files/entities/goldnugget.png"
+	></SpriteComponent>
+
+	<HitboxComponent 
+		_tags="enabled_in_world"
+		aabb_min_x="-3" 
+		aabb_max_x="3" 
+		aabb_min_y="-5" 
+		aabb_max_y="0" >
+	</HitboxComponent>
+
+	<!-- particle glitter -->
+	<SpriteParticleEmitterComponent
+		_tags="enabled_in_world"
+		sprite_file="data/particles/shine_07.xml"
+		lifetime="0.3"
+		emission_interval_min_frames="50"
+		emission_interval_max_frames="500"
+		count_min="1"
+		count_max="1"
+		additive="1"
+		emissive="0"
+		scale.x="1.0"
+		scale.y="1.0"
+		sprite_random_rotation="1"
+		randomize_scale.min_x="-0.1" 
+		randomize_scale.max_x="0.1" 
+		randomize_scale.min_y="-0.1" 
+		randomize_scale.max_y="0.1" 
+		randomize_position.min_y="-6" 
+		randomize_position.max_y="6"
+		randomize_position.min_x="-6"  
+		randomize_position.max_x="6"
+		randomize_animation_speed_coeff.min="0.667"  
+		randomize_animation_speed_coeff.max="1.0" 
+		>
+	</SpriteParticleEmitterComponent>
+
+	<SpriteParticleEmitterComponent
+		_tags="enabled_in_world"
+		sprite_file="data/particles/shine_08.xml"
+		lifetime="0.2"
+		randomize_lifetime.min="0.1"
+		randomize_lifetime.max="0.8"
+		emission_interval_min_frames="40"
+		emission_interval_max_frames="150"
+		count_min="1"
+		count_max="1"
+		additive="1"
+		emissive="0"
+		scale.x="1.0"
+		scale.y="1.0"
+		sprite_random_rotation="1"
+		randomize_scale.min_x="-0.1" 
+		randomize_scale.max_x="0.1" 
+		randomize_scale.min_y="-0.1" 
+		randomize_scale.max_y="0.1" 
+		randomize_position.min_y="-5" 
+		randomize_position.max_y="5"
+		randomize_position.min_x="-5"  
+		randomize_position.max_x="5"
+		randomize_animation_speed_coeff.min="0.667"  
+		randomize_animation_speed_coeff.max="1.0" 
+		>
+	</SpriteParticleEmitterComponent>
+	
+	<AbilityComponent
+		ui_name="Lucky Nugget"
+		throw_as_item="1"
+		><gun_config
+			deck_capacity="0"
+		></gun_config>
+	</AbilityComponent>
+
+</Entity>

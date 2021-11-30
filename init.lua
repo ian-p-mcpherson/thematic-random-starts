@@ -92,8 +92,7 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 	wallet = EntityGetFirstComponent( player_entity, "WalletComponent" )
 
 	-- compute improbability
-	--local improbability = Random( 1, 8767128 )
-	local improbability = Random( 1, 1 )
+	local improbability = Random( 1, 8767128 )
 	if improbability == 1 then
 		GamePrintImportant( "We have normality?",  "What a high improbability factor...")
 		local item_entity = EntityLoad( "mods/thematic_random_starts/files/potions/potion_template.xml" )
@@ -103,9 +102,9 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 		pos_y = pos_y
 		pos_x = pos_x
 
-		-- TODO fix the whale
-		--local whale = EntityLoad ( "mods/thematic_random_starts/files/entities/improbability/whale_verlet.xml", pos_x, pos_y + 100)
-		local petunias = EntityLoad ( "mods/thematic_random_starts/files/entities/petunias.xml", pos_x + 50, pos_y - 200 )
+		-- TODO make the whale floppy
+		local whale = EntityLoad ( "mods/thematic_random_starts/files/entities/improbability/whale_full.xml", pos_x, pos_y - 500)
+		local petunias = EntityLoad ( "mods/thematic_random_starts/files/entities/improbability/petunias.xml", pos_x + 50, pos_y - 200 )
 		return
 	end
 

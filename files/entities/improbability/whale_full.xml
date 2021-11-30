@@ -1,0 +1,30 @@
+<Entity >
+	<VelocityComponent
+		_tags="enabled_in_world"
+	></VelocityComponent>
+
+	<DamageModelComponent 
+        hp="42069"
+		blood_sprite_directional="data/particles/bloodsplatters/bloodsplatter_directional_$[1-3].xml"
+		blood_sprite_large="data/particles/bloodsplatters/bloodsplatter_$[1-3].xml"
+		>
+	</DamageModelComponent>
+
+	<PhysicsBodyComponent 
+		uid="1" 
+		allow_sleep="1" 
+		angular_damping="0" 
+		fixed_rotation="0" 
+		linear_damping="0"
+		hax_fix_going_through_ground="1"
+		on_death_leave_physics_body="1"
+		on_death_really_leave_body="1"
+	></PhysicsBodyComponent>
+
+	<PhysicsImageShapeComponent 
+		body_id="1"
+		centered="1"
+		image_file="mods/thematic_random_starts/files/entities/improbability/whale_full.png"
+		material="item_box2d_whale" >
+	></PhysicsImageShapeComponent>
+</Entity>

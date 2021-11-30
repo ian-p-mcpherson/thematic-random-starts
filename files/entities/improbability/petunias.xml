@@ -21,7 +21,7 @@
 	<PhysicsImageShapeComponent 
 		body_id="1"
 		centered="1"
-		image_file="mods/thematic_random_starts/files/entities/petunias.png"
+		image_file="mods/thematic_random_starts/files/entities/improbability/petunias.png"
 		material="rock_box2d" >
 	></PhysicsImageShapeComponent>
 
@@ -46,7 +46,7 @@
 		max_child_items="0"
 		is_pickable="1"
 		is_equipable_forced="1"
-		ui_sprite="mods/thematic_random_starts/files/entities/petunias.png"
+		ui_sprite="mods/thematic_random_starts/files/entities/improbability/petunias.png"
 		preferred_inventory="QUICK"
 		item_name="Bowl of Petunias"
 		ui_description="Oh no, not again."
@@ -57,7 +57,7 @@
 		_enabled="0"
 		offset_x="4"
 		offset_y="4"
-		image_file="mods/thematic_random_starts/files/entities/petunias.png"
+		image_file="mods/thematic_random_starts/files/entities/improbability/petunias.png"
 	></SpriteComponent>
 
 	<HitboxComponent 

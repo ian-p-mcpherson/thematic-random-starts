@@ -1,83 +1,10 @@
-Patchnotes 1.2
-Bugfixes (I didn't track these very well, my bad)
+Patchnotes 2.0
 
-Construction Conjurer
- - "High Gravity" perk was removed from the game, perk changed to "Map"
+This updated happened on and off over the last year so not much is tracked!
 
-Vampire
- - HP Nerf 60 -> 50
- - Chainsaw changed to a butcher knife that's not as good at digging
- - Buffed puns
-
-Blood Cultist
- - Disc wand made more accurate
-
-Ninja
- - New knife "spell"
- - Clarified pun
-
-Laser Wizard
- - Laser wand is slightly slower
-
-Demolitionist
- - HP nerf 80 -> 70
-
-Blastomancer
- - HP nerf 100 -> 90 (Revenge explosion now provides 25% explosion resistance)
-
-Telekarate Master
- - Reworked: Now has two wands: Energy sector + 2 Short Teleports wand, and a Homebringer Teleport wand
-
-Berserker
- - Shotgun now has some kick
-
-Eldritch Cultist
- - HP nerf 100 -> 90 (Revenge explosion now provides 25% projectile resistance)
-
-Crystal Seer
- - Wand has 50% more casts
- - Detonater is no longer delayed
-
-Pyromancer
- - HP buff 70 -> 80
-
-Arsonist
- - HP nerf 100 -> 80 (This was missed on last patch, Bleed Oil provides immunity to fire)
-
-Summoner
- - HP buff 90 -> 100
-
-Lord of the Flies
- - Flies are more spammable now, but have a shorter lifespan
-
-Air Sage
- - "Low Gravity" perk was removed from the game, perk changed to "Rage-fueled Levitation"
- - Added bottle of Levitatium
-
-Geomancer
- - Crystal wand no longer has delayed cast
- - No longer has a boulder wand, instead has a wand with a chance to turn enemies into boulders/rocks.
-
-Adventurer
- - Perk is now "Item Radar"
- - Possible bag of holding item "Dirt" changed to "Exploding Ducks" (Dirt could easily kill the player)
- - Updated Bag of Holding and Heavy Crossbow sprites
-
-Lightning Wizard
- - Decreased shockball wand spread slightly
-
-Exorcist
- - HP buff 80 -> 90
-
-Thrifty Shopper
- - Perk changed to "Extra Shop Item"
- - HP buff 90 -> 100
- - Money on spawn increased to 250 (from 200)
-
-Tidal Sorcerer
- - Harpoon gun fire rate reduced
-
-Lukki Initate
- - Doubled Acid Ball ammo (40 to 80) and added "Speed" to wand effects (Should make lobbing acid easier)
- - Added water bottle
-
+Primary Features:
+ - 18 New starts (50 total)
+ - Robes only mode
+ - Improbable easter egg
+ - Ninja isn't awful jank anymore
+ - Several bugfixes

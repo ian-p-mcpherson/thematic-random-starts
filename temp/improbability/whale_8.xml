@@ -1,0 +1,20 @@
+<Sprite 
+  filename="mods/thematic_random_starts/files/entities/improbability/whale_8.png" 
+  offset_x="15" 
+  offset_y="6"
+  default_animation="stand" >
+
+  <RectAnimation 
+    frame_count="1" 
+    frame_height="37" 
+    frame_wait="0.082" 
+    frame_width="40" 
+    frames_per_row="1" 
+    name="stand" 
+    pos_x="0" 
+    pos_y="0" 
+    >
+
+  </RectAnimation>
+
+</Sprite>

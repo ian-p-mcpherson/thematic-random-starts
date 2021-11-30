@@ -1,0 +1,29 @@
+<Entity >
+   
+  <!--<SpriteComponent 
+    image_file="mods/thematic_random_starts/files/entities/improbability/whale_2.png" 
+    offset_x="0"
+    offset_y="0"
+    update_transform="0"
+    update_transform_rotation="0"
+    z_index="-0.52" >
+  </SpriteComponent>-->
+
+	<PhysicsBodyComponent 
+		uid="1" 
+		allow_sleep="1" 
+		angular_damping="0" 
+		fixed_rotation="0" 
+		linear_damping="0"
+		hax_fix_going_through_ground="1"
+		on_death_leave_physics_body="1"
+		on_death_really_leave_body="1"
+	></PhysicsBodyComponent>
+
+	<PhysicsImageShapeComponent 
+		body_id="2"
+		centered="1"
+		image_file="mods/thematic_random_starts/files/entities/improbability/whale_2.png"
+		material="item_box2d_whale" >
+	></PhysicsImageShapeComponent>
+</Entity>

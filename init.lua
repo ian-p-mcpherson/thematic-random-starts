@@ -10,7 +10,7 @@ ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/thematic_random_start
 ModMaterialsFileAdd("mods/thematic_random_starts/files/materials/materials.xml")
 
 -- These settings are now managed via "Mod settings" in the in-game UI
-local loadout_override = 6
+local loadout_override = 0
 local robes_only_mode = false
 local loadout_exceptions = {} 
 

@@ -67,7 +67,7 @@ printf "%s" "$ChangedPalettes" > changed_palettes.csv
 ChangedLines=$(echo -n "$ChangedPalettes" | grep -c '^')
 if [ "$ChangedLines" != "0" ]
 then
-	printf "%s changed palettes found, generating...\n" "$ChangedLines"
+	printf "Changed palettes found, generating...\n"
 	# Call GIMP and genereate chaned palettes
 	gimp-2.10.exe -n -idf --batch "(python-fu-generate-class-sprites-cmd RUN-NONINTERACTIVE \"default\" \"default\" \"default\" \"default\" \"default\")" --batch "(gimp-quit 1)"
 

@@ -1,0 +1,8 @@
+mods/thematic_random_starts/files/hunter/ragdoll/torso.png
+mods/thematic_random_starts/files/hunter/ragdoll/right_thigh.png
+mods/thematic_random_starts/files/hunter/ragdoll/right_arm.png
+mods/thematic_random_starts/files/hunter/ragdoll/right_hand.png
+mods/thematic_random_starts/files/hunter/ragdoll/left_thigh.png
+mods/thematic_random_starts/files/hunter/ragdoll/left_arm.png
+mods/thematic_random_starts/files/hunter/ragdoll/left_hand.png
+mods/thematic_random_starts/files/hunter/ragdoll/head.png

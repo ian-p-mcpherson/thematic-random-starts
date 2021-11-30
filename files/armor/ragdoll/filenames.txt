@@ -1,0 +1,8 @@
+mods/thematic_random_starts/files/armor/ragdoll/torso.png
+mods/thematic_random_starts/files/armor/ragdoll/right_thigh.png
+mods/thematic_random_starts/files/armor/ragdoll/right_arm.png
+mods/thematic_random_starts/files/armor/ragdoll/right_hand.png
+mods/thematic_random_starts/files/armor/ragdoll/left_thigh.png
+mods/thematic_random_starts/files/armor/ragdoll/left_arm.png
+mods/thematic_random_starts/files/armor/ragdoll/left_hand.png
+mods/thematic_random_starts/files/armor/ragdoll/head.png

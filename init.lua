@@ -1,3 +1,4 @@
+-- Init scripts
 dofile( "mods/thematic_random_starts/files/loadouts.lua" )
 dofile( "data/scripts/gun/procedural/gun_procedural_better.lua")
 dofile( "data/scripts/perks/perk.lua" )
@@ -91,20 +92,20 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 	wallet = EntityGetFirstComponent( player_entity, "WalletComponent" )
 
 	-- compute improbability
-	local improbability = Random( 1, 8767128 )
+	--local improbability = Random( 1, 8767128 )
+	local improbability = Random( 1, 1 )
 	if improbability == 1 then
 		GamePrintImportant( "We have normality?",  "What a high improbability factor...")
 		local item_entity = EntityLoad( "mods/thematic_random_starts/files/potions/potion_template.xml" )
 		AddMaterialInventoryMaterial( item_entity, "gargleblaster", 1000 )
 		EntityAddChild( inventory, item_entity )
 		local pos_x, pos_y = EntityGetTransform( player_entity )
-		pos_y = pos_y - 100
-		pos_x = pos_x - 0
+		pos_y = pos_y
+		pos_x = pos_x
 
-		-- TODO make a whale and a bowl of petunias
-		--local whale = EntityLoad ( "mods/thematic_random_starts/files/entities/improbability/whale.xml", pos_x, pos_y )
-		--local whale = EntityLoad ( "data/entities/verlet_chains/worm/verlet_worm.xml", pos_x, pos_y )
-
+		-- TODO fix the whale
+		--local whale = EntityLoad ( "mods/thematic_random_starts/files/entities/improbability/whale_verlet.xml", pos_x, pos_y + 100)
+		local petunias = EntityLoad ( "mods/thematic_random_starts/files/entities/petunias.xml", pos_x + 50, pos_y - 200 )
 		return
 	end
 

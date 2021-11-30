@@ -1,0 +1,8 @@
+mods/thematic_random_starts/files/mushroomancer/ragdoll/torso.png
+mods/thematic_random_starts/files/mushroomancer/ragdoll/right_thigh.png
+mods/thematic_random_starts/files/mushroomancer/ragdoll/right_arm.png
+mods/thematic_random_starts/files/mushroomancer/ragdoll/right_hand.png
+mods/thematic_random_starts/files/mushroomancer/ragdoll/left_thigh.png
+mods/thematic_random_starts/files/mushroomancer/ragdoll/left_arm.png
+mods/thematic_random_starts/files/mushroomancer/ragdoll/left_hand.png
+mods/thematic_random_starts/files/mushroomancer/ragdoll/head.png

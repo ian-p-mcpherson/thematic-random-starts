@@ -1953,10 +1953,10 @@ loadout_list =
 		description = {"It's a steady job.","You have an odd urge eat mushrooms...","Mustache not included."},
 		class_id = "platformer",
 
-		class_color = "thrifty",
-		robe_color = {155, 111, 154, 255},
-		belt_color = {89, 67, 84, 255},
-		cape_color_edge = {89, 67, 84, 255},
+		class_color = "platformer",
+		robe_color = {219, 59, 78, 255},
+		belt_color = {77, 54, 35, 255},
+		cape_color_edge = {44, 50, 110, 255},
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
 		hp = 100,
@@ -2019,11 +2019,11 @@ loadout_list =
 		description = {"Knock \'em dead.","Keep an eye on your minions at all times.","Your foes are dying to get a wand."},
 		class_id = "necromancer",
 
-		class_color = "thrifty",
-		robe_color = {155, 111, 154, 255},
-		belt_color = {89, 67, 84, 255},
-		cape_color_edge = {89, 67, 84, 255},
-		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+		class_color = "necromancer",
+		robe_color = {54, 54, 54, 255},
+		belt_color = {59, 48, 39, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {133, 65, 132, 255},
 
 		hp = 80,
 		items = 
@@ -2132,10 +2132,10 @@ loadout_list =
 		description = {"Noita, the most dangerous game?","I hope you have a license.","Where'd you get your hands on deer eggs?"},
 		class_id = "hunter",
 
-		class_color = "thrifty",
-		robe_color = {155, 111, 154, 255},
-		belt_color = {89, 67, 84, 255},
-		cape_color_edge = {89, 67, 84, 255},
+		class_color = "hunter",
+		robe_color = {52, 59, 48, 255},
+		belt_color = {33, 33, 33, 255},
+		cape_color_edge = {77, 70, 50, 255},
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
 		hp = 100,
@@ -2196,10 +2196,10 @@ loadout_list =
 		description = {"You prefer long-distance relationships.","Time to scope things out.","Bolt-action wands aren't exclusive to lightning wizards."},
 		class_id = "sniper",
 
-		class_color = "thrifty",
-		robe_color = {155, 111, 154, 255},
-		belt_color = {89, 67, 84, 255},
-		cape_color_edge = {89, 67, 84, 255},
+		class_color = "sniper",
+		robe_color = {150, 140, 105, 255},
+		belt_color = {38, 38, 38, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
 		hp = 100,
@@ -2259,11 +2259,11 @@ loadout_list =
 		description = {"I think these eggs are expired...","You're just \"brutally honest\".","Banned in the Noita forums."},
 		class_id = "sludge",
 
-		class_color = "thrifty",
-		robe_color = {155, 111, 154, 255},
-		belt_color = {89, 67, 84, 255},
-		cape_color_edge = {89, 67, 84, 255},
-		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+		class_color = "sludge",
+		robe_color = {104, 130, 16, 255},
+		belt_color = {81, 44, 102, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {81, 44, 102, 255},
 
 		hp = 90,
 		items = 
@@ -2322,10 +2322,10 @@ loadout_list =
 		description = {"What goes around, comes around...","Toughest wizard you ever saw...","You have an angle grinder."},
 		class_id = "armor",
 
-		class_color = "thrifty",
-		robe_color = {155, 111, 154, 255},
-		belt_color = {89, 67, 84, 255},
-		cape_color_edge = {89, 67, 84, 255},
+		class_color = "armor",
+		robe_color = {69, 69, 69, 255},
+		belt_color = {135, 135, 135, 255},
+		cape_color_edge = {135, 135, 135, 255},
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
 		hp = 80,
@@ -2386,11 +2386,11 @@ loadout_list =
 		description = {"At parties you're a pretty fungi.","The moldy robes are a feature.","It's always the same mold story with you..."},
 		class_id = "mushroomancer",
 
-		class_color = "thrifty",
-		robe_color = {155, 111, 154, 255},
-		belt_color = {89, 67, 84, 255},
-		cape_color_edge = {89, 67, 84, 255},
-		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+		class_color = "mushroomancer",
+		robe_color = {82, 139, 184, 255},
+		belt_color = {74, 66, 56, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {80, 207, 79, 255},
 
 		hp = 100,
 		items = 
@@ -2428,14 +2428,14 @@ loadout_list =
 	{
 		-- ID: 40
 		name = "Homunculist",
-		description = {"This isn't what your mother meant by \"Make some friends\".","This ones name is Steve.","Apprentices are overrated."},
+		description = {"This isn't what your mother meant by \"Make some friends\".","This one's name is Steve.","Apprentices are overrated."},
 		class_id = "homunculist",
 
-		class_color = "thrifty",
-		robe_color = {155, 111, 154, 255},
-		belt_color = {89, 67, 84, 255},
-		cape_color_edge = {89, 67, 84, 255},
-		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+		class_color = "homunculist",
+		robe_color = {102, 110, 101, 255},
+		belt_color = {42, 42, 42, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {42, 42, 42, 255},
 
 		hp = 90,
 		items = 
@@ -2469,14 +2469,14 @@ loadout_list =
 	{
 		-- ID: 41
 		name = "Weather Wizard",
-		description = {"Today's forcast: Doom.","Raincoats are NOT lightning-proof.","With your wand, you forecast winds."},
+		description = {"Today's forecast: Doom.","Raincoats are NOT lightning-proof.","With your wand, you forecast winds."},
 		class_id = "weather",
 
-		class_color = "thrifty",
-		robe_color = {155, 111, 154, 255},
-		belt_color = {89, 67, 84, 255},
-		cape_color_edge = {89, 67, 84, 255},
-		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+		class_color = "weather",
+		robe_color = {225, 228, 93, 255},
+		belt_color = {98, 107, 215, 255},
+		cape_color_edge = {225, 228, 93, 255},
+		cape_color = {98, 107, 215, 255}, -- calculate from cape_color_edge
 
 		hp = 90,
 		items = 
@@ -2540,11 +2540,11 @@ loadout_list =
 		description = {"...but don't spend it all on one enemy.","But you'd never spend your lucky nugget.","Your spells have a decent return investment."},
 		class_id = "big_money",
 
-		class_color = "thrifty",
-		robe_color = {155, 111, 154, 255},
-		belt_color = {89, 67, 84, 255},
-		cape_color_edge = {89, 67, 84, 255},
-		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+		class_color = "big_money",
+		robe_color = {232, 162, 32, 255},
+		belt_color = {155, 0, 0, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {155, 0, 0, 255},
 
 		hp = 80,
 		items = 
@@ -2586,10 +2586,10 @@ loadout_list =
 		description = {"Doesn't matter if you walk without rhythm...","Make sure to stand back...","You just dig worms."},
 		class_id = "worm_cultist",
 
-		class_color = "thrifty",
-		robe_color = {155, 111, 154, 255},
-		belt_color = {89, 67, 84, 255},
-		cape_color_edge = {89, 67, 84, 255},
+		class_color = "worm_cultist",
+		robe_color = {57, 67, 118, 255},
+		belt_color = {64, 53, 41, 255},
+		cape_color_edge = {84, 84, 58, 255},
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
 		hp = 100,
@@ -2654,10 +2654,10 @@ loadout_list =
 		description = {"You just think they are neat.","Who reads wands before trying anyways?","What's the worst that could happen..."},
 		class_id = "wand_enthusiast",
 
-		class_color = "thrifty",
-		robe_color = {155, 111, 154, 255},
-		belt_color = {89, 67, 84, 255},
-		cape_color_edge = {89, 67, 84, 255},
+		class_color = "wand_enthusiast",
+		robe_color = {199, 123, 170, 255},
+		belt_color = {219, 209, 121, 255},
+		cape_color_edge = {96, 191, 92, 255},
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
 		hp = 80,
@@ -2697,11 +2697,11 @@ loadout_list =
 		description = {"Some find you repulsive.","Gravimancy has its ups and downs.","You're the star of the show."},
 		class_id = "space",
 
-		class_color = "thrifty",
-		robe_color = {155, 111, 154, 255},
-		belt_color = {89, 67, 84, 255},
-		cape_color_edge = {89, 67, 84, 255},
-		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+		class_color = "space",
+		robe_color = {54, 54, 54, 255},
+		belt_color = {222, 189, 24, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {45, 111, 168, 255},
 
 		hp = 80,
 		items = 
@@ -2787,10 +2787,10 @@ loadout_list =
 		description = {"A little matter never stopped you.","You stub your toe and end up a room over?","Careful where you're pointed at..."},
 		class_id = "warp",
 
-		class_color = "thrifty",
-		robe_color = {155, 111, 154, 255},
-		belt_color = {89, 67, 84, 255},
-		cape_color_edge = {89, 67, 84, 255},
+		class_color = "warp",
+		robe_color = {166, 190, 193, 255},
+		belt_color = {224, 224, 224, 255},
+		cape_color_edge = {224, 224, 224, 255},
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
 		hp = 100,
@@ -2850,10 +2850,10 @@ loadout_list =
 		description = {"Fish? Again?!","All in on worm.","Never tell me the odds. (It's for the best)"},
 		class_id = "luck_wizard",
 
-		class_color = "gambler",
-		robe_color = {126, 28, 255, 255},
-		belt_color = {222, 194, 16, 255},
-		cape_color_edge = {222, 194, 16, 255},
+		class_color = "luck_wizard",
+		robe_color = {133, 225, 124, 255},
+		belt_color = {227, 197, 66, 255},
+		cape_color_edge = {227, 197, 66, 255},
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
 		hp = 70,
@@ -2901,11 +2901,11 @@ loadout_list =
 		description = {"Be careful, you'll shoot your eye out.","Does this thing have an 'off' switch?","If it's dangerous, it's a feature!"},
 		class_id = "beam",
 
-		class_color = "thrifty",
-		robe_color = {126, 28, 255, 255},
-		belt_color = {222, 194, 16, 255},
-		cape_color_edge = {222, 194, 16, 255},
-		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
+		class_color = "beam",
+		robe_color = {131, 131, 131, 255},
+		belt_color = {72, 153, 183, 255},
+		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
+		cape_color = {46, 197, 30, 255},
 
 		hp = 100,
 		items = 
@@ -2942,10 +2942,10 @@ loadout_list =
 		description = {"And this one has a nasty attitude.","Your foes will be in a sticky situation.","Some might call you a web developer."},
 		class_id = "lukki_pet",
 
-		class_color = "thrifty",
-		robe_color = {126, 28, 255, 255},
-		belt_color = {222, 194, 16, 255},
-		cape_color_edge = {222, 194, 16, 255},
+		class_color = "lukki_pet",
+		robe_color = {202, 195, 155, 255},
+		belt_color = {53, 51, 40, 255},
+		cape_color_edge = {168, 109, 151, 255},
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
 		hp = 90,
@@ -2973,26 +2973,6 @@ loadout_list =
 					tip_y = -4.0
 				}
 			}},
-			{ wand = {
-				name = 		{{"chainsaw"}},
-				capacity = 	{{1,1}},
-				per_round = {{1}},
-				reload = 	{{12,12}},
-				shuffle = 	{{1}},
-				delay = 	{{10,10}},
-				spread = 	{{0,0}},
-				speed = 	{{1}},
-				regen = 	{{20,22}},
-				mana_max = 	{{20,30}},
-				actions = {
-					{"CHAINSAW"},
-				},
-				gfx = {
-					sprite = "chainsaw",
-					offset_x = 1.0,
-					tip_x = 6.0
-				}
-			}},
 			{ potion = "water", amount = 1, quantity = 1000},
 		},
 		perks =
@@ -3006,10 +2986,10 @@ loadout_list =
 		description = {"You travel forward in time at normal speed.","You saw that one coming.","The wounds stick around for some reason..."},
 		class_id = "dodger",
 
-		class_color = "thrifty",
-		robe_color = {126, 28, 255, 255},
-		belt_color = {222, 194, 16, 255},
-		cape_color_edge = {222, 194, 16, 255},
+		class_color = "dodger",
+		robe_color = {173, 156, 208, 255},
+		belt_color = {222, 222, 222, 255},
+		cape_color_edge = {222, 222, 222, 255},
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
 		hp = 90,
@@ -3019,13 +2999,13 @@ loadout_list =
 				name = 		{{"raygun"}},
 				capacity = 	{{3,3}},
 				per_round = {{1}},
-				reload = 	{{50,55}},
+				reload = 	{{80,85}},
 				shuffle = 	{{0}},
-				delay = 	{{12,114}},
+				delay = 	{{12,14}},
 				spread = 	{{-10,-10}},
 				speed = 	{{1}},
 				regen = 	{{65,70}},
-				mana_max = 	{{100,110}},
+				mana_max = 	{{25,30}},
 				actions = {
 					{"SPEED", "PHASING_ARC", "LUMINOUS_DRILL"},
 				},
@@ -3069,60 +3049,4 @@ loadout_list =
 			"TELEPORTITIS_DODGE",
 		}
 	},
---	{
---		-- ID: XX
---		name = "Fun Rock Thing",
---		description = {"","",""},
---		class_id = "frt",
---
---		class_color = "thrifty",
---		robe_color = {155, 111, 154, 255},
---		belt_color = {89, 67, 84, 255},
---		cape_color_edge = {89, 67, 84, 255},
---		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
---
---		hp = 90,
---		items = 
---		{
---			{ wand = {
---				name = 		{{"grapple_wand"}},
---				capacity = 	{{4,4}},
---				per_round = {{1}},
---				reload = 	{{14,16}},
---				shuffle = 	{{0}},
---				delay = 	{{12,15}},
---				spread = 	{{0,0}},
---				speed = 	{{1}},
---				regen = 	{{300,320}},
---				mana_max = 	{{500,500}},
---				actions_permanent = {
---					{"HOMING_SHORT","SUMMON_ROCK"},
---				},
---				actions = {
---					{},
---				},
---				gfx = {
---					sprite = "novice_wand",
---					offset_x = 2.0
---				}
---			}},
---			{ potion = "water", amount = 1, quantity = 1000},
---		},
---		perks =
---		{
---			"PROJECTILE_REPULSION", "PROJECTILE_HOMING_SHOOTER", "INVISIBILITY"
---		}
---	},
 }
-
--- {
--- "data/entities/misc/custom_cards/bomb.xml",
--- amount = 1,
--- },
--- {
--- "data/entities/misc/custom_cards/tnt.xml",
--- amount = 1,
--- },
-
-
---"data/entities/items/pickup/moon.xml",

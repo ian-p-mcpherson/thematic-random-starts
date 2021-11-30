@@ -1,0 +1,8 @@
+mods/thematic_random_starts/files/homunculist/ragdoll/torso.png
+mods/thematic_random_starts/files/homunculist/ragdoll/right_thigh.png
+mods/thematic_random_starts/files/homunculist/ragdoll/right_arm.png
+mods/thematic_random_starts/files/homunculist/ragdoll/right_hand.png
+mods/thematic_random_starts/files/homunculist/ragdoll/left_thigh.png
+mods/thematic_random_starts/files/homunculist/ragdoll/left_arm.png
+mods/thematic_random_starts/files/homunculist/ragdoll/left_hand.png
+mods/thematic_random_starts/files/homunculist/ragdoll/head.png

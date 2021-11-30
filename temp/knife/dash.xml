@@ -1,0 +1,21 @@
+<Sprite
+ filename="mods/thematic_random_starts/files/spells/knife/dash.png"
+ offset_x="25.0"
+ offset_y="10.0"
+ default_animation="dash" 
+ sprite_random_rotation="0"
+ rotation="0">
+
+ <!-- animation -->
+ <RectAnimation
+  name="dash"
+  pos_x="0"
+  pos_y="0"
+  frame_count="5"
+  frame_width="12"
+  frame_height="19"
+  frame_wait="0.02"
+  frames_per_row="5"
+  loop="0"   >
+ </RectAnimation>
+</Sprite>

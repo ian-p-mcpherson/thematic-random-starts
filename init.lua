@@ -1,5 +1,4 @@
 dofile( "mods/thematic_random_starts/files/loadouts.lua" )
-dofile( "mods/thematic_random_starts/files/scripts/wmpls_utils.lua")
 dofile( "data/scripts/gun/procedural/gun_procedural_better.lua")
 dofile( "data/scripts/perks/perk.lua" )
 dofile( "data/scripts/lib/mod_settings.lua" )
@@ -11,7 +10,7 @@ ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/thematic_random_start
 ModMaterialsFileAdd("mods/thematic_random_starts/files/materials/materials.xml")
 
 -- These settings are now managed via "Mod settings" in the in-game UI
-local loadout_override = 0
+local loadout_override = 6
 local robes_only_mode = false
 local loadout_exceptions = {} 
 
@@ -391,4 +390,16 @@ function get_loadout_exceptions()
 	end
 	table.sort(exclusions, function(a,b) return a>b end)
 	return exclusions
+end
+
+function str(var)
+  if type(var) == 'table' then
+    local s = '{ '
+    for k,v in pairs(var) do
+      if type(k) ~= 'number' then k = '"'..k..'"' end
+      s = s .. '['..k..'] = ' .. str(v) .. ','
+    end
+    return s .. '} '
+  end
+  return tostring(var)
 end

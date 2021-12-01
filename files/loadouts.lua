@@ -12,7 +12,7 @@ loadout_list =
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
-		hp = 100,
+		hp = 90,
 		items = 
 		{
 			{ wand = {
@@ -312,7 +312,7 @@ loadout_list =
 				per_round = {{2}},
 				reload = 	{{1,1}},
 				shuffle = 	{{0}},
-				delay = 	{{260,270}},
+				delay = 	{{180,190}},
 				spread = 	{{0,0}},
 				speed = 	{{1}},
 				regen = 	{{55,65}},
@@ -1793,7 +1793,7 @@ loadout_list =
 		class_id = "thrifty",
 		class_color = "thrifty",
 		
-		robe_color = {159, 214, 171, 255},
+		robe_color = {93, 145, 124, 255},
 		belt_color = {105, 96, 74, 255},
 		cape_color_edge = {105, 96, 74, 255},
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
@@ -2542,7 +2542,7 @@ loadout_list =
 
 		class_color = "big_money",
 		robe_color = {232, 162, 32, 255},
-		belt_color = {155, 0, 0, 255},
+		belt_color = {224, 224, 224, 255},
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
 		cape_color = {155, 0, 0, 255},
 

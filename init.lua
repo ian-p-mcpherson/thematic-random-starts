@@ -34,7 +34,7 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 
 	-- get the override id if random is disabled
 	if ( ModSettingGet("thematic_random_starts.enable_random") == false ) then 
-		loadout_override = math.ceil(ModSettingGet("thematic_random_starts.loadout_override") - 0.5)
+		loadout_override = math.floor(ModSettingGet("thematic_random_starts.loadout_override") + 0.5)
 	end
 
 	-- get robes only mode flag

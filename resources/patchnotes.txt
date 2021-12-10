@@ -1,14 +1,3 @@
-Patchnotes 2.0
+Patchnotes 2.1
 
-This updated happened on and off over the last year so not much is tracked!
-
-Other than bugfixes, this is probably the final patch!
-
-Primary Features:
-- 18 New starts (50 total)
-- Robes only mode
-- Compatibility fixes for most edge cases
-- Improbable easter egg
-- Balance pass on many loadouts
-- Ninja isn't awful jank anymore
-- Many bugfixes
+- Updated logic for loadout ID selection so the ID in the UI is accurate

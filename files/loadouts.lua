@@ -2313,7 +2313,7 @@ loadout_list =
 		},
 		perks =
 		{
-			"PROTECTION_RADIOACTIVITY",
+			"BLEED_GAS",
 		}
 	},
 	{

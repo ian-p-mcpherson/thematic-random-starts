@@ -1,5 +1,4 @@
-Patchnotes 2.3
+Patchnotes 2.4
 
-- Add function for getting a random loadout ID
-- Add flag to allow disabling the mod but keeping it loaded
-- Spelling fixes
+- Fix for loadout choice
+- Toxic Shaman now has Bleed Gas instead of Toxic Immunity (they share effects)

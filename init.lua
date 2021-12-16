@@ -41,6 +41,11 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 	local x,y = EntityGetTransform( player_entity )
 	SetRandomSeed( x + 344, y - 523 )
 
+	-- get the override id if random is disabled
+	if ( ModSettingGet("thematic_random_starts.enable_random") == false ) then 
+		loadout_override = math.floor(ModSettingGet("thematic_random_starts.loadout_override") + 0.5)
+	end
+
 	-- get a random loadout ID
 	local loadout_rnd
 	if ( loadout_override > 0) then 
@@ -73,11 +78,6 @@ function SetPlayerLoadout( player_entity, loadout_id) -- this function is separa
 
 	if ( loadout_id == nil or loadout_id < 1 or loadout_id > #loadout_list) then
 		loadout_id = GetRandomLoadout()
-	end
-
-	-- get the override id if random is disabled
-	if ( ModSettingGet("thematic_random_starts.enable_random") == false ) then 
-		loadout_override = math.floor(ModSettingGet("thematic_random_starts.loadout_override") + 0.5)
 	end
 
 	-- get robes only mode flag

@@ -32,16 +32,6 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 	end
 	GameAddFlagRun( init_check_flag )
 
-	-- get the override id if random is disabled
-	if ( ModSettingGet("thematic_random_starts.enable_random") == false ) then 
-		loadout_override = math.floor(ModSettingGet("thematic_random_starts.loadout_override") + 0.5)
-	end
-
-	-- get robes only mode flag
-	if ( ModSettingGet("thematic_random_starts.robes_only_mode") == true) then
-		robes_only_mode = true
-	end
-
 	-- get a random seed
 	local x,y = EntityGetTransform( player_entity )
 	SetRandomSeed( x + 344, y - 523 )
@@ -60,6 +50,20 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 		else
 			loadout_rnd = Random( 1, #loadout_list )
 		end
+	end
+
+	SetPlayerLoadout( player_entity, loadout_rnd )
+end
+
+function SetPlayerLoadout( player_entity, loadout_rnd) -- this function is separate for other mods to use it
+	-- get the override id if random is disabled
+	if ( ModSettingGet("thematic_random_starts.enable_random") == false ) then 
+		loadout_override = math.floor(ModSettingGet("thematic_random_starts.loadout_override") + 0.5)
+	end
+
+	-- get robes only mode flag
+	if ( ModSettingGet("thematic_random_starts.robes_only_mode") == true) then
+		robes_only_mode = true
 	end
 
 	-- initialize player vars
@@ -107,9 +111,6 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 		local petunias = EntityLoad ( "mods/thematic_random_starts/files/entities/improbability/petunias.xml", pos_x + 50, pos_y - 200 )
 		return
 	end
-
-	-- debug loadout override
-	--loadout_rnd = 51
 
 	-- catch for when a player disables all loadouts for some reason
 	if loadout_rnd == 0 then

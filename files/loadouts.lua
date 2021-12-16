@@ -2784,7 +2784,7 @@ loadout_list =
 	{
 		-- ID: 46
 		name = "Warp Wizard",
-		description = {"A little matter never stopped you.","You stub your toe and end up a room over?","Careful where you're pointed at..."},
+		description = {"A little matter never stopped you.","You ever stub your toe and end up a room over?","Careful where you're pointed at..."},
 		class_id = "warp",
 
 		class_color = "warp",

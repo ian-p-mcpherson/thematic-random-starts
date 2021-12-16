@@ -1,3 +1,5 @@
-Patchnotes 2.2
+Patchnotes 2.3
 
-- Refactor some code under the hood for other mods to use loadouts within this mod
+- Add function for getting a random loadout ID
+- Add flag to allow disabling the mod but keeping it loaded
+- Spelling fixes

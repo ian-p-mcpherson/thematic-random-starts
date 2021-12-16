@@ -32,6 +32,11 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 	end
 	GameAddFlagRun( init_check_flag )
 
+	-- this flag is to allow the mod to load but not have any effects
+	if ( ModSettingGet("thematic_random_starts.enable") == false ) then 
+		return
+	end
+
 	-- get a random seed
 	local x,y = EntityGetTransform( player_entity )
 	SetRandomSeed( x + 344, y - 523 )
@@ -41,21 +46,35 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 	if ( loadout_override > 0) then 
 		loadout_rnd = loadout_override
 	else
-		loadout_exceptions = get_loadout_exceptions()
-		for i,j in ipairs(loadout_exceptions) do
-			table.remove (loadout_list, j)
-		end
-		if #loadout_list == 0 then
-			loadout_rnd = 0
-		else
-			loadout_rnd = Random( 1, #loadout_list )
-		end
+		loadout_rnd = GetRandomLoadout()
 	end
 
 	SetPlayerLoadout( player_entity, loadout_rnd )
 end
 
-function SetPlayerLoadout( player_entity, loadout_rnd) -- this function is separate for other mods to use it
+function GetRandomLoadout() -- gets a random loadout from available loadouts
+	local loadout_rnd
+	loadout_exceptions = get_loadout_exceptions()
+	for i,j in ipairs(loadout_exceptions) do
+		table.remove (loadout_list, j)
+	end
+	if #loadout_list == 0 then
+		loadout_rnd = 0
+	else
+		loadout_rnd = Random( 1, #loadout_list )
+	end
+	return loadout_rnd
+end
+
+function SetPlayerLoadout( player_entity, loadout_id) -- this function is separate for other mods to use it
+	-- get a random seed
+	local x,y = EntityGetTransform( player_entity )
+	SetRandomSeed( x + 344, y - 523 )
+
+	if ( loadout_id == nil or loadout_id < 1 or loadout_id > #loadout_list) then
+		loadout_id = GetRandomLoadout()
+	end
+
 	-- get the override id if random is disabled
 	if ( ModSettingGet("thematic_random_starts.enable_random") == false ) then 
 		loadout_override = math.floor(ModSettingGet("thematic_random_starts.loadout_override") + 0.5)
@@ -113,13 +132,13 @@ function SetPlayerLoadout( player_entity, loadout_rnd) -- this function is separ
 	end
 
 	-- catch for when a player disables all loadouts for some reason
-	if loadout_rnd == 0 then
+	if loadout_id == 0 then
 		GamePrintImportant( "You are feeling normal.",  "You have no loadouts enabled!")
 		return
 	end
 
 	-- gather vars for setting up the player
-	local loadout_choice = loadout_list[loadout_rnd]
+	local loadout_choice = loadout_list[loadout_id]
 	local loadout_name = loadout_choice.name
 
 	local gfx_folder = loadout_choice.class_color or "default"

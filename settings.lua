@@ -20,6 +20,13 @@ mod_settings_version = 1
 mod_settings = 
 {
     {
+        id = "enable",
+        ui_name = "Enable Thematic Random Starts",
+        ui_description = "Used to turn the mod off but keep it loaded for other mods to use.",
+        value_default = false,
+        scope = MOD_SETTING_SCOPE_NEW_GAME,
+    },
+    {
         id = "enable_random",
         ui_name = "Random Loadouts",
         ui_description = "Randomly choose a loadout for me when the game begins.",

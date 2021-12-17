@@ -1,4 +1,4 @@
-Patchnotes 2.4
+Patchnotes 2.5
 
-- Fix for loadout choice
-- Toxic Shaman now has Bleed Gas instead of Toxic Immunity (they share effects)
+- Add a few options to SetPlayerLoadout for other mod compatability
+- Make settings menu more clear

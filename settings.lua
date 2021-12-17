@@ -353,7 +353,7 @@ mod_settings =
         _folded = true,
         settings = {
             {
-                id = "enable",
+                id = "passive_mode",
                 ui_name = "Passive Mode",
                 ui_description = "Used to turn the mod off but keep it loaded for other mods to use.",
                 value_default = false,

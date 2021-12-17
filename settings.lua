@@ -20,24 +20,10 @@ mod_settings_version = 1
 mod_settings = 
 {
     {
-        id = "enable",
-        ui_name = "Enable Thematic Random Starts",
-        ui_description = "Used to turn the mod off but keep it loaded for other mods to use.",
-        value_default = false,
-        scope = MOD_SETTING_SCOPE_NEW_GAME,
-    },
-    {
         id = "enable_random",
         ui_name = "Random Loadouts",
         ui_description = "Randomly choose a loadout for me when the game begins.",
         value_default = true,
-        scope = MOD_SETTING_SCOPE_NEW_GAME,
-    },
-    {
-        id = "robes_only_mode",
-        ui_name = "Robes Only Mode",
-        ui_description = "Use the vanilla loadout, but still randomize robes from available loadouts.",
-        value_default = false,
         scope = MOD_SETTING_SCOPE_NEW_GAME,
     },
     {
@@ -355,6 +341,29 @@ mod_settings =
                 id = "id_50",
                 ui_name = "50 - Time Traveler",
                 value_default = true,
+                scope = MOD_SETTING_SCOPE_NEW_GAME,
+            },
+        },
+    },
+    {
+        category_id = "advanced",
+        ui_name = "Advanced",
+        ui_description = "Special options.",
+        foldable = true,
+        _folded = true,
+        settings = {
+            {
+                id = "enable",
+                ui_name = "Passive Mode",
+                ui_description = "Used to turn the mod off but keep it loaded for other mods to use.",
+                value_default = false,
+                scope = MOD_SETTING_SCOPE_NEW_GAME,
+            },
+            {
+                id = "robes_only_mode",
+                ui_name = "Robes Only Mode",
+                ui_description = "Use the vanilla loadout, but still randomize robes from available loadouts.",
+                value_default = false,
                 scope = MOD_SETTING_SCOPE_NEW_GAME,
             },
         },

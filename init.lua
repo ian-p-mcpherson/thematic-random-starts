@@ -33,7 +33,7 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 	GameAddFlagRun( init_check_flag )
 
 	-- this flag is to allow the mod to load but not have any effects
-	if ( ModSettingGet("thematic_random_starts.enable") == false ) then 
+	if ( ModSettingGet("thematic_random_starts.passive_mode") == true ) then 
 		return
 	end
 
@@ -71,7 +71,12 @@ function GetRandomLoadout() -- gets a random loadout from available loadouts
 	return loadout_rnd
 end
 
-function SetPlayerLoadout( player_entity, loadout_id) -- this function is separate for other mods to use it
+function SetPlayerLoadout( player_entity, loadout_id, do_robes, do_notification ) -- this function is separate for other mods to use it
+	-- default args
+	loadout_id = loadout_id or normality
+	do_robes = do_robes or true
+	do_notification = do_notification or true
+
 	-- get a random seed
 	local x,y = EntityGetTransform( player_entity )
 	SetRandomSeed( x + 344, y - 523 )
@@ -143,30 +148,32 @@ function SetPlayerLoadout( player_entity, loadout_id) -- this function is separa
 
 	local gfx_folder = loadout_choice.class_color or "default"
 
-	-- set player sprite
-	local player_sprite_component = EntityGetFirstComponent( player_entity, "SpriteComponent" )
-	local player_sprite_file = "mods/thematic_random_starts/files/" .. gfx_folder .. "/player.xml"
-	ComponentSetValue( player_sprite_component, "image_file", player_sprite_file )
-	
-	-- set player arm sprite
-	local player_arm_sprite_component = EntityGetFirstComponent( player_arm, "SpriteComponent" )
-	local player_arm_sprite_file = "mods/thematic_random_starts/files/" .. gfx_folder .. "/player_arm.xml"
-	ComponentSetValue( player_arm_sprite_component, "image_file", player_arm_sprite_file )
-	
-	-- set player ragdoll
-	local player_ragdoll_component = EntityGetFirstComponent( player_entity, "DamageModelComponent" )
-	local player_ragdoll_file = "mods/thematic_random_starts/files/" .. gfx_folder .. "/ragdoll/filenames.txt"
-	ComponentSetValue( player_ragdoll_component, "ragdoll_filenames_file", player_ragdoll_file )
+	if do_robes == true then
+		-- set player sprite
+		local player_sprite_component = EntityGetFirstComponent( player_entity, "SpriteComponent" )
+		local player_sprite_file = "mods/thematic_random_starts/files/" .. gfx_folder .. "/player.xml"
+		ComponentSetValue( player_sprite_component, "image_file", player_sprite_file )
+		
+		-- set player arm sprite
+		local player_arm_sprite_component = EntityGetFirstComponent( player_arm, "SpriteComponent" )
+		local player_arm_sprite_file = "mods/thematic_random_starts/files/" .. gfx_folder .. "/player_arm.xml"
+		ComponentSetValue( player_arm_sprite_component, "image_file", player_arm_sprite_file )
+		
+		-- set player ragdoll
+		local player_ragdoll_component = EntityGetFirstComponent( player_entity, "DamageModelComponent" )
+		local player_ragdoll_file = "mods/thematic_random_starts/files/" .. gfx_folder .. "/ragdoll/filenames.txt"
+		ComponentSetValue( player_ragdoll_component, "ragdoll_filenames_file", player_ragdoll_file )
 
-	-- set colors
-	if ( loadout_choice.robe_color ~= nil) then robe_rgba = loadout_choice.robe_color end
-	if ( loadout_choice.belt_color ~= nil) then belt_rgba = loadout_choice.belt_color end
-	if ( loadout_choice.cape_color ~= nil) then cape_rgba = loadout_choice.cape_color end
-	if ( loadout_choice.cape_color_edge ~= nil) then cape_edge_rgba = loadout_choice.cape_color_edge end
-	set_cape_color( player_entity )
+		-- set colors
+		if ( loadout_choice.robe_color ~= nil) then robe_rgba = loadout_choice.robe_color end
+		if ( loadout_choice.belt_color ~= nil) then belt_rgba = loadout_choice.belt_color end
+		if ( loadout_choice.cape_color ~= nil) then cape_rgba = loadout_choice.cape_color end
+		if ( loadout_choice.cape_color_edge ~= nil) then cape_edge_rgba = loadout_choice.cape_color_edge end
+		set_cape_color( player_entity )
 
-	-- refresh sprites
-	EntityRefreshSprite(player_entity, player_sprite_component)
+		-- refresh sprites
+		EntityRefreshSprite(player_entity, player_sprite_component)
+	end
 
 	-- check for robes only mode
 	local notify_text = "You are dressed like"
@@ -258,10 +265,12 @@ function SetPlayerLoadout( player_entity, loadout_id) -- this function is separa
 	end
 
 	-- tell the player what class they are
-	local a_an = "a"
-	local first_letter = string.lower(string.sub(loadout_name,1,1))
-	if ( first_letter == "a" or first_letter == "e" or first_letter == "i" or first_letter == "o" or first_letter == "u" ) then a_an = a_an .. "n" end
-	GamePrintImportant( notify_text .. " " .. a_an .. " " .. loadout_name .. "",  tostring(get_random_from( loadout_choice.description )))
+	if do_notification == true then
+		local a_an = "a"
+		local first_letter = string.lower(string.sub(loadout_name,1,1))
+		if ( first_letter == "a" or first_letter == "e" or first_letter == "i" or first_letter == "o" or first_letter == "u" ) then a_an = a_an .. "n" end
+		GamePrintImportant( notify_text .. " " .. a_an .. " " .. loadout_name .. "",  tostring(get_random_from( loadout_choice.description )))
+	end
 end
 
 function get_random_potion( rarity )

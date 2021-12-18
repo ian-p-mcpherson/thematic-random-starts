@@ -54,7 +54,7 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 		loadout_rnd = GetRandomLoadout()
 	end
 
-	SetPlayerLoadout( player_entity, loadout_rnd )
+	SetPlayerLoadout( player_entity, loadout_rnd, true, true )
 end
 
 function GetRandomLoadout() -- gets a random loadout from available loadouts
@@ -72,11 +72,6 @@ function GetRandomLoadout() -- gets a random loadout from available loadouts
 end
 
 function SetPlayerLoadout( player_entity, loadout_id, do_robes, do_notification ) -- this function is separate for other mods to use it
-	-- default args
-	loadout_id = loadout_id or normality
-	do_robes = do_robes or true
-	do_notification = do_notification or true
-
 	-- get a random seed
 	local x,y = EntityGetTransform( player_entity )
 	SetRandomSeed( x + 344, y - 523 )
@@ -125,7 +120,7 @@ function SetPlayerLoadout( player_entity, loadout_id, do_robes, do_notification 
 		GamePrintImportant( "We have normality?",  "What a high improbability factor...")
 		local item_entity = EntityLoad( "mods/thematic_random_starts/files/potions/potion_template.xml" )
 		AddMaterialInventoryMaterial( item_entity, "gargleblaster", 1000 )
-		EntityAddChild( inventory, item_entity )
+		GamePickUpInventoryItem( player_entity, item_entity, false )
 		local pos_x, pos_y = EntityGetTransform( player_entity )
 		pos_y = pos_y
 		pos_x = pos_x
@@ -195,7 +190,7 @@ function SetPlayerLoadout( player_entity, loadout_id, do_robes, do_notification 
 			for item_id,loadout_item in ipairs( loadout_items ) do
 				if ( tostring( type( loadout_item ) ) ~= "table" ) then
 					local item_entity = EntityLoad( loadout_item )
-					EntityAddChild( inventory, item_entity )
+					GamePickUpInventoryItem( player_entity, item_entity, false )
 				else
 					local amount = loadout_item.amount or 1
 					
@@ -215,7 +210,7 @@ function SetPlayerLoadout( player_entity, loadout_id, do_robes, do_notification 
 							-- handle wands
 							local new_wand = init_wand(loadout_item.wand)
 							if ( new_wand ~= nil ) then
-								EntityAddChild( inventory, new_wand )
+								GamePickUpInventoryItem( player_entity, new_wand, false )
 							end
 						elseif ( loadout_item.potion ~= nil) then
 							-- handle potions
@@ -236,7 +231,7 @@ function SetPlayerLoadout( player_entity, loadout_id, do_robes, do_notification 
 						end
 
 						if item_entity then
-							EntityAddChild( inventory, item_entity )
+							GamePickUpInventoryItem( player_entity, item_entity, false )
 						end
 					end
 				end

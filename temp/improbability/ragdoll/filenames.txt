@@ -1,3 +1,0 @@
-mods/thematic_random_starts/files/entities/improbability/ragdoll/ragdoll_1.png
-mods/thematic_random_starts/files/entities/improbability/ragdoll/ragdoll_2.png
-mods/thematic_random_starts/files/entities/improbability/ragdoll/ragdoll_3.png

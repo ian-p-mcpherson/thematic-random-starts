@@ -17,6 +17,9 @@ Balance Changes:
 - +50 gold for Thrifty Shopper
 - -10 HP for Tidal Sorcerer
 
+Other:
+- Cleaned up old files
+
 AND:
 
 - A secret reference...

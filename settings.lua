@@ -353,16 +353,16 @@ mod_settings =
         _folded = true,
         settings = {
             {
-                id = "enable_robes",
-                ui_name = "Enable Thematic Robes",
-                ui_description = "Disable to not change the player's appearance. This may fix broken custom skins.",
+                id = "enable_random_starts",
+                ui_name = "Enable Thematic Starts",
+                ui_description = "Disable to leave the player's loadout alone.",
                 value_default = true,
                 scope = MOD_SETTING_SCOPE_NEW_GAME,
             },
             {
-                id = "enable_random_starts",
-                ui_name = "Enable Thematic Starts",
-                ui_description = "Disable to leave the player's loadout alone.",
+                id = "enable_robes",
+                ui_name = "Enable Thematic Robes",
+                ui_description = "Disable to not change the player's appearance. This may fix broken custom skins.",
                 value_default = true,
                 scope = MOD_SETTING_SCOPE_NEW_GAME,
             },

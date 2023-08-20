@@ -369,7 +369,7 @@ mod_settings =
             {
                 id = "clear_inventory",
                 ui_name = "Clear inventory",
-                ui_description = "Disable to leave the player's inventory alone. For use with other mods that spawn starting items.",
+                ui_description = "Disable to leave the player's starting items alone. For use with other mods that spawn starting items.",
                 value_default = true,
                 scope = MOD_SETTING_SCOPE_NEW_GAME,
             },

@@ -118,6 +118,7 @@ loadout_list =
 			{ potion = "cement", amount = 1},
 			{ potion = "water", amount = 1},
 			"data/entities/misc/custom_cards/tnt.xml",
+			"data/entities/misc/custom_cards/tnt.xml",
 		},
 		perks =
 		{
@@ -151,7 +152,7 @@ loadout_list =
 				regen = 	{{40,60}},
 				mana_max = 	{{110,130}},
 				actions = {
-					{"SUMMON_ROCK", "SUMMON_ROCK"},
+					{"SUMMON_ROCK", "SUMMON_ROCK", "SUMMON_ROCK", "SUMMON_ROCK"},
 				},
 				gfx = {
 					sprite = "pebble_stick",
@@ -178,7 +179,7 @@ loadout_list =
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
 		cape_color = {175, 26, 26, 255},
 
-		hp = 50,
+		hp = 60,
 		items = 
 		{
 			{ wand = {
@@ -273,7 +274,7 @@ loadout_list =
 				delay = 	{{10,10}},
 				spread = 	{{0,0}},
 				speed = 	{{1}},
-				regen = 	{{20,22}},
+				regen = 	{{14,16}},
 				mana_max = 	{{20,30}},
 				actions = {
 					{"CHAINSAW"},
@@ -676,7 +677,7 @@ loadout_list =
 				name = 		{{"boomstick"}},
 				capacity = 	{{2,2}},
 				per_round = {{1}},
-				reload = 	{{160,170}},
+				reload = 	{{130,140}},
 				shuffle = 	{{1}},
 				delay = 	{{1,2}},
 				spread = 	{{5,7}},
@@ -1135,7 +1136,7 @@ loadout_list =
 	{
 		-- ID: 20
 		name = "Summoner",
-		description = {"You can't summon without breaking some eggs...","Something is wrong with your perfume...","Friendly fire has never been more friendly."},
+		description = {"You can't summon without breaking some eggs...","Your wand is full of Summoner Monsters...","Friendly fire has never been more friendly."},
 		class_id = "summoner",
 
 		class_color = "summoner",
@@ -1825,7 +1826,8 @@ loadout_list =
 				}
 			}},
 			{ potion = "water", amount = 2, quantity = 500},
-			{ money = 250},
+			{ money = 300},
+
 		},
 		perks =
 		{
@@ -1844,7 +1846,7 @@ loadout_list =
 		cape_color_edge = {0, 0, 0, 0}, -- default to robe_color
 		cape_color = {0, 0, 0, 0}, -- calculate from cape_color_edge
 
-		hp = 90,
+		hp = 80,
 		items = 
 		{
 			{ wand = {
@@ -1892,7 +1894,6 @@ loadout_list =
 					tip_x = 12.0
 				}
 			}},
-			{ potion = "water", amount = 1, quantity = 0},
 		},
 		perks =
 		{
@@ -2256,7 +2257,7 @@ loadout_list =
 	{
 		-- ID: 37
 		name = "Toxic Shaman",
-		description = {"I think these eggs are expired...","You're just \"brutally honest\".","Banned in the Noita forums."},
+		description = {"I think these eggs are expired...","You're just \"brutally honest\".","Banned in the Noita Discord."},
 		class_id = "sludge",
 
 		class_color = "sludge",

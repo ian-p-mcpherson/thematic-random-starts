@@ -1,3 +1,22 @@
-Patchnotes 2.5.1
+Patchnotes 2.1
 
-- Fix some stuff under the hood for other modders
+Compatability Changes
+- Advanced options have been streamlined, now individual parts of the mod can be disabled:
+  - Enable Thematic Robes : Toggle appearance changes
+  - Enable Thematic Starts : Toggle loadout changes
+  - Clear Inventory : Toggle clearing any starting items
+  NOTE: The deprecated Passive mode is identical to disabling Robes and Loadouts
+
+Balance Changes:
+- More TNT for Construction Conjurer
+- More rocks on Telekinetic
+- Slightly slower chainsaw for Blood Cultist
+- +10 HP for Vampire
+- Faster shotgun for Berserker
+- No bottle for Tidal Sorcerer
+- +50 gold for Thrifty Shopper
+- -10 HP for Tidal Sorcerer
+
+AND:
+
+- A secret reference...

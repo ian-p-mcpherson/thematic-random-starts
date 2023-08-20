@@ -10,11 +10,6 @@ ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/thematic_random_start
 -- Add custom materials
 ModMaterialsFileAdd("mods/thematic_random_starts/files/materials/materials.xml")
 
--- These settings are now managed via "Mod settings" in the in-game UI
-local loadout_override = 0
-local robes_only_mode = false
-local loadout_exceptions = {} 
-
 -- cape defaults (gray)
 local robe_rgba = {140, 140, 140, 255}
 local belt_rgba = {82, 67, 41, 255}
@@ -32,21 +27,27 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 	end
 	GameAddFlagRun( init_check_flag )
 
-	-- this flag is to allow the mod to load but not have any effects
-	if ( ModSettingGet("thematic_random_starts.passive_mode") == true ) then 
+	-- get settings
+	local loadout_override = 0
+	local enable_robes =  ModSettingGet("thematic_random_starts.enable_robes")
+	local enable_starts = ModSettingGet("thematic_random_starts.enable_random_starts")
+	local clear_inventory = ModSettingGet("thematic_random_starts.clear_inventory")
+
+	-- if neither are enabled, let mod load but do nothing
+	if ( enable_robes == false and enable_starts == false ) then
 		return
 	end
-
-	-- get a random seed
-	local x,y = EntityGetTransform( player_entity )
-	SetRandomSeed( x + 344, y - 523 )
 
 	-- get the override id if random is disabled
 	if ( ModSettingGet("thematic_random_starts.enable_random") == false ) then 
 		loadout_override = math.floor(ModSettingGet("thematic_random_starts.loadout_override") + 0.5)
 	end
 
-	-- get a random loadout ID
+	-- get a random seed
+	local x,y = EntityGetTransform( player_entity )
+	SetRandomSeed( x + 344, y - 523 )
+
+	-- get a random loadout ID or use override
 	local loadout_rnd
 	if ( loadout_override > 0) then 
 		loadout_rnd = loadout_override
@@ -54,12 +55,12 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 		loadout_rnd = GetRandomLoadout()
 	end
 
-	SetPlayerLoadout( player_entity, loadout_rnd, true, true )
+	SetPlayerLoadout( player_entity, loadout_rnd, enable_robes, true, enable_starts, clear_inventory )
 end
 
 function GetRandomLoadout() -- gets a random loadout from available loadouts
 	local loadout_rnd
-	loadout_exceptions = get_loadout_exceptions()
+	local loadout_exceptions = get_loadout_exceptions()
 	for i,j in ipairs(loadout_exceptions) do
 		table.remove (loadout_list, j)
 	end
@@ -71,18 +72,20 @@ function GetRandomLoadout() -- gets a random loadout from available loadouts
 	return loadout_rnd
 end
 
-function SetPlayerLoadout( player_entity, loadout_id, do_robes, do_notification ) -- this function is separate for other mods to use it
+function SetPlayerLoadout( player_entity, loadout_id, do_robes, do_notification, do_loadout, clear_inventory) -- this function is separate for other mods to use it
+	-- default args
+	if ( loadout_id == nil ) then loadout_id = 0 end
+	if ( do_robes == nil ) then do_robes = true end
+	if ( do_notification == nil ) then do_notification = true end
+	if ( do_loadout == nil ) then do_loadout = true end
+	if ( clear_inventory == nil ) then clear_inventory = true end
+
 	-- get a random seed
 	local x,y = EntityGetTransform( player_entity )
 	SetRandomSeed( x + 344, y - 523 )
 
 	if ( loadout_id == nil or loadout_id < 1 or loadout_id > #loadout_list) then
 		loadout_id = GetRandomLoadout()
-	end
-
-	-- get robes only mode flag
-	if ( ModSettingGet("thematic_random_starts.robes_only_mode") == true) then
-		robes_only_mode = true
 	end
 
 	-- initialize player vars
@@ -121,11 +124,9 @@ function SetPlayerLoadout( player_entity, loadout_id, do_robes, do_notification 
 		local item_entity = EntityLoad( "mods/thematic_random_starts/files/potions/potion_template.xml" )
 		AddMaterialInventoryMaterial( item_entity, "gargleblaster", 1000 )
 		GamePickUpInventoryItem( player_entity, item_entity, false )
-		local pos_x, pos_y = EntityGetTransform( player_entity )
-		pos_y = pos_y
-		pos_x = pos_x
 
 		-- TODO make the whale floppy
+		local pos_x, pos_y = EntityGetTransform( player_entity )
 		local whale = EntityLoad ( "mods/thematic_random_starts/files/entities/improbability/whale_full.xml", pos_x, pos_y - 500)
 		local petunias = EntityLoad ( "mods/thematic_random_starts/files/entities/improbability/petunias.xml", pos_x + 50, pos_y - 200 )
 		return
@@ -170,16 +171,15 @@ function SetPlayerLoadout( player_entity, loadout_id, do_robes, do_notification 
 		EntityRefreshSprite(player_entity, player_sprite_component)
 	end
 
-	-- check for robes only mode
 	local notify_text = "You are dressed like"
-	if robes_only_mode == false then
+	if do_loadout == true then
 		notify_text = "You are"
 		-- set inventory contents
 		if ( inventory ~= nil) then
 			local inventory_items = EntityGetAllChildren( inventory )
 			
-			-- remove default items
-			if inventory_items ~= nil then
+			-- remove default items if needed
+			if inventory_items ~= nil and clear_inventory == true then
 				for i,item_entity in ipairs( inventory_items ) do
 					GameKillInventoryItem( player_entity, item_entity )
 				end
